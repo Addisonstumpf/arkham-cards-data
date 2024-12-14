@@ -1,0 +1,109 @@
+{
+    "id": "",
+    "scenario_name": "",
+    "header": "Scenario ",
+    "full_name": "Scenario : ",
+    "icon": "zau_",
+    "setup": [
+      "intro",
+      "$check_tarot_reading",
+      "gather_encounter_sets",
+      "set_aside_cards",
+      "setup_locations",
+      "encounter_deck",
+      "$play_scenario"
+    ],
+    "rules": [
+    ],
+    "steps": [
+      {
+        "id": "intro",
+        "type": "story",
+        "text": "The white \""
+      },
+      {
+        "id": "gather_encounter_sets",
+        "title": "Setup",
+        "type": "encounter_sets",
+        "encounter_sets": [
+          "zau_"
+        ]
+      },
+      {
+        "id": "set_aside_cards",
+        "text": "Set the following cards aside, out of play: Each [[Valley of Voe]], "
+      },
+      {
+        "id": "setup_locations",
+        "text": "Put"
+      },
+      {
+        "id": "encounter_deck",
+        "text": "Shuffle the remainder of the encounter cards to build the encounter deck."
+      },
+      {
+        "id": "resolution_1",
+        "type": "resolution",
+        "resolution": "R1"
+      },
+      {
+        "id": "resolution_3",
+        "type": "resolution",
+        "resolution": "R3"
+      },
+    {
+        "id": "earn_xp",
+        "text": "Each investigator earns experience equal to the Victory X value of each card in the victory display.",
+        "type": "input",
+        "input": {
+          "type": "counter",
+          "text": "Victory display:",
+          "effects": [
+            {
+              "type": "earn_xp",
+              "investigator": "all"
+            }
+          ]
+        }
+      }
+    ],
+    "resolutions": [
+      {
+        "id": "no_resolution",
+        "title": "No resolution was reached",
+        "description": "Each investigator was defeated",
+        "investigator_status": [
+          "eliminated",
+          "physical",
+          "mental"
+        ],
+        "steps": [
+          "resolution_1"
+        ]
+      },
+      {
+        "id": "R1",
+        "title": "Resolution 1",
+        "text": "Ruefu",
+        "steps": [
+          "resolution_3"
+        ]
+      },
+      {
+        "id": "R2",
+        "title": "Resolution 2",
+        "text": "Your ",
+        "steps": [
+          "resolution_3"
+        ]
+      },
+      {
+        "id": "R3",
+        "title": "Resolution 3",
+        "text": "Finall",
+        "steps": [
+          "earn_xp"
+        ]
+      }
+    ]
+  }
