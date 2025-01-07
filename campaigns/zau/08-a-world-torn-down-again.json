@@ -530,7 +530,8 @@
         "title": "Resolution 1",
         "text": "Minutes and eons rush past you, ancient secrets and terrible futures. A force tugs on you, urging you to fall, to be lost in the timestream once more.\nThis time, however, you are not so easily taken. You stand, holding firm against the pull of entropy, and <i>step.</i> One step, then another, dragging yourself through time. You can control this, forge your own path, straight towards Aforgomon. Pushing towards an ending, one way or another.",
         "steps": [
-          "earn_xp"
+          "earn_xp",
+          "$upgrade_decks"
         ]
       },
       {

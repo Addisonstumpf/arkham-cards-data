@@ -21,7 +21,7 @@
         }
       },
       {
-        "id": "add_assistance ",
+        "id": "add_assistance",
         "text": "Mark 1 <b>Strange Assistance</b> in your Campaign Log. Someone just saved your life.",
         "effects": [
             {

@@ -4,7 +4,7 @@
     "full_name": "Interlude I: An Unknown Benefactor",
     "header": "Interlude I",
     "type": "interlude",
-    "icon": "zau_UNKNOWN",
+    "icon": "zau",
     "setup": [
         "intro",
         "assist_choice"

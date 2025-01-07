@@ -102,8 +102,7 @@
         "title": "ArkhamCards Note",
         "text": ""
       },
-      {
-        "id": "$play_scenario", 
+      { "id": "$play_scenario", 
         "type": "input",
         "input": {
           "type": "play_scenario",
@@ -179,6 +178,11 @@
                       }
                     ]
                   }
+                ],
+                "options": [
+                  {
+                    "boolCondition": true
+                  }
                 ]
               },
               "text": "The investigators used the school's front door",
@@ -222,6 +226,11 @@
                       }
                     ]
                   }
+                ],
+                "options": [
+                  {
+                    "boolCondition": true
+                  }
                 ]
               },
               "text": "The investigators snuck into the back of the school",
@@ -254,6 +263,11 @@
                         "boolCondition": true
                       }
                     ]
+                  }
+                ],
+                "options": [
+                  {
+                    "boolCondition": true
                   }
                 ]
               },
@@ -289,6 +303,11 @@
                       }
                     ]
                   }
+                ],
+                "options": [
+                  {
+                    "boolCondition": true
+                  }
                 ]
               },
               "text": "The investigators put down the Hound of Unmaking",
@@ -323,6 +342,11 @@
                       }
                     ]
                   }
+                ],
+                "options": [
+                  {
+                    "boolCondition": true
+                  }
                 ]
               },
               "text": "The investigators dispelled the ward",
@@ -356,6 +380,11 @@
                         "boolCondition": true
                       }
                     ]
+                  }
+                ],
+                "options": [
+                  {
+                    "boolCondition": true
                   }
                 ]
               },
@@ -1180,6 +1209,11 @@
         "resolution": "R2"
       },
       {
+        "id": "resolution_3",
+        "type": "resolution",
+        "resolution": "R3"
+      },
+      {
         "id": "resolution_4",
         "type": "resolution",
         "resolution": "R4"
@@ -1238,7 +1272,8 @@
           "fell_to_the_myriad_doom",
           "fell_to_the_myriad_tokens",
           "ask_high_priest",
-          "earn_xp"
+          "earn_xp",
+          "$upgrade_decks"
         ]
       },
       {
@@ -1247,9 +1282,10 @@
         "title": "Resolution 3",
         "text": "Tearing apart the first ritual circle, you turn your attention to the other two. The cultists surrounding them advance on you; they don't look like particularly capable fighters, but they outnumber you ten to one. Taking a few cautious steps backwards, you find yourself on the precipice of a swirling, many-hued rift in reality, the untamed schism that was once contained by the arcane circle you broke. It's a way out, maybe, but an unfathomable one...\nThen, a commotion on the far side of the auditorium. New arrivals, cutting their way through the cultists, making a beeline for the other circles. It's difficult to see past the encroaching cultists, but you manage to catch the eye of-\nNo, that <i>can't </i> be.\nYou glance at the rift behind you. The figure nods, once. You step into the unknown.",
         "steps": [
-          "check_past_future",
+          "check_past",
           "ask_high_priest",
-          "earn_xp"
+          "earn_xp",
+          "$upgrade_decks"
         ]
       },
       {
@@ -1271,7 +1307,7 @@
         "steps": [
           "timeline_weakened",
           "timeline_weakened_chaos_tokens",
-          "repeat_sceneario"
+          "repeat_scenario"
         ]
       }
     ]

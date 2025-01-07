@@ -8,7 +8,7 @@
     "$alert",
     "$story",
     "$swarming",
-    "$hidden"
+    "$haunted_rule"
   ],
   "steps": [
     {

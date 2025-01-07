@@ -265,7 +265,8 @@
       "title": "Resolution 1",
       "text": "With your feet firmly on the ground, you take a moment to stop and breathe in the air. Arkham's distinct ashy, slightly mildewed scent fills you with a sense of peace. You're home.\nYour reverie doesn't last long. The Myriad's ritual was disrupted by your efforts, but could still continue. It's daytime now, so presumably it's the next day... or the previous one. You spot a newsagent with a stack of papers on sale, and your heart sinks as you read the date: \n<center><b>Tuesday, August 26th, 1924</b></center> \nYou're early. You've arrived a whole year before you left.",
       "steps": [
-        "earn_xp"
+        "earn_xp",
+          "$upgrade_decks"
       ]
     }
   ]

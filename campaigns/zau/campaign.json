@@ -59,6 +59,7 @@
     "$alert",
     "$story",
     "$swarming",
+    "solo_rules",
     "maybe_draw_weakness"
   ],
   "steps": [
@@ -146,7 +147,7 @@
           {
             "id": "easy",
             "text": "Easy",
-            "description": "<i>I want to experience the story/i>",
+            "description": "<i>I want to experience the story</i>",
             "tokens": [
               "+1",
               "+1",
@@ -363,6 +364,30 @@
           }
         ]
       }
+    },
+    {
+      "id": "solo_rules",
+      "title": "Changes for Solo Play",
+      "type": "rule_reminder",
+      "text": "A few effects in Ages Unwound will instruct you to interact with another investigator's deck. To simulate this in true solo play, construct a dummy deck out of the following cards:",
+      "bullets": [
+        {
+          "text": "Guardian: .45 Automatic, Beat Cop, Emergency Aid, On the Hunt, Vicious Blow"
+        },
+        {
+          "text": "Seeker: Hawk-Eye Folding Camera, Old Book of Lore, Barricade, Connect the Dots, Deduction"
+        },
+        {
+          "text": "Rogue: Burglary, Lockpicks, Narrow Escape, Sneak Attack, Quick Thinking"
+        },
+        {
+          "text": "Mystic: Rite of Seeking, Shrivelling, Dark Prophesy, Drawn to the Flame, Fearless"
+        },
+        {
+          "text": "Survivor: Gravedigger's Shovel, Rabbit's Foot, Hiding Spot, Scrounge for Supplies, Rise to the Occasion"
+        }
+      ],
+      "example": "Remove any cards of your class from this deck, as well as any cards you have at least one copy of in your deck. If you do not own any of the cards on this list, make appropriate replacements from your collection. <i>(Each class has 2 assets, 2 events and 1 skill, representing the core of that class. Avoid must-have or always-useful cards such as Lone Wolf.)</i>\n Whenever you are instructed to interact with another investigator's deck, instead interact with the dummy deck. When a card from the dummy deck would leave play, instead shuffle it back into the dummy deck."
     }
   ]
 }

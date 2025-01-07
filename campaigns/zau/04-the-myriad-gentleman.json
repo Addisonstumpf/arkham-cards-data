@@ -3,13 +3,12 @@
     "scenario_name": "The Myriad Gentleman",
     "header": "Scenario II",
     "full_name": "Scenario II: The Myriad Gentleman",
-    "icon": "zau_the_myriad_gentleman",
+    "icon": "zau_myriad_gentleman",
     "setup": [
       "check_intro_offer",
       "$check_tarot_reading",
       "gather_encounter_sets",
       "setup_locations",
-      "check_setup_offer",
       "set_aside_cards",
       "encounter_deck",
       "copy_rule",
@@ -76,7 +75,7 @@
         "title": "Setup",
         "type": "encounter_sets",
         "encounter_sets": [
-          "zau_the_myriad_gentleman",
+          "zau_myriad_gentleman",
           "zau_shifting_reality",
           "zau_unravelling_years",
           "agents_of_yog",
@@ -99,7 +98,7 @@
         "id": "copy_rule",
         "type": "rule_reminder",
         "title": "Copies of Enemies",
-        "text": "During this scenario, investigators may be instructed to spawn copies of a displayed enemy. To do this, that investigator places the top card of their deck into play in their threat area, treating it as a copy of the specified enemy until it leaves play<i>(if it is ever unclear who should do this, the lead investigator does so).</i>When that enemy leaves play, the card's owner places it on the bottom of their deck."
+        "text": "During this scenario, investigators may be instructed to spawn copies of a displayed enemy. To do this, that investigator places the top card of their deck into play in their threat area, treating it as a copy of the specified enemy until it leaves play <i>(if it is ever unclear who should do this, the lead investigator does so).</i> When that enemy leaves play, the card's owner places it on the bottom of their deck."
       },
       {
         "id": "resolution_2",
@@ -199,7 +198,8 @@
           "learnt_of_ritual",
           "add_aforgomons_blade",
           "check_aforgomons_blade",
-          "earn_xp"
+          "earn_xp",
+          "$upgrade_decks"
         ]
       },
       {
@@ -211,7 +211,8 @@
           "fled_manor",
           "add_aforgomons_blade",
           "check_aforgomons_blade",
-          "earn_xp"
+          "earn_xp",
+          "$upgrade_decks"
         ]
       }
     ]

@@ -41,10 +41,6 @@
         "subtext": "When gathering <i>The Midnight Masks</i> encounter set, only gather the five treachery cards (2x False Lead and 3x Hunting Shadow). Do not gather any other cards from that encounter set."
       },
       {
-        "id": "set_aside_cards",
-        "text": "Set the following cards aside, out of play: Each [[Valley of Voe]], "
-      },
-      {
         "id": "setup_locations",
         "text": "Put each [[City]] and [[Wilderness]] location into play. Each investigator begins play in Arkham, Massachusetts."
       },
@@ -491,10 +487,34 @@
           "type": "choose_one",
           "choices": [
             {
-              "id": "no",
-              "text": "Was [[Helpingg Yourself]] completed?",
+              "id": "helping_yourself",
+              "text": "Was [[Helping Yourself]] completed?",
+              "effects": [
+              {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "helping_yourself_complete",
+                "text": "dummy"
+              }
+            ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "invert_helping_yourself",
+        "hidden": true,
+        "type": "branch",
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden",
+          "id": "helping_yourself_complete",
+          "options": [
+            {
+              "boolCondition": false,
               "steps": [
                 "violate_causality",
+                "record_causality",
                 "causality_tokens"
               ]
             }
@@ -504,7 +524,10 @@
       {
         "id": "violate_causality",
         "type": "story",
-        "text": "As you prepare for your assault on the Myriad's ceremony, you feel time twist and distort around you. For one panicked moment, you think the ritual has started early. Then, you remember: your past self had help from a mysterious benefactor. Help you have failed to provide.",
+        "text": "As you prepare for your assault on the Myriad's ceremony, you feel time twist and distort around you. For one panicked moment, you think the ritual has started early. Then, you remember: your past self had help from a mysterious benefactor. Help you have failed to provide."
+      },
+      {
+        "id": "record_causality",
         "effects": [
           {
             "type": "campaign_log",
@@ -570,6 +593,7 @@
               "text": "In play.",
               "steps": [
                 "myriad_riddle",
+                "record_myriad_riddle",
                 "myriad_riddle_tokens"
               ]
             },
@@ -597,7 +621,10 @@
       {
         "id": "myriad_riddle",
         "type": "story",
-        "text": "The sphinx has since disappeared from Egypt. You don't imagine it would deign to fly to Arkham just to assist the cult of Aforgomon, but there's no telling what dark knowledge they may have extracted from it.",
+        "text": "The sphinx has since disappeared from Egypt. You don't imagine it would deign to fly to Arkham just to assist the cult of Aforgomon, but there's no telling what dark knowledge they may have extracted from it."
+      },
+      {
+        "id": "record_myriad_riddle",
         "effects": [
           {
             "type": "campaign_log",
@@ -653,14 +680,17 @@
           "choices": [
             {
               "id": "yes",
+              "text": "Yes",
               "steps": [
                 "catchup_tea"
               ]
             },
             {
               "id": "no",
+              "text": "No",
               "steps": [
-                "myriad_harnessed"
+                "myriad_harnessed",
+                "record_myriad_harnessed"
               ]
             }
           ]
@@ -679,9 +709,12 @@
         ]
       },
       {
-        "id": "myriad_riddle",
+        "id": "myriad_harnessed",
         "type": "story",
-        "text": "Paris is quiet for the most part, but if you dig deep enough you find report after report of unexplained disappearances. Possessions, people, even whole buildings on occasion.",
+        "text": "Paris is quiet for the most part, but if you dig deep enough you find report after report of unexplained disappearances. Possessions, people, even whole buildings on occasion."
+      },
+      {
+        "id": "record_myriad_harnessed",
         "effects": [
           {
             "type": "campaign_log",
@@ -694,14 +727,38 @@
       {
         "id": "check_tunguska",
         "type": "input",
-        "text": "Was [[The Tunguska Event]] completed?",
         "input": {
           "type": "choose_one",
           "choices": [
             {
-              "id": "no",
+              "id": "tunguska",
+              "text": "Was [[The Tunguska Event]] completed?",
+              "effects": [
+              {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "tunguska_complete",
+                "text": "dummy"
+              }
+            ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "invert_tunguska",
+        "hidden": true,
+        "type": "branch",
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden",
+          "id": "tunguska_complete",
+          "options": [
+            {
+              "boolCondition": false,
               "steps": [
-                "myriad_color"
+                "myriad_color",
+                "record_myriad_color"
               ]
             }
           ]
@@ -710,7 +767,10 @@
       {
         "id": "myriad_color",
         "type": "story",
-        "text": "",
+        "text": "You still don't know what exactly happened in Tunguska, but some of the Myriad Gentlemen you've encoountered recently have been... different. Changed."
+      },
+      {
+        "id": "record_myriad_color",
         "effects": [
           {
             "type": "campaign_log",
@@ -723,12 +783,12 @@
       {
         "id": "check_enemy_of_my_enemy",
         "type": "input",
-        "text": "Was [[Enemy of my Enemy]] completed?",
         "input": {
           "type": "choose_one",
           "choices": [
             {
-              "id": "yes",
+              "id": "enemy_of_my_enemy",
+              "text": "Was [[Enemy of my Enemy]] completed?",
               "steps": [
                 "add_monastic_training"
               ]
@@ -750,12 +810,12 @@
       {
         "id": "check_treasure_unearthed",
         "type": "input",
-        "text": "Was [[A Treasure Unearthed]] completed?",
         "input": {
           "type": "choose_one",
           "choices": [
             {
-              "id": "yes",
+              "id": "treasure_unearthed",
+              "text": "Was [[A Treasure Unearthed]] completed?",
               "steps": [
                 "add_chronal_atlas"
               ]
@@ -777,12 +837,12 @@
       {
         "id": "check_devil_you_know",
         "type": "input",
-        "text": "Was [[The Devil You Know]] completed?",
         "input": {
           "type": "choose_one",
           "choices": [
             {
-              "id": "yes",
+              "id": "devil_you_know",
+              "text": "Was [[The Devil You Know]] completed?",
               "steps": [
                 "add_ionian_pendant",
                 "check_advanced_schemes"
@@ -833,12 +893,12 @@
       {
         "id": "check_higher_powers",
         "type": "input",
-        "text": "Was [[Higher Powers]] completed?",
         "input": {
           "type": "choose_one",
           "choices": [
             {
-              "id": "yes",
+              "id": "higher_powers",
+              "text": "Was [[Higher Powers]] completed?",
               "steps": [
                 "add_agency_strike_team"
               ]
@@ -860,12 +920,12 @@
       {
         "id": "check_entreating_the_gods",
         "type": "input",
-        "text": "Was [[Entreating the Gods]] completed?",
         "input": {
           "type": "choose_one",
           "choices": [
             {
-              "id": "yes",
+              "id": "entreating_the_gods",
+              "text": "Was [[Entreating the Gods]] completed?",
               "steps": [
                 "add_wings_of_damakairon"
               ]
@@ -887,12 +947,12 @@
       {
         "id": "check_up_to_something",
         "type": "input",
-        "text": "Was [[Up To Something]] completed?",
         "input": {
           "type": "choose_one",
           "choices": [
             {
-              "id": "yes",
+              "id": "up_to_something",
+              "text": "Was [[Up To Something]] completed?",
               "steps": [
                 "add_forestall_fate"
               ]
@@ -955,21 +1015,24 @@
           "ritual_is_nigh",
           "late_return",
           "ask_multitude_of_plots",
-          "cehck_multitude_of_plots",
+          "check_multitude_of_plots",
           "reset_tokens",
           "ask_final_preparations",
           "check_final_preparations", 
           "check_helping_yourself",
+          "invert_helping_yourself",
           "check_riddle",
           "check_tea",
           "check_tunguska",
+          "invert_tunguska",
           "check_enemy_of_my_enemy",
           "check_treasure_unearthed",
           "check_devil_you_know",
           "check_higher_powers",
           "check_entreating_the_gods",
           "check_up_to_something",
-          "earn_xp"
+          "earn_xp",
+          "$upgrade_decks"
         ]
       }
     ]

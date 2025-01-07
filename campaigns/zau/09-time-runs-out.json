@@ -241,7 +241,7 @@
         ]
       },
       {
-        "id": "$maybe_add_elder_thing",
+        "id": "maybe_add_elder_thing",
         "bullet_type": "small",
         "text": "Add 1 [elder_thing] token to the chaos bag. If you cannot, each investigator takes 1 mental trauma instead.",
         "type": "branch",
@@ -348,6 +348,7 @@
           "check_unspeakable_oath",
           "check_existence_waning",
           "earn_xp",
+          "$upgrade_decks",
           "win_campaign"
         ]
       },
