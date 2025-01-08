@@ -6,9 +6,9 @@
     "type": "interlude",
     "icon": "zau",
     "setup": [
-      "check_solo_investigator",
       "intro",
-      "add_assistance"
+      "add_assistance",
+      "check_solo_investigator"
     ],
     "steps": [
       {

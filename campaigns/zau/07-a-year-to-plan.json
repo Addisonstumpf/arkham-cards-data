@@ -539,7 +539,7 @@
             "type": "campaign_log",
             "section": "campaign_notes",
             "id": "violated_causality",
-            "text": "the investigators violated causality"
+            "text": "the investigators violated causality."
           }
         ]
       },

@@ -648,7 +648,7 @@
             "type": "campaign_log",
             "section": "timeline",
             "id": "used_front_door",
-            "text": "the investigators used the school's front door"
+            "text": "the investigators used the school's front door."
           },
           {
             "type": "campaign_log",
@@ -665,7 +665,7 @@
             "type": "campaign_log",
             "section": "timeline",
             "id": "snuck_in_back",
-            "text": "the investigators snuck into the back of the school"
+            "text": "the investigators snuck into the back of the school."
           },
           {
             "type": "campaign_log",
@@ -774,7 +774,7 @@
               "id": "put_down_hound",
               "alternate": true,
               "operation": "set_input",
-              "text": "the investigators put down the Hound of Unmaking (#X#, #Y#)"
+              "text": "the investigators put down the Hound of Unmaking (#X#, #Y#)."
             },
             {
               "type": "campaign_log",
@@ -832,7 +832,7 @@
               "id": "dispelled_ward",
               "alternate": true,
               "operation": "set_input",
-              "text": "the investigators dispelled the ward (#X#, #Y#)"
+              "text": "the investigators dispelled the ward (#X#, #Y#)."
             },
             {
               "type": "campaign_log",
@@ -890,7 +890,7 @@
               "id": "unleashed_chaos",
               "alternate": true,
               "operation": "set_input",
-              "text": "the investigators unleashed chaos (#X#, #Y#)"
+              "text": "the investigators unleashed chaos (#X#, #Y#)."
             },
             {
               "type": "campaign_log",
@@ -954,7 +954,7 @@
               "id": "broke_first_circle",
               "alternate": true,
               "operation": "set_input",
-              "text": "the investigators broke the first circle (#X#, #Y#)"
+              "text": "the investigators broke the first circle (#X#, #Y#)."
             },
             {
               "type": "campaign_log",
@@ -968,7 +968,7 @@
       {
         "id": "check_act_1",
         "type": "branch",
-        "text": "Check Ritual Timeline. <i>If the boundary is broken</i>:",
+        "text": "Check Ritual Timeline. <i>If the boundary is broken.</i>",
         "condition": {
           "type": "campaign_log",
           "section": "timeline",
@@ -1046,13 +1046,7 @@
               "id": "fell_to_the_myriad",
               "alternate": true,
               "operation": "set_input",
-              "text": "the investigators fell to the myriad (#X#, #Y#)"
-            },
-            {
-              "type": "campaign_log",
-              "section": "hidden",
-              "id": "fell_to_the_myriad_check",
-              "text": "the investigators fell to the myriad"
+              "text": "the investigators fell to the Myriad (#X#, #Y#)."
             }
           ]
         }
@@ -1219,7 +1213,7 @@
             "type": "campaign_log",
             "section": "campaign_notes",
             "id": "all_times_are_one",
-            "text": "all times are one"
+            "text": "all times are one."
           }
         ]
       },
@@ -1238,18 +1232,18 @@
       {
         "id": "campaign_loss",
         "text": "The investigators lose the campaign.",
-      "effects": [
-        {
-          "type": "campaign_data",
-          "setting": "skip_scenario",
-          "scenario": "au_epilogue"
-        },
-        {
-          "type": "campaign_data",
-          "setting": "result",
-          "value": "lose"
-        }
-      ]
+        "effects": [
+          {
+            "type": "campaign_data",
+            "setting": "skip_scenario",
+            "scenario": "au_epilogue"
+          },
+          {
+            "type": "campaign_data",
+            "setting": "result",
+            "value": "lose"
+          }
+        ]
       },
       {
         "id": "timeline_weakened",
@@ -1278,6 +1272,9 @@
       {
         "id": "repeat_scenario",
         "text": "The investigators must replay <b>Scenario III: A World Torn Down</b>. Reset the game to this scenario’s Setup. No experience points are earned from your previous game.",
+        "steps": [
+          "restore_strange_assistance"
+        ],
         "effects": [
           {
             "type": "campaign_log",
@@ -1321,6 +1318,40 @@
             "scenario": "a_world_torn_down"
           }
         ]
+      },
+      {
+        "id": "restore_strange_assistance",
+        "type": "branch",
+        "hidden": true,
+        "condition": {
+          "type": "campaign_log",
+          "section": "campaign_notes",
+          "id": "offer_accepted",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "type": "campaign_log_count",
+                  "section": "strange_assistance",
+                  "operation": "set",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "boolCondition": false,
+              "effects": [
+                {
+                  "type": "campaign_log_count",
+                  "section": "strange_assistance",
+                  "operation": "set",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "resolution_1",
@@ -1409,7 +1440,9 @@
           "check_past",
           "ask_high_priest",
           "earn_xp",
-          "$upgrade_decks"
+          "$upgrade_decks",
+          "$proceed"
+
         ]
       },
       {

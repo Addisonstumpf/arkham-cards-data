@@ -85,10 +85,11 @@
     {
       "id": "check_starting_location_3",
       "type": "branch",
+      "text": "Check Ritual Timeline. <i>If the investigators fell to the Myriad.</i>",
       "condition": {
         "type": "campaign_log",
-        "section": "hidden",
-        "id": "fell_to_the_myriad_check",
+        "section": "timeline",
+        "id": "fell_to_the_myriad",
         "options": [
           {
             "boolCondition": true,
