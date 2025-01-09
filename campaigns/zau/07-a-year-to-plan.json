@@ -193,6 +193,12 @@
       {
         "id": "late_return",
         "text": "For each investigator that did not resign, record in your campaign log that <i>[investigator name] returned to Arkham late.</i>",
+        "steps": [
+          "late_return_record"
+        ]
+      },
+      {
+        "id": "late_return_record",
         "effects": [
           {
             "type": "campaign_log_cards",
@@ -275,13 +281,10 @@
                   }
                 ]
               },
+              "steps": [
+                "record_powerful_warding"
+              ],
               "effects": [
-                {
-                  "type": "campaign_log",
-                  "section": "campaign_notes",
-                  "id": "myriad_raised_a_powerful_warding",
-                  "text": "the Myriad raised a powerful warding."
-                },
                 {
                   "type": "campaign_log_count",
                   "section": "hidden",
@@ -304,13 +307,10 @@
                   }
                 ]
               },
+              "steps": [
+                "record_cruel_sorcerer"
+              ],
               "effects": [
-                {
-                  "type": "campaign_log",
-                  "section": "campaign_notes",
-                  "id": "myriad_recruited_a_cruel_sorcerer",
-                  "text": "the Myriad recruited a cruel sorcerer."
-                },
                 {
                   "type": "campaign_log_count",
                   "section": "hidden",
@@ -321,7 +321,7 @@
               ]
             },
             {
-              "id": "powerful_warding",
+              "id": "dread_curse",
               "text": "The Myriad weaved a dread curse.",
               "condition": {
                 "type": "campaign_log",
@@ -333,14 +333,11 @@
                   }
                 ]
               },
-              "steps": ["curse_of_thousand_winters"],
+              "steps": [
+                "record_dread_curse",
+                "curse_of_thousand_winters"
+              ],
               "effects": [
-                {
-                  "type": "campaign_log",
-                  "section": "campaign_notes",
-                  "id": "myriad_weaved_a_dread_curse",
-                  "text": "the Myriad weaved a dread curse."
-                },
                 {
                   "type": "campaign_log_count",
                   "section": "hidden",
@@ -352,6 +349,42 @@
             }
           ]
         }
+      },
+      {
+        "id": "record_powerful_warding",
+        "bullet_type": "small",
+        "effects": [
+          {
+            "type": "campaign_log",
+            "section": "campaign_notes",
+            "id": "myriad_raised_a_powerful_warding",
+            "text": "the Myriad raised a powerful warding."
+          }
+        ]
+      },
+      {
+        "id": "record_cruel_sorcerer",
+        "bullet_type": "small",
+        "effects": [
+          {
+            "type": "campaign_log",
+            "section": "campaign_notes",
+            "id": "myriad_recruited_a_cruel_sorcerer",
+            "text": "the Myriad recruited a cruel sorcerer."
+          }        
+        ]
+      },
+      {
+        "id": "record_dread_curse",
+        "bullet_type": "small",
+        "effects": [
+          {
+            "type": "campaign_log",
+            "section": "campaign_notes",
+            "id": "myriad_weaved_a_dread_curse",
+            "text": "the Myriad weaved a dread curse."
+          }
+        ]
       },
       {
         "id": "curse_of_thousand_winters",
@@ -545,6 +578,7 @@
       },
       {
         "id": "causality_tokens",
+        "bullet_type": "small",
         "text": "Add 2 [elder_thing] tokens to the chaos bag.",
         "effects": [
           {
@@ -641,6 +675,7 @@
       },
       {
         "id": "myriad_riddle_tokens",
+        "bullet_type": "small",
         "text": "Add 2 [tablet] tokens to the chaos bag.",
         "effects": [
           {
@@ -667,7 +702,10 @@
             },
             {
               "boolCondition": false,
-              "steps": ["check_strange_portal"]
+              "steps": [
+                "check_strange_portal",
+                "invert_strange_portal"
+              ]
             }
           ]
         }

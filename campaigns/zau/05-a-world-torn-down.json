@@ -1435,8 +1435,7 @@
           "check_past",
           "ask_high_priest",
           "earn_xp",
-          "$upgrade_decks",
-          "$proceed"
+          "$upgrade_decks"
 
         ]
       },

@@ -32,7 +32,7 @@ msgid ""
 "The barrier erected by the Myriad stands firm around it, and the air is rich with temporal energy. The ritual has begun, which means it's time for you to intervene."
 msgstr ""
 
-msgid "Also gather the <i>Paradox</i>encounter set, which is indicated by the following icon:"
+msgid "Also gather the <i>Paradox</i> encounter set."
 msgstr ""
 
 msgid "Put Featureless Streets into play. The starting location is Featureless Streets."
@@ -71,7 +71,7 @@ msgstr ""
 msgid "Set a copy of that enemy aside, out of play."
 msgstr ""
 
-msgid "No enemy <i>disappeared unexpectedly.</i>"
+msgid "No enemy <i>disappeared unexpectedly</i>, so no further changes are made."
 msgstr ""
 
 msgid "Remove Ritual Circle (A Harnessed Future) from the game."
@@ -80,7 +80,7 @@ msgstr ""
 msgid "Remove Ritual Circle (Gateway to the Past) from the game."
 msgstr ""
 
-msgid " Set each remaining location aside, out of play, along with Estravius Malone, Hound of Unmaking, Unstable Warding,Unstable Energies, The Myriad Gentleman <i>(The High Priest)</i>and each copy of Unleashed Chaos, Stirring Titan and Hired Thugs. "
+msgid " Set each remaining location aside, out of play, along with Estravius Malone, Hound of Unmaking, Unstable Warding,Unstable Energies, The Myriad Gentleman <i>(The High Priest)</i> and each copy of Unleashed Chaos, Stirring Titan and Hired Thugs. "
 msgstr ""
 
 msgid "The Past and the Present"
@@ -88,10 +88,16 @@ msgstr ""
 
 msgid ""
 "This scenario has two act decks. The \"a/b\" deck represents the progress of the present investigators, and behaves as normal, while the \"c/d\" act deck tracks the actions of the investigators' past selves.\n"
-"Each \"c/d\" act has one or more conditions for advancing, at least one of which should be recorded in your Campaign Log with a time next to it. After checking the doom threshold each round, compare these times to the current agenda number and amount of doom on the agenda. Advance the act if:\n"
-"<bul>  The current agenda number is equal to the one recorded, and there is at least as much doom on the current agenda as is recorded, or:\n"
-"<bul>  The current agenda number is greater than the one recorded.\n"
-"<i>For example: Act 1c advances when</i>the boundary is broken. <i>Agnes Baker has this statement in her Campaign Log, with (1,5) written next to it. After checking the doom threshold each round, she checks this, and when the agenda has 5 or more doom on it, she advances to act 1d. If, due to her Dark Memory weakness, agenda 1 advanced after having only 4 doom on it the previous round, she would still advance act 1c that round, as the agenda number, 2, is greater than the recorded agenda number, 1."
+"Each \"c/d\" act has one or more conditions for advancing, at least one of which should be recorded in your Campaign Log with a time next to it. After checking the doom threshold each round, compare these times to the current agenda number and amount of doom on the agenda. Advance the act if:"
+msgstr ""
+
+msgid "The current agenda number is equal to the one recorded, and there is at least as much doom on the current agenda as is recorded, or:"
+msgstr ""
+
+msgid "The current agenda number is greater than the one recorded."
+msgstr ""
+
+msgid "<i>For example: Act 1c advances when</i> the boundary is broken. <i>Agnes Baker has this statement in her Campaign Log, with (1,5) written next to it. After checking the doom threshold each round, she checks this, and when the agenda has 5 or more doom on it, she advances to act 1d. If, due to her Dark Memory weakness, agenda 1 advanced after having only 4 doom on it the previous round, she would still advance act 1c that round, as the agenda number, 2, is greater than the recorded agenda number, 1.</i>"
 msgstr ""
 
 msgid ""

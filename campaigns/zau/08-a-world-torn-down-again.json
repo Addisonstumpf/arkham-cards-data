@@ -126,7 +126,7 @@
         "id": "add_paradox",
         "type": "encounter_sets",
         "encounter_sets": [ "zau_paradox"],
-        "text": "Also gather the <i>Paradox</i>encounter set, which is indicated by the following icon:"
+        "text": "Also gather the <i>Paradox</i> encounter set."
       },
       {
         "id": "setup_locations",
@@ -154,10 +154,12 @@
       },
       {
         "id": "featureless_streets_setup",
+        "bullet_type": "small",
         "text": "Put Featureless Streets into play. The starting location is Featureless Streets."
       },
       {
         "id": "ordinary_setup",
+        "bullet_type": "small",
         "text": "Otherwise, remove Featureless Streets and act 1a from the game. The game begins at act 2a. Put Front Gates, Sports Field, Children's Playground and Side Building into play. The starting location is Sports Field."
       },
       {
@@ -185,10 +187,12 @@
       },
       {
         "id": "rear_corridors",
+        "bullet_type": "small",
         "text": "Also put Rear Corridors into play."
       },
       {
         "id": "front_hallway",
+        "bullet_type": "small",
         "text": "Also put Front Hallway into play."
       },
       {
@@ -274,10 +278,12 @@
       },
       {
         "id": "place_nexus_of_aforgomon",
+        "bullet_type": "small",
         "text": "Put Nexus of Aforgomon into play next to the agenda deck."
       },
       {
         "id": "remove_nexus_of_aforgomon",
+        "bullet_type": "small",
         "text": "Remove Nexus of Aforgomon from the game."
       },
       {
@@ -305,10 +311,12 @@
       },
       {
         "id": "place_colors_spread",
+        "bullet_type": "small",
         "text": "Put The Color's Spread into play next to the agenda deck."
       },
       {
         "id": "remove_colors_spread",
+        "bullet_type": "small",
         "text": "Remove The Color's Spread from the game."
       },
       {
@@ -336,10 +344,12 @@
       },
       {
         "id": "no_changes",
+        "bullet_type": "small",
         "text": "No changes are made."
       },
       {
         "id": "remove_lodge_assistance",
+        "bullet_type": "small",
         "text": "Remove each copy of Assistance from the Lodge from the game."
       },
       {
@@ -367,6 +377,7 @@
       },
       {
         "id": "riddle_reward",
+        "bullet_type": "small",
         "text": "Each investigator begins the game with 1 additional card and 2 additional resources."
       },
       {
@@ -388,6 +399,7 @@
       },
       {
         "id": "riddle_punishment",
+        "bullet_type": "small",
         "text": "Place 1 doom on the current agenda."
       },
       {
@@ -415,7 +427,6 @@
       {
         "id": "check_chronophage_disappeared_visible",
         "type": "branch",
-        "hidden": true,
         "condition": {
           "type": "campaign_log",
           "section": "timeline",
@@ -454,7 +465,6 @@
       {
         "id": "check_gentleman_disappeared_visible",
         "type": "branch",
-        "hidden": true,
         "condition": {
           "type": "campaign_log",
           "section": "timeline",
@@ -493,7 +503,6 @@
       {
         "id": "check_thugs_disappeared_visible",
         "type": "branch",
-        "hidden": true,
         "condition": {
           "type": "campaign_log",
           "section": "timeline",
@@ -532,7 +541,6 @@
       {
         "id": "check_assassin_disappeared_visible",
         "type": "branch",
-        "hidden": true,
         "condition": {
           "type": "campaign_log",
           "section": "timeline",
@@ -571,7 +579,6 @@
       {
         "id": "check_irregulars_disappeared_visible",
         "type": "branch",
-        "hidden": true,
         "condition": {
           "type": "campaign_log",
           "section": "timeline",
@@ -587,11 +594,12 @@
       },
       {
         "id": "set_aside_disappeared",
+        "bullet_type": "small",
         "text": "Set a copy of that enemy aside, out of play."
       },
       {
         "id": "no_disappearance", 
-        "text": "No enemy <i>disappeared unexpectedly.</i>"
+        "text": "No enemy <i>disappeared unexpectedly</i>, so no further changes are made."
       },
       {
         "id": "check_future",
@@ -629,15 +637,17 @@
       },
       {
         "id": "future_remove",
+        "bullet_type": "small",
         "text": "Remove Ritual Circle (A Harnessed Future) from the game."
       },
       {
         "id": "past_remove",
+        "bullet_type": "small",
         "text": "Remove Ritual Circle (Gateway to the Past) from the game."
       },
       {
         "id": "set_aside_cards",
-        "text": " Set each remaining location aside, out of play, along with Estravius Malone, Hound of Unmaking, Unstable Warding,Unstable Energies, The Myriad Gentleman <i>(The High Priest)</i>and each copy of Unleashed Chaos, Stirring Titan and Hired Thugs. "
+        "text": " Set each remaining location aside, out of play, along with Estravius Malone, Hound of Unmaking, Unstable Warding,Unstable Energies, The Myriad Gentleman <i>(The High Priest)</i> and each copy of Unleashed Chaos, Stirring Titan and Hired Thugs. "
       },
       {
         "id": "encounter_deck",
@@ -647,7 +657,16 @@
         "id": "past_and_present_rule",
         "type": "rule_reminder",
         "title": "The Past and the Present",
-        "text": "This scenario has two act decks. The \"a/b\" deck represents the progress of the present investigators, and behaves as normal, while the \"c/d\" act deck tracks the actions of the investigators' past selves.\nEach \"c/d\" act has one or more conditions for advancing, at least one of which should be recorded in your Campaign Log with a time next to it. After checking the doom threshold each round, compare these times to the current agenda number and amount of doom on the agenda. Advance the act if:\n<bul>  The current agenda number is equal to the one recorded, and there is at least as much doom on the current agenda as is recorded, or:\n<bul>  The current agenda number is greater than the one recorded.\n<i>For example: Act 1c advances when</i>the boundary is broken. <i>Agnes Baker has this statement in her Campaign Log, with (1,5) written next to it. After checking the doom threshold each round, she checks this, and when the agenda has 5 or more doom on it, she advances to act 1d. If, due to her Dark Memory weakness, agenda 1 advanced after having only 4 doom on it the previous round, she would still advance act 1c that round, as the agenda number, 2, is greater than the recorded agenda number, 1."
+        "text": "This scenario has two act decks. The \"a/b\" deck represents the progress of the present investigators, and behaves as normal, while the \"c/d\" act deck tracks the actions of the investigators' past selves.\nEach \"c/d\" act has one or more conditions for advancing, at least one of which should be recorded in your Campaign Log with a time next to it. After checking the doom threshold each round, compare these times to the current agenda number and amount of doom on the agenda. Advance the act if:",
+        "bullets": [
+          {
+            "text": "The current agenda number is equal to the one recorded, and there is at least as much doom on the current agenda as is recorded, or:"
+          },
+          {
+            "text": "The current agenda number is greater than the one recorded."
+          }
+        ],
+        "example": "<i>For example: Act 1c advances when</i> the boundary is broken. <i>Agnes Baker has this statement in her Campaign Log, with (1,5) written next to it. After checking the doom threshold each round, she checks this, and when the agenda has 5 or more doom on it, she advances to act 1d. If, due to her Dark Memory weakness, agenda 1 advanced after having only 4 doom on it the previous round, she would still advance act 1c that round, as the agenda number, 2, is greater than the recorded agenda number, 1.</i>"
       },
       {
         "id": "resolution_2",

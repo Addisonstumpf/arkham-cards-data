@@ -23,7 +23,10 @@ msgid ""
 "And between this cosmic force and the universe it seeks to annihilate... you. You suddenly feel very, very small."
 msgstr ""
 
-msgid "Also gather the <i>Unleashed Chaos</i>encounter set, which is indicated by the following icon:"
+msgid "Check Ritual Timeline. <i>If the investigators unleashed chaos.</i>"
+msgstr ""
+
+msgid "Also gather the <i>Unleashed Chaos</i> encounter set."
 msgstr ""
 
 msgid "Put one of the two versions of the following locations into play at random, revealed side faceup: Fulcrum of Possibility, Days That Never Were, Secrets Long Forgotten, Today, a Thousand Times, What Could Be, What Could Never Be, Dawn of the Universe and The End of All Things. Remove the other versions of each of those locations from the game. Each investigator begins play in Fulcrum of Possibility."
@@ -41,7 +44,7 @@ msgstr ""
 msgid "When a card is exiled, it is removed from the game and returned to your collection. During campaign play, a card that has been exiled must be purchased again with experience points (between scenarios) if you wish to re-include it in your deck. <b>If a game effect forces you to choose a target to exile, weaknesses and permanent assets are not valid targets.</b>"
 msgstr ""
 
-msgid "the investigators bound Aforgomon in a prison of time"
+msgid "the investigators bound Aforgomon in a prison of time."
 msgstr ""
 
 msgid "For each investigator who ended the game with at least 1 copy of the Unspeakable Oath weakness in their hand, record in your Campaign Log that <i>[investigator name] still bears Aforgomon's mark</i>"

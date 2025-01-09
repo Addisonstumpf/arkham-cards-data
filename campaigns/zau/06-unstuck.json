@@ -21,7 +21,7 @@
     {
       "id": "intro",
       "type": "story",
-      "text": "\"With a sense of troublous familiarity, I beheld the blurred unstable pictures which flowed past me upon this never-resting medium. Orient temples, flashing with sun-struck bronze and gold; the sharp, crowded gables and spires of medieval cities; tropic and northern forests; the costumes and physiognomies of the Levant, of Persia, of old Rome and Carthage, went by like blown, flying mirages. Each succeeding tableau belonged to a more ancient period than the one before it — and I knew that each was a scene from some former existence of my own.\" \n\n<right>- <i>Clark Ashton Smith, \"The Chain of Aforgomon\"</i></right>\n\nYou fall. Though fall is maybe the wrong word - fall implies a sense of<i>down. </i>You tumble through realities, flashes of years long past and dizzying futures muddling your senses. You feel sick, faint, close to passing out. \nA sudden stillness. You lie on solid ground. It takes you a minute to pull yourself to your feet, and your head still pounds. You're in a forest. Not one that looks familiar, but it's something. It's reality. \nA roar cuts through your musings, painfully loud. Three creatures burst from the foliage, screeching as they flee past you, lizard-like beasts almost as tall as you are. You watch them flee, turning back just in time to spot a colossal beast crushing the trees in front of you. It roars again, the sound pounding your bones to jelly, as it charges you... \nExistence gives way, and you find yourself falling once more."
+      "text": "\"With a sense of troublous familiarity, I beheld the blurred unstable pictures which flowed past me upon this never-resting medium. Orient temples, flashing with sun-struck bronze and gold; the sharp, crowded gables and spires of medieval cities; tropic and northern forests; the costumes and physiognomies of the Levant, of Persia, of old Rome and Carthage, went by like blown, flying mirages. Each succeeding tableau belonged to a more ancient period than the one before it — and I knew that each was a scene from some former existence of my own.\" \n\n<right>- <i>Clark Ashton Smith, \"The Chain of Aforgomon\"</i></right>\n\nYou fall. Though fall is maybe the wrong word - fall implies a sense of<i>down.</i> You tumble through realities, flashes of years long past and dizzying futures muddling your senses. You feel sick, faint, close to passing out. \nA sudden stillness. You lie on solid ground. It takes you a minute to pull yourself to your feet, and your head still pounds. You're in a forest. Not one that looks familiar, but it's something. It's reality. \nA roar cuts through your musings, painfully loud. Three creatures burst from the foliage, screeching as they flee past you, lizard-like beasts almost as tall as you are. You watch them flee, turning back just in time to spot a colossal beast crushing the trees in front of you. It roars again, the sound pounding your bones to jelly, as it charges you... \nExistence gives way, and you find yourself falling once more."
     },
     {
       "id": "gather_encounter_sets",
@@ -100,14 +100,17 @@
     },
     {
       "id": "arkham_start",
+      "bullet_type": "small",
       "text": "Each investigator begins play at Arkham Massachussetts <i>(16th Century).</i>"
     },
     {
       "id": "future_start",
+      "bullet_type": "small",
       "text": "Each investigator begins play at A Disquieting Future"
     },
     {
       "id": "divided_start",
+      "bullet_type": "small",
       "text": "Each investigator begins play at a different random <b>Extradimensional</b> location."
     },
     {

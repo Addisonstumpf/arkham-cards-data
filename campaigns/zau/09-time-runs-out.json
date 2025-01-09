@@ -36,10 +36,11 @@
       {
         "id": "check_chaos",
         "type": "branch",
+        "text": "Check Ritual Timeline. <i>If the investigators unleashed chaos.</i>",
         "condition": {
           "type": "campaign_log",
-          "section": "campaign_notes",
-          "id": "unleashed_chaos_check",
+          "section": "timeline",
+          "id": "unleashed_chaos",
           "options": [
             {
               "boolCondition": true,
@@ -54,7 +55,7 @@
         "id": "add_unleashed_chaos",
         "type": "encounter_sets",
         "encounter_sets": [ "zau_unleashed_chaos"],
-        "text": "Also gather the <i>Unleashed Chaos</i>encounter set, which is indicated by the following icon:"
+        "text": "Also gather the <i>Unleashed Chaos</i> encounter set."
       },
       {
         "id": "setup_locations",

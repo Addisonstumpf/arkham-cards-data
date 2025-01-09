@@ -19,7 +19,7 @@ msgid ""
 "\n"
 "<right>- <i>Clark Ashton Smith, \"The Chain of Aforgomon\"</i></right>\n"
 "\n"
-"You fall. Though fall is maybe the wrong word - fall implies a sense of<i>down. </i>You tumble through realities, flashes of years long past and dizzying futures muddling your senses. You feel sick, faint, close to passing out. \n"
+"You fall. Though fall is maybe the wrong word - fall implies a sense of<i>down.</i> You tumble through realities, flashes of years long past and dizzying futures muddling your senses. You feel sick, faint, close to passing out. \n"
 "A sudden stillness. You lie on solid ground. It takes you a minute to pull yourself to your feet, and your head still pounds. You're in a forest. Not one that looks familiar, but it's something. It's reality. \n"
 "A roar cuts through your musings, painfully loud. Three creatures burst from the foliage, screeching as they flee past you, lizard-like beasts almost as tall as you are. You watch them flee, turning back just in time to spot a colossal beast crushing the trees in front of you. It roars again, the sound pounding your bones to jelly, as it charges you... \n"
 "Existence gives way, and you find yourself falling once more."
@@ -32,6 +32,9 @@ msgid "Shuffle the four [[Elite]] enemies together. Set three of them aside, out
 msgstr ""
 
 msgid "Remove one of the two copies of each other location from the game, at random. Then shuffle the eight remaining locations together and put them into play in a random order, forming a circle."
+msgstr ""
+
+msgid "Check Ritual Timeline. <i>If the investigators fell to the Myriad.</i>"
 msgstr ""
 
 msgid "Each investigator begins play at Arkham Massachussetts <i>(16th Century).</i>"

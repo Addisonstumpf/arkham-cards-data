@@ -85,16 +85,16 @@ msgstr ""
 msgid "The Myriad raised a powerful warding."
 msgstr ""
 
-msgid "the Myriad raised a powerful warding."
-msgstr ""
-
 msgid "The Myriad recruited a cruel sorcerer."
 msgstr ""
 
-msgid "the Myriad recruited a cruel sorcerer."
+msgid "The Myriad weaved a dread curse."
 msgstr ""
 
-msgid "The Myriad weaved a dread curse."
+msgid "the Myriad raised a powerful warding."
+msgstr ""
+
+msgid "the Myriad recruited a cruel sorcerer."
 msgstr ""
 
 msgid "the Myriad weaved a dread curse."
@@ -118,7 +118,7 @@ msgstr ""
 msgid "As you prepare for your assault on the Myriad's ceremony, you feel time twist and distort around you. For one panicked moment, you think the ritual has started early. Then, you remember: your past self had help from a mysterious benefactor. Help you have failed to provide."
 msgstr ""
 
-msgid "the investigators violated causality"
+msgid "the investigators violated causality."
 msgstr ""
 
 msgid "[[Keeper of Knowledge]] was completed."
