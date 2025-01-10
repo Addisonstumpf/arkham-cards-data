@@ -29,7 +29,7 @@ msgid ""
 "\"I'm so, so glad that you accepted my invitation.\" The voice is barely more than a whisper. The withered form of Joseph Baxter, the Myriad Gentleman, looks at least a hundred years old. He smiles at you, the predatory smile looking rather out of place on the old man's face. \"We have much work to do.\""
 msgstr ""
 
-msgid "Read only if <i>syou have advanced the schemes of the Silver Twilight Lodge</i>"
+msgid "Read only if <i>you have advanced the schemes of the Silver Twilight Lodge</i>"
 msgstr ""
 
 msgid ""

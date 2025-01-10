@@ -3,7 +3,6 @@
     "scenario_name": "Night of Fire",
     "header": "Scenario I",
     "full_name": "Scenario I: Night of Fire",
-    "icon": "zau_night_of_fire",
     "setup": [
       "intro",
       "$check_tarot_reading",

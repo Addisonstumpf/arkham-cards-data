@@ -44,7 +44,7 @@ msgstr ""
 msgid "the investigators bound Aforgomon in a prison of time."
 msgstr ""
 
-msgid "For each investigator who ended the game with at least 1 copy of the Unspeakable Oath weakness in their hand, record in your Campaign Log that <i>[investigator name] still bears Aforgomon's mark</i>"
+msgid "For each investigator who ended the game with at least 1 copy of the Unspeakable Oath weakness in their hand, and whose existence is not waning, record in your Campaign Log that <i>[investigator name] still bears Aforgomon's mark</i>"
 msgstr ""
 
 msgid "At least 1 Unspeakable Oath weakness in hand."
@@ -68,7 +68,7 @@ msgstr ""
 msgid "In your Campaign Log, record the names of each investigator whose 'existence is waning'."
 msgstr ""
 
-msgid "Existence is waning."
+msgid "Existence is waning"
 msgstr ""
 
 msgid "one or more investigators' existence is waning."
@@ -94,7 +94,7 @@ msgstr ""
 
 msgid ""
 "The end of time is an experience unlike any other. Everything will be still; any sense of movement or causality was gone. Everything that was or could be or never was will be happening now, inasmuch as 'now' would have any meaning here.\n"
-"All times are one. Everything will be now. And here is were you were stuck, where you would have been made part of an unchanging tapestry of reality, where you could be, would be, were, are, will be trapped forever. That is, if forever still existed."
+"All times are one. Everything will be now. And here is where you were stuck, where you would have been made part of an unchanging tapestry of reality, where you could be, would be, were, are, will be trapped forever. That is, if forever still existed."
 msgstr ""
 
 msgid ""

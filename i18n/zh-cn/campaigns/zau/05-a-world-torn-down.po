@@ -121,6 +121,9 @@ msgstr ""
 msgid "the boundary is broken (#X#, #Y#)."
 msgstr ""
 
+msgid "Choose one to record:"
+msgstr ""
+
 msgid "The investigators used the school's front door."
 msgstr ""
 
