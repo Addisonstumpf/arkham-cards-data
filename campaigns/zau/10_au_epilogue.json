@@ -8,7 +8,8 @@
   "setup": [
     "check_waning",
     "check_marked",
-    "check_silver_twilight"
+    "check_silver_twilight",
+    "$upgrade_decks"
   ],
   "steps": [
     {
@@ -24,8 +25,7 @@
             "boolCondition": true,
             "steps": [
               "waning",
-              "erase_waning_text",
-              "erase_waning_effect"
+              "erase_waning"
             ]
           }
         ]
@@ -37,11 +37,8 @@
       "text": "You're tired. This isn't exactly surprising; you just fought a god. As you wend your way through the early-morning Arkham streets, though, you feel surprisingly light on your feet - if fatigue weighs you down, this feeling lifts you up, until you're practically floating. You feel yourself drift off, still walking, into a cozy, endless sleep..."
     },
     {
-      "id": "erase_waning_text",
-      "text": "Each investigator whose <i>existence is waning</i> is erased from reality. Remove that investigator's entry from your Campaign Log as thoroughly as possible, as that investigator never existed."
-    },
-    {
-      "id": "erase_waning_effect",
+      "id": "erase_waning",
+      "text": "Each investigator whose <i>existence is waning</i> is erased from reality. Remove that investigator's entry from your Campaign Log as thoroughly as possible, as that investigator never existed.",
       "type": "branch",
       "condition": {
         "type": "campaign_log_cards",
@@ -86,7 +83,7 @@
     },
     {
       "id": "check_silver_twilight",
-      "text": "Read only if <i>syou have advanced the schemes of the Silver Twilight Lodge</i>",
+      "text": "Read only if <i>you have advanced the schemes of the Silver Twilight Lodge</i>",
       "type": "branch",
       "condition": {
         "type": "campaign_log",

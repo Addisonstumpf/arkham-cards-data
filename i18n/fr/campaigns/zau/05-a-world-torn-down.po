@@ -203,7 +203,7 @@ msgid ""
 "You glance at the rift behind you. The figure nods, once. You step into the unknown."
 msgstr ""
 
-msgid "Before proceeding to resolution 3, you need to finish making the campaign log entries for the act advancements"
+msgid "Before proceeding to resolution 3, the campaign log entries for the act advancements need to be completed. Please undo, and complete those entries."
 msgstr ""
 
 msgid "Try as you might, the Myriad's fortress is virtually impenetrable. As the ritual inside builds towards its terrible conclusion, you throw yourself at it in desperation, seeking any way to break-"

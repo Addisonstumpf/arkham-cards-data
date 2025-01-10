@@ -386,3 +386,15 @@ msgstr "终于，你们脱离了隐藏在铁杉之家中的恐怖存在，你们
 
 msgid "“Miskatonic Survey, June 1926. Members Marquez, Musgrave, et alii. Survey of Hemlock House complete. Organism defies comprehension. Colony of octopodial and gastropodial species infested the entire house. Creature(s) appear to have evolved in the house proper. Further observation needed.”"
 msgstr "“1926年6月，米斯卡塔尼克大学实地调查。成员：马尔克斯、马斯格雷夫，及其他人员。铁杉之家调查完成。遭遇违反常理的有机生物，类似章鱼目与腹足纲的生物感染了整栋房子。这个(这些)生物似乎逐渐发展成了房子本身，需要进一步观察。”"
+
+msgid "If it is <b>Day 2</b> or <b>Day 3</b> and Judith Park is not crossed out:"
+msgstr ""
+
+msgid "If it is not in play, remove the Little Sylvie story asset from the game.”"
+msgstr ""
+
+msgid "<b>Because it is Day 2</b>:"
+msgstr ""
+
+msgid "<b>If it is Day 1 and an investigator controls the Little Sylvie story asset:</b>"
+msgstr ""

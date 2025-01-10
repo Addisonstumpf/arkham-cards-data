@@ -373,3 +373,23 @@ msgstr "你们翻身下车时听见一声熟悉的敲击声，随之而来的是
 
 msgid "“Miskatonic Survey, June 1926. Members Marquez, Musgrave, et alii. We were lucky to escape from North Point Mine with our lives. Extreme instability and seismic tremors. Findings include asymmetrical crystal formations, rodents of unusual size, and an unusually aggressive insect population.”"
 msgstr "“1926年6月，米斯卡塔尼克大学实地调查。成员：马尔克斯、马斯格雷夫，及其他人员。我们很幸运地从北角矿坑之旅中存活下来，那里极度不稳定，地质震动频繁发生。发现内容包括不对称的水晶结构体、巨型啮齿类生物，以及侵略性极强的昆虫物种。”"
+
+msgid ""
+"[skull]: -X. X is your location's column number.\n"
+"[cultist]: -1. Place 1 resource on this card, as a scrap.\n"
+"[tablet]: -2. If you fail, remove 1 scrap from this card.\n"
+"[elder_thing]: -5. Remove 1 switch from this card."
+msgstr ""
+
+msgid ""
+"[skull]: -X. X is twice your location's column number.\n"
+"[cultist]: -3. If you succeed, place 1 resource on this card, as a scrap.\n"
+"[tablet]: -4. Remove 1 scrap from this card.\n"
+"[elder_thing]: -5. Take 1 damage."
+msgstr ""
+
+msgid "If it is <b>Day 3</b> and Leah Atwood is not crossed out:"
+msgstr ""
+
+msgid "Place the set-aside Prismatic Shard story asset at the bottommost location in column 5."
+msgstr ""

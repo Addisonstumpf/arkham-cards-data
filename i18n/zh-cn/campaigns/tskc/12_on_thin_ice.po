@@ -208,3 +208,6 @@ msgstr "你在安克拉治的小木屋惊醒，你似乎做了可怕的噩梦，
 
 msgid "If there are already 4, each investigator earns 1 experience instead."
 msgstr "如果该标记已经有4个，改为每位调查员获得1点经验值。"
+
+msgid "The investigator who controls The Sable Glass is its bearer. If no investigator controlled the Sable Glass at the end of the scenario, choose an investigator to be its bearer."
+msgstr ""

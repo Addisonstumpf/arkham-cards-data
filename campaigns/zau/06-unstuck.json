@@ -46,6 +46,7 @@
     },
     {
       "id": "check_starting_location",
+      "hidden": true,
       "type": "branch",
       "condition": {
         "type": "campaign_log",
@@ -54,7 +55,7 @@
         "options": [
           {
             "boolCondition": true,
-            "steps": ["arkham_start"]
+            "steps": ["check_past_visible"]
           },
           {
             "boolCondition": false,
@@ -65,6 +66,7 @@
     },
     {
       "id": "check_starting_location_2",
+      "hidden": true,
       "type": "branch",
       "condition": {
         "type": "campaign_log",
@@ -73,7 +75,7 @@
         "options": [
           {
             "boolCondition": true,
-            "steps": ["future_start"]
+            "steps": ["check_future_visible"]
           },
           {
             "boolCondition": false,
@@ -94,6 +96,36 @@
           {
             "boolCondition": true,
             "steps": ["divided_start"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "check_past_visible",
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "timeline",
+        "id": "investigators_stepped_into_past",
+        "options": [
+          {
+            "boolCondition": true,
+            "steps": ["arkham_start"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "check_future_visible",
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "timeline",
+        "id": "investigators_stepped_into_future",
+        "options": [
+          {
+            "boolCondition": true,
+            "steps": ["future_start"]
           }
         ]
       }

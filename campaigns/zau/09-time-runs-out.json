@@ -167,7 +167,7 @@
       {
         "id": "check_unspeakable_oath",
         "type": "input",
-        "text": "For each investigator who ended the game with at least 1 copy of the Unspeakable Oath weakness in their hand, record in your Campaign Log that <i>[investigator name] still bears Aforgomon's mark</i>",
+        "text": "For each investigator who ended the game with at least 1 copy of the Unspeakable Oath weakness in their hand, and whose existence is not waning, record in your Campaign Log that <i>[investigator name] still bears Aforgomon's mark</i>",
         "input": {
           "type": "investigator_choice",
           "investigator": "all",
@@ -208,7 +208,7 @@
           "choices": [
             {
               "id": "waning",
-              "text": "Existence is waning.",
+              "text": "Existence is waning",
               "effects": [
                 {
                   "type": "campaign_log",
@@ -224,6 +224,12 @@
                   "masculine_text": "#name#'s existence is waning.",
                   "feminine_text": "#name#'s existence is waning.",
                   "nonbinary_text": "#name#'s existence is waning."
+                },
+                {
+                  "type": "trauma",
+                  "hidden": true,
+                  "investigator": "$input_value",
+                  "insane": true
                 }
               ]
             }
@@ -243,7 +249,6 @@
       },
       {
         "id": "maybe_add_elder_thing",
-        "bullet_type": "small",
         "text": "Add 1 [elder_thing] token to the chaos bag. If you cannot, each investigator takes 1 mental trauma instead.",
         "type": "branch",
         "condition": {
@@ -333,7 +338,7 @@
       {
         "id": "R1",
         "title": "Resolution 1",
-        "text": "The end of time is an experience unlike any other. Everything will be still; any sense of movement or causality was gone. Everything that was or could be or never was will be happening now, inasmuch as 'now' would have any meaning here.\nAll times are one. Everything will be now. And here is were you were stuck, where you would have been made part of an unchanging tapestry of reality, where you could be, would be, were, are, will be trapped forever. That is, if forever still existed.",
+        "text": "The end of time is an experience unlike any other. Everything will be still; any sense of movement or causality was gone. Everything that was or could be or never was will be happening now, inasmuch as 'now' would have any meaning here.\nAll times are one. Everything will be now. And here is where you were stuck, where you would have been made part of an unchanging tapestry of reality, where you could be, would be, were, are, will be trapped forever. That is, if forever still existed.",
         "steps": [
           "all_times_are_one",
           "all_insane",
@@ -346,10 +351,9 @@
         "text": "You find yourself, eventually, lying on a smooth, flat surface. Every inch of your body wants to sink into the floor, become one with the ground. You stay that way for a long, long time.\nIt's the smell of smoke that finally makes you pull yourself up. You're in the gymnasium of Mount Hollyoke Elementary School. The cultists and gangsters seem to be long gone, leaving behind only dormant runes and abandoned texts. The smoke drifts in from the rear door, so you exit out the front.\nDay broke at some point, perhaps more than once. But you made it through, reality made it through, and perhaps, now, you can return to some semblance of normality. You've not lived that life for a year, sure, but you're the only you in the present now. You'll need to find somewhere new to live...\nLost in your thoughts, you watch as a conflagration consumes the school, presumably set by the backfiring ritual. This whole thing started with a fire; it seems only fitting that it should end the same way.",
         "steps": [
           "bound_aforgomon_in_a_prison_of_time",
-          "check_unspeakable_oath",
           "check_existence_waning",
+          "check_unspeakable_oath",
           "earn_xp",
-          "$upgrade_decks",
           "win_campaign"
         ]
       },

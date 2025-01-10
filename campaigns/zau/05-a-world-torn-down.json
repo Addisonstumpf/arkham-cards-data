@@ -335,8 +335,7 @@
               "text": "The investigators broke the first circle.",
               "steps": [
                 "broke_first_circle",
-                "broke_first_circle_doom",
-                "$pr_R3"
+                "broke_first_circle_doom"
               ]
             }
           ],
@@ -543,7 +542,7 @@
       {
         "id": "front_back_choice",
         "type": "input",
-
+        "text": "Choose one to record:",
         "input": {
           "type": "choose_one",
           "choices": [

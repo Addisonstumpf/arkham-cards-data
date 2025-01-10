@@ -193,12 +193,6 @@
       {
         "id": "late_return",
         "text": "For each investigator that did not resign, record in your campaign log that <i>[investigator name] returned to Arkham late.</i>",
-        "steps": [
-          "late_return_record"
-        ]
-      },
-      {
-        "id": "late_return_record",
         "effects": [
           {
             "type": "campaign_log_cards",
@@ -461,63 +455,42 @@
             },
             {
               "numCondition": 1,
-              "steps": [
-                "add_cultist_1"
+              "effects": [
+                {
+                  "type": "add_chaos_token",
+                  "tokens": [
+                    "cultist"
+                  ]
+                }
               ]
             },
             {
               "numCondition": 2,
-              "steps": [
-                "add_cultist_2"
+              "effects": [
+                {
+                  "type": "add_chaos_token",
+                  "tokens": [
+                    "cultist",
+                    "cultist"
+                  ]
+                }
               ]
             },
             {
               "numCondition": 3,
-              "steps": [
-                "add_cultist_3"
+              "effects": [
+                {
+                  "type": "add_chaos_token",
+                  "tokens": [
+                    "cultist",
+                    "cultist",
+                    "cultist"
+                  ]
+                }
               ]
             }
           ]
         }
-      },
-      {
-        "id": "add_cultist_1",
-        "hidden": true,
-        "effects": [
-          {
-            "type": "add_chaos_token",
-            "tokens": [
-              "cultist"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "add_cultist_2",
-        "hidden": true,
-        "effects": [
-          {
-            "type": "add_chaos_token",
-            "tokens": [
-              "cultist",
-              "cultist"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "add_cultist_3",
-        "hidden": true,
-        "effects": [
-          {
-            "type": "add_chaos_token",
-            "tokens": [
-              "cultist",
-              "cultist",
-              "cultist"
-            ]
-          }
-        ]
       },
       {
         "id": "check_helping_yourself",
