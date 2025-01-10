@@ -61,12 +61,6 @@ msgstr ""
 msgid "The boundary is broken."
 msgstr ""
 
-msgid "The investigators used the school's front door."
-msgstr ""
-
-msgid "The investigators snuck into the back of the school."
-msgstr ""
-
 msgid "The investigators repelled the Hound of Unmaking."
 msgstr ""
 
@@ -127,7 +121,13 @@ msgstr ""
 msgid "the boundary is broken (#X#, #Y#)."
 msgstr ""
 
+msgid "The investigators used the school's front door."
+msgstr ""
+
 msgid "the investigators used the school's front door."
+msgstr ""
+
+msgid "The investigators snuck into the back of the school."
 msgstr ""
 
 msgid "the investigators snuck into the back of the school."
@@ -190,10 +190,10 @@ msgstr ""
 msgid "The investigators must replay <b>Scenario III: A World Torn Down</b>. Reset the game to this scenario’s Setup. No experience points are earned from your previous game."
 msgstr ""
 
-msgid "Try as you might, the Myriad's fortress is virtually impenetrable. As the ritual inside builds towards its terrible conclusion, you throw yourself at it in desperation, seeking any way to break-"
+msgid "Check Ritual Timeline. <i>If the investigators broke the first cicrle.</i>"
 msgstr ""
 
-msgid "The distortions around you grow more and more severe. You can barely stand, can hardly move as broken realities circle and shift. Time melts like butter on a stove, and you find yourself falling, falling outside of time..."
+msgid "You must proceed to Resolution 3. Please undo, and select the correct resolution."
 msgstr ""
 
 msgid ""
@@ -201,6 +201,15 @@ msgid ""
 "Then, a commotion on the far side of the auditorium. New arrivals, cutting their way through the cultists, making a beeline for the other circles. It's difficult to see past the encroaching cultists, but you manage to catch the eye of-\n"
 "No, that <i>can't </i> be.\n"
 "You glance at the rift behind you. The figure nods, once. You step into the unknown."
+msgstr ""
+
+msgid "Before proceeding to resolution 3, you need to finish making the campaign log entries for the act advancements"
+msgstr ""
+
+msgid "Try as you might, the Myriad's fortress is virtually impenetrable. As the ritual inside builds towards its terrible conclusion, you throw yourself at it in desperation, seeking any way to break-"
+msgstr ""
+
+msgid "The distortions around you grow more and more severe. You can barely stand, can hardly move as broken realities circle and shift. Time melts like butter on a stove, and you find yourself falling, falling outside of time..."
 msgstr ""
 
 msgid ""

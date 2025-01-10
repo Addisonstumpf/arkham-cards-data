@@ -649,6 +649,3 @@ msgstr "将世界地图摊开在一个平整表面上。每位调查员抛掷一
 
 msgid "It takes several weeks for you to contact the other members of your cell who survived the collapsing of the Outsiders’ realm. It seems that, at least for now, their scheme has been dismantled. Perhaps a long-earned vacation is in order, but first there is one last order of business to resolve..."
 msgstr "花了几周的时间，你才重新跟同伴们联系上，至少是那些在异域存在的国度崩毁后存活下来的伙伴。看来现在，牠们的阴谋终于被阻止了。也许你应该放个长假，但还有最后一件事要处理......"
-
-msgid "Remove all other [[Coterie]] enemies from the game."
-msgstr ""

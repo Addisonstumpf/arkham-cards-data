@@ -265,6 +265,3 @@ msgstr ""
 
 msgid "“Miskatonic Survey, June 1926. Members Marquez, Musgrave, et alii. Northern shore and coastal caves extremely dangerous. Identified dozens of hitherto undocumented species of bioluminescent fungus. An exceedingly hostile ecosystem with extreme sensitivity to light. <strike>Further analysis and observation recommended. Future expeditions should come prepared with appropriate gear and extreme caution.</strike> Avoid the Akwan caves, if at all possible.”"
 msgstr "“1926年6月，米斯卡塔尼克大学实地调查。成员：马尔克斯、马斯格雷夫，及其他人员。北边的海岸跟海岸洞窟极度危险。已确认有数十种至今为止未被记录过的生物发光蕈类，该地区的生态系统充满攻击性，且对光线极度敏感。<strike>需要进一步观察与分析，后续调查必须准备适当器材并极度谨慎。</strike>尽可能远离艾湾洞窟。”"
-
-msgid "If it is <b>Day 2</b> or <b>Day 3</b> and Gideon Mizrah is not crossed out:"
-msgstr ""

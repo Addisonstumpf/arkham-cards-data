@@ -242,6 +242,3 @@ msgstr "怪物痛苦的嚎叫，无数的触手不停抽搐。震荡传遍湿软
 
 msgid "“Miskatonic Survey, June 1926. Members Marquez, Musgrave, et alii. Area surveyed: Eastwick Bog. Numerous abnormally sized flora, parasitic variety capable of controlling its host. Oppressively abundant ecosystem. Aggressive water life. More jungle than forest. Not your average bog. Will need to return with more funding.”"
 msgstr "“1926年6月，米斯卡塔尼克大学实地调查。成员：马尔克斯、马斯格雷夫，及其他人员。调查区域：东方沼泽。发现数种尺寸异常的花卉，能够控制宿主的寄生品种。生态系统过度丰富且复杂，存在极具攻击性的水生生物，比起森林，更像是热带丛林，完全不同于一般定义的沼泽。我们必须争取更多资金，返回进行调查。”"
-
-msgid "If it is <b>Day 2</b> or <b>Day 3</b> and River Hawthorne is not crossed out:"
-msgstr ""

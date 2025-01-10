@@ -139,103 +139,8 @@
               "text": "The boundary is broken.",
               "steps": [
                 "boundary_broken",
-                "boundary_broken_doom"
-              ]
-            },
-            {
-              "id": "used_front_door",
-              "condition": {
-                "type": "multi",
-                "count": 3,
-                "conditions": [
-                  {
-                    "type": "campaign_log",
-                    "section": "hidden",
-                    "id": "timeline_stage_2_front",
-                    "options": [
-                      {
-                        "boolCondition": false
-                      }
-                    ]
-                  },
-                  {
-                    "type": "campaign_log",
-                    "section": "hidden",
-                    "id": "timeline_stage_2_back",
-                    "options": [
-                      {
-                        "boolCondition": false
-                      }
-                    ]
-                  },
-                  {
-                    "type": "campaign_log",
-                    "section": "hidden",
-                    "id": "timeline_stage_1",
-                    "options": [
-                      {
-                        "boolCondition": true
-                      }
-                    ]
-                  }
-                ],
-                "options": [
-                  {
-                    "boolCondition": true
-                  }
-                ]
-              },
-              "text": "The investigators used the school's front door.",
-              "steps": [
-                "used_front_door"
-              ]
-            },
-            {
-              "id": "snuck_in_back",
-              "condition": {
-                "type": "multi",
-                "count": 3,
-                "conditions": [
-                  {
-                    "type": "campaign_log",
-                    "section": "hidden",
-                    "id": "timeline_stage_2_front",
-                    "options": [
-                      {
-                        "boolCondition": false
-                      }
-                    ]
-                  },
-                  {
-                    "type": "campaign_log",
-                    "section": "hidden",
-                    "id": "timeline_stage_2_back",
-                    "options": [
-                      {
-                        "boolCondition": false
-                      }
-                    ]
-                  },
-                  {
-                    "type": "campaign_log",
-                    "section": "hidden",
-                    "id": "timeline_stage_1",
-                    "options": [
-                      {
-                        "boolCondition": true
-                      }
-                    ]
-                  }
-                ],
-                "options": [
-                  {
-                    "boolCondition": true
-                  }
-                ]
-              },
-              "text": "The investigators snuck into the back of the school.",
-              "steps": [
-                "snuck_in_back"
+                "boundary_broken_doom",
+                "front_back_choice"
               ]
             },
             {
@@ -247,7 +152,7 @@
                   {
                     "type": "campaign_log",
                     "section": "hidden",
-                    "id": "timeline_stage_3",
+                    "id": "timeline_act_3",
                     "options": [
                       {
                         "boolCondition": false
@@ -256,8 +161,8 @@
                   },
                   {
                     "type": "campaign_log",
-                    "section": "hidden",
-                    "id": "timeline_stage_2_front",
+                    "section": "timeline",
+                    "id": "used_front_door",
                     "options": [
                       {
                         "boolCondition": true
@@ -286,7 +191,7 @@
                   {
                     "type": "campaign_log",
                     "section": "hidden",
-                    "id": "timeline_stage_3",
+                    "id": "timeline_act_3",
                     "options": [
                       {
                         "boolCondition": false
@@ -295,8 +200,8 @@
                   },
                   {
                     "type": "campaign_log",
-                    "section": "hidden",
-                    "id": "timeline_stage_2_front",
+                    "section": "timeline",
+                    "id": "used_front_door",
                     "options": [
                       {
                         "boolCondition": true
@@ -325,7 +230,7 @@
                   {
                     "type": "campaign_log",
                     "section": "hidden",
-                    "id": "timeline_stage_3",
+                    "id": "timeline_act_3",
                     "options": [
                       {
                         "boolCondition": false
@@ -334,8 +239,8 @@
                   },
                   {
                     "type": "campaign_log",
-                    "section": "hidden",
-                    "id": "timeline_stage_2_back",
+                    "section": "timeline",
+                    "id": "snuck_in_back",
                     "options": [
                       {
                         "boolCondition": true
@@ -364,7 +269,7 @@
                   {
                     "type": "campaign_log",
                     "section": "hidden",
-                    "id": "timeline_stage_3",
+                    "id": "timeline_act_3",
                     "options": [
                       {
                         "boolCondition": false
@@ -373,8 +278,8 @@
                   },
                   {
                     "type": "campaign_log",
-                    "section": "hidden",
-                    "id": "timeline_stage_2_back",
+                    "section": "timeline",
+                    "id": "snuck_in_back",
                     "options": [
                       {
                         "boolCondition": true
@@ -403,7 +308,7 @@
                   {
                     "type": "campaign_log",
                     "section": "hidden",
-                    "id": "timeline_stage_3",
+                    "id": "timeline_act_3",
                     "options": [
                       {
                         "boolCondition": true
@@ -631,49 +536,43 @@
               "alternate": true,
               "operation": "set_input",
               "text": "the boundary is broken (#X#, #Y#)."
-            },
-            {
-              "type": "campaign_log",
-              "section": "hidden",
-              "id": "timeline_stage_1",
-              "text": "dummy"
             }
           ]
         }
       },
       {
-        "id": "used_front_door",
-        "effects": [
-          {
-            "type": "campaign_log",
-            "section": "timeline",
-            "id": "used_front_door",
-            "text": "the investigators used the school's front door."
-          },
-          {
-            "type": "campaign_log",
-            "section": "hidden",
-            "id": "timeline_stage_2_front",
-            "text": "dummy"
-          }
-        ]
-      },
-      {
-        "id": "snuck_in_back",
-        "effects": [
-          {
-            "type": "campaign_log",
-            "section": "timeline",
-            "id": "snuck_in_back",
-            "text": "the investigators snuck into the back of the school."
-          },
-          {
-            "type": "campaign_log",
-            "section": "hidden",
-            "id": "timeline_stage_2_back",
-            "text": "dummy"
-          }
-        ]
+        "id": "front_back_choice",
+        "type": "input",
+
+        "input": {
+          "type": "choose_one",
+          "choices": [
+            {
+              "id": "front",
+              "text": "The investigators used the school's front door.",
+              "effects": [
+                {
+                  "type": "campaign_log",
+                  "section": "timeline",
+                  "id": "used_front_door",
+                  "text": "the investigators used the school's front door."
+                }
+              ]
+            },
+            {
+              "id": "back", 
+              "text": "The investigators snuck into the back of the school.",
+              "effects": [
+                {
+                  "type": "campaign_log",
+                  "section": "timeline",
+                  "id": "snuck_in_back",
+                  "text": "the investigators snuck into the back of the school."
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "repelled_hound",
@@ -727,7 +626,7 @@
             {
               "type": "campaign_log",
               "section": "hidden",
-              "id": "timeline_stage_3",
+              "id": "timeline_act_3",
               "text": "dummy"
             }
           ]
@@ -785,7 +684,7 @@
             {
               "type": "campaign_log",
               "section": "hidden",
-              "id": "timeline_stage_3",
+              "id": "timeline_act_3",
               "text": "dummy"
             }
           ]
@@ -843,7 +742,7 @@
             {
               "type": "campaign_log",
               "section": "hidden",
-              "id": "timeline_stage_3",
+              "id": "timeline_act_3",
               "text": "dummy"
             }
           ]
@@ -901,7 +800,7 @@
             {
               "type": "campaign_log",
               "section": "hidden",
-              "id": "timeline_stage_3",
+              "id": "timeline_act_3",
               "text": "dummy"
             },
             {
@@ -1354,6 +1253,95 @@
         }
       },
       {
+        "id": "defeat_guardrail",
+        "type": "branch",
+        "hidden": true,
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden",
+          "id": "first_circle_check",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": ["defeat_guardrail_visible"]
+            },
+            {
+              "boolCondition": false,
+              "steps": ["check_act_1"]
+            }
+          ]
+        }
+      },
+      {
+        "id": "defeat_guardrail_visible",
+        "type": "branch",
+        "text": "Check Ritual Timeline. <i>If the investigators broke the first cicrle.</i>",
+        "condition": {
+          "type": "campaign_log",
+          "section": "timeline",
+          "id": "broke_first_circle",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": ["defeat_error"]
+            }
+          ]
+        }
+      },
+      {
+        "id": "defeat_error",
+        "text": "You must proceed to Resolution 3. Please undo, and select the correct resolution.",
+        "effects": [
+          {
+            "type": "campaign_data",
+            "setting": "result",
+            "value": "lose"
+          }
+        ]
+      },
+      {
+        "id": "circle_guardrail",
+        "type": "branch",
+        "hidden": true,
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden",
+          "id": "first_circle_check",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "r3_story",
+                "check_past",
+                "ask_high_priest",
+                "earn_xp",
+                "$upgrade_decks"
+              ]
+            },
+            {
+              "boolCondition": false,
+              "steps": ["circle_error"]
+            }
+          ]
+        }
+      },
+      {
+        "id": "r3_story",
+        "type": "story",
+        "text": "Tearing apart the first ritual circle, you turn your attention to the other two. The cultists surrounding them advance on you; they don't look like particularly capable fighters, but they outnumber you ten to one. Taking a few cautious steps backwards, you find yourself on the precipice of a swirling, many-hued rift in reality, the untamed schism that was once contained by the arcane circle you broke. It's a way out, maybe, but an unfathomable one...\nThen, a commotion on the far side of the auditorium. New arrivals, cutting their way through the cultists, making a beeline for the other circles. It's difficult to see past the encroaching cultists, but you manage to catch the eye of-\nNo, that <i>can't </i> be.\nYou glance at the rift behind you. The figure nods, once. You step into the unknown."
+      },
+      {
+        "id": "circle_error",
+        "text": "Before proceeding to resolution 3, the campaign log entries for the act advancements need to be completed. Please undo, and complete those entries.",
+        "effects": [
+          {
+            "type": "campaign_data",
+            "setting": "result",
+            "value": "lose"
+          }
+        ]
+      },
+      {
         "id": "resolution_1",
         "type": "resolution",
         "resolution": "R1"
@@ -1400,7 +1388,7 @@
           "mental"
         ],
         "steps": [
-          "check_act_1"
+          "defeat_guardrail"
         ]
       },
       {
@@ -1428,15 +1416,9 @@
       },
       {
         "id": "R3",
-        "hidden": true,
         "title": "Resolution 3",
-        "text": "Tearing apart the first ritual circle, you turn your attention to the other two. The cultists surrounding them advance on you; they don't look like particularly capable fighters, but they outnumber you ten to one. Taking a few cautious steps backwards, you find yourself on the precipice of a swirling, many-hued rift in reality, the untamed schism that was once contained by the arcane circle you broke. It's a way out, maybe, but an unfathomable one...\nThen, a commotion on the far side of the auditorium. New arrivals, cutting their way through the cultists, making a beeline for the other circles. It's difficult to see past the encroaching cultists, but you manage to catch the eye of-\nNo, that <i>can't </i> be.\nYou glance at the rift behind you. The figure nods, once. You step into the unknown.",
         "steps": [
-          "check_past",
-          "ask_high_priest",
-          "earn_xp",
-          "$upgrade_decks"
-
+          "circle_guardrail"
         ]
       },
       {
