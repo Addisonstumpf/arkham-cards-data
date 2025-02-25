@@ -46,7 +46,7 @@
     "quantity": 1,
     "shroud": 5,
     "flavor": "The streets are busy and garishly lit. Strange devices flit to and fro, as mechanical eyes follow your every move.",
-    "text": "<b>Forced</b> - At the end of your turn: Test [int](3). If you succeed, heal 1 damage or 1 horror. If you fail, take 1 damage and 1 horror.",
+    "text": "<b>Forced</b> - At the end of your turn: Test [intellect](3). If you succeed, heal 1 damage or 1 horror. If you fail, take 1 damage and 1 horror.",
     "victory": 1,
     "traits": "Adrift. Arkham?",
     "type_code": "location"
@@ -65,7 +65,7 @@
     "quantity": 1,
     "shroud": 4,
     "flavor": "The streets are busy and garishly lit. Strange devices flit to and fro, as mechanical eyes follow your every move.",
-    "text": "<b>Forced</b> - At the end of your turn: Test [int](3). If you succeed, draw a card. If you fail, take 1 horror and choose and discard a card from your hand.",
+    "text": "<b>Forced</b> - At the end of your turn: Test [intellect](3). If you succeed, draw a card. If you fail, take 1 horror and choose and discard a card from your hand.",
     "victory": 1,
     "traits": "Adrift. Arkham?",
     "type_code": "location"

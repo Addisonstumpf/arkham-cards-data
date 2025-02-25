@@ -1,0 +1,583 @@
+{
+    "id": "good_omens",
+    "scenario_name": "Good Omens",
+    "header": "Interlude III",
+    "full_name": "Interlude III: Good Omens",
+    "icon": "zcx",
+    "setup": [
+      "encounter_reminder",
+      "$amalthea",
+      "$bestiae",
+      "$destinies",
+      "interlude_1",
+      "amalthea_branch_invisible",
+      "last_word",
+      "betiae_branch_invisible",
+      "break_of_dawn",
+      "$add_moon"
+    ],
+    "rules": [
+    ],
+    "steps": [
+      {
+        "id": "encounter_reminder",
+        "type": "encounter_sets",
+        "encounter_sets": [ "zcx_destiny_and_prophecy"],
+        "text": "Each card in this interlude can be found in the <i>Destiny and Prophecy</i> encounter set."
+      },
+      {
+        "id": "interlude_1",
+        "type": "story",
+        "text": "The first rays of sunlight begin to warm the city as you begin your journey northward. Thea is focused intently on the final page of Apuleius' account, mouthing the Latin words and lingering on each one. After a long pause, she finally turns toward you."
+      },
+      {
+        "id": "amalthea_branch_invisible",
+        "hidden": true,
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00229",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "amalthea_courage_branch"
+              ]
+            },
+            {
+              "boolCondition": false,
+              "steps": [
+                "amalthea_wisdom_branch"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "amalthea_courage_branch",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00229",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "amalthea_courage_story",
+                "amalthea_courage_choice"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "amalthea_wisdom_branch",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00230",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "amalthea_wisdom_story",
+                "amalthea_wisdom_choice"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "amalthea_courage_story",
+        "type": "story",
+        "text": "\"I've been trying to control my visions more directly. It's been working, but there's just... too many of them. I lose the details if I try to take it all in. How would y'all decide which visions are the most important ones?\""
+      },
+      {
+        "id": "amalthea_courage_choice",
+        "text": "The investigators must decide (choose one):",
+        "type": "input",
+        "input": {
+          "type": "choose_one",
+          "choices": [
+            {
+              "id": "purity",
+              "text": "\"Focus on using the visions to keep us protected.\"",
+              "steps": [
+                "amalthea_purity_story",
+                "amalthea_purity_swap"
+              ]
+            },
+            {
+              "id": "resolve",
+              "text": "\"Focus on using the visions to fight these monsters.\"",
+              "effects": [
+                "amalthea_resolve_story",
+                "amalthea_resolve_swap"
+              ]
+            }
+          ]
+        } 
+      },
+      {
+        "id": "amalthea_purity_story",
+        "type": "story",
+        "text": "Thea nods, folding the book with a serene smile. \"I'll do exactly that. Even though I'm the one supposed to be guiding you, you've given me plenty of guidance. But it's my turn for sure now. We'll be ready for anything they can cook up.\""
+      },
+      {
+        "id": "amalthea_purity_swap",
+        "text": "The investigator with Amalthea Weaver in their deck swaps her with Amalthea Weaver <i>(Oracle of Purity)</i>.",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00229",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_00231"
+                },
+                {
+                  "type": "remove_card",
+                  "card": "zcxc_00229"
+                },
+                {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "amalthea_purity",
+                    "text": "dummy"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "amalthea_resolve_story",
+        "type": "story",
+        "text": "Thea nods, shutting the book with a brave smile. \"I'll do exactly that. Even though I'm the one supposed to be guiding you, you've given me plenty of guidance. But it's my turn for sure now. They won't be able to twitch without us knowing it.\""
+      },
+      {
+        "id": "amalthea_resolve_swap",
+        "text": "The investigator with Amalthea Weaver in their deck swaps her with Amalthea Weaver <i>(Oracle of Resolve)</i>.",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00229",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_00232"
+                },
+                {
+                  "type": "remove_card",
+                  "card": "zcxc_00229"
+                },
+                {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "amalthea_resolve",
+                    "text": "dummy"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "amalthea_wisdom_story",
+        "type": "story",
+        "text": "\"I've been trying to open myself up to my visions more, let them play out fully and reveal things I didn't see before.\nI just... don't know how to interpret them. What would you do with the visions and the prophecies?\""
+      },
+      {
+        "id": "amalthea_wisdom_choice",
+        "text": "The investigators must decide (choose one):",
+        "type": "input",
+        "input": {
+          "type": "choose_one",
+          "choices": [
+            {
+              "id": "enlightenment",
+              "text": "\"Try to square the visions with the written prophecy.\"",
+              "steps": [
+                "amalthea_enlightenment_story",
+                "amalthea_enlightenment_swap"
+              ]
+            },
+            {
+              "id": "mystery",
+              "text": "\"Take the visions as they are, beyond the prophecy.\"",
+              "effects": [
+                "amalthea_mystery_story",
+                "amalthea_mystery_swap"
+              ]
+            }
+          ]
+        } 
+      },
+      {
+        "id": "amalthea_enlightenment_story",
+        "type": "story",
+        "text": "Thea casts her eyes back down toward the tome. \"I'll do exactly that. Even though I'm the one supposed to be guiding you, you've given me plenty of guidance. But it's my turn for sure now. We'll make sure this prophecy goes exactly to plan.\""
+      },
+      {
+        "id": "amalthea_enlightenment_swap",
+        "text": "The investigator with Amalthea Weaver in their deck swaps her with Amalthea Weaver <i>(Oracle of Enlightenment)</i>.",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00230",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_00233"
+                },
+                {
+                  "type": "remove_card",
+                  "card": "zcxc_00230"
+                },
+                {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "amalthea_enlightenment",
+                    "text": "dummy"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "amalthea_mystery_story",
+        "type": "story",
+        "text": "Thea casts her eyes back down toward the tome. \"I'll do exactly that. Even though I'm the one supposed to be guiding you, you've given me plenty of guidance. But it's my turn for sure now. We'll make sure that destiny is in our hands now.\""
+      },
+      {
+        "id": "amalthea_mystery_swap",
+        "text": "The investigator with Amalthea Weaver in their deck swaps her with Amalthea Weaver <i>(Oracle of Mystery)</i>.",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00230",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_00234"
+                },
+                {
+                  "type": "remove_card",
+                  "card": "zcxc_00230"
+                },
+                {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "amalthea_mystery",
+                    "text": "dummy"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "last_word",
+        "type": "story",
+        "text": "Your own thoughts stray to the old tome, and you wonder aloud just what the cult knows that you don't. After all, the tome was in Blake's possession for who knows how many years."
+      },{
+        "id": "bestiae_branch_invisible",
+        "hidden": true,
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00236",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "bestiae_conviction_branch"
+              ]
+            },
+            {
+              "boolCondition": false,
+              "steps": [
+                "bestiae_obsession_branch"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "bestiae_conviction_branch",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00236",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "bestiae_conviction_story",
+                "bestiae_conviction_choice"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "bestiae_obsession_branch",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00237",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "bestiae_obsession_story",
+                "bestiae_obsession_choice"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "bestiae_conviction_story",
+        "type": "story",
+        "text": "If you're right in Blake's devotion being his driving motivation, then his followers will put their effort into the ritual foremost, and rely on the foul spell to carry them to victory."
+      },
+      {
+        "id": "bestiae_conviction_choice",
+        "text": "The investigators must decide (choose one):",
+        "type": "input",
+        "input": {
+          "type": "choose_one",
+          "choices": [
+            {
+              "id": "beyond",
+              "text": "\"We must rely on forces beyond humanity for guidance.\"",
+              "steps": [
+                "bestiae_beyond_story",
+                "bestiae_beyond_swap"
+              ]
+            },
+            {
+              "id": "eternal",
+              "text": "\"We must rely on our own strengths in this fight.\"",
+              "effects": [
+                "bestiae_eternal_story",
+                "bestiae_eternal_swap"
+              ]
+            }
+          ]
+        } 
+      },
+      {
+        "id": "bestiae_beyond_story",
+        "type": "story",
+        "text": "The tome has guided you this far, in a sense, and you see no reason to deviate from that now. The incantations of the book will be needed now more than ever."
+      },
+      {
+        "id": "bestiae_beyond_swap",
+        "text": "The investigator with De Cultus Bestiae in their deck swaps it with De Cultus Bestiae <i>(Prophecy of the Beyond)</i>.",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00236",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_00238"
+                },
+                {
+                  "type": "remove_card",
+                  "card": "zcxc_00236"
+                },
+                {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "bestiae_beyond",
+                    "text": "dummy"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "bestiae_eternal_story",
+        "type": "story",
+        "text": "The tome has guided you this far, in a sense, but not without your own talents carrying it along. Cautious use of the book will be the wisest course of action this morning."
+      },
+      {
+        "id": "bestiae_eternal_swap",
+        "text": "The investigator with De Cultus Bestiae in their deck swaps it with De Cultus Bestiae <i>(Prophecy of the Eternal)</i>.",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00236",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_00239"
+                },
+                {
+                  "type": "remove_card",
+                  "card": "zcxc_00236"
+                },
+                {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "bestiae_eternal",
+                    "text": "dummy"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "bestiae_obsession_story",
+        "type": "story",
+        "text": "If you're right in Blake's vengeance being his driving motivation, then his followers will rely on the physical agents of their god, the goatspawn and the malignant dark young for victory."
+      },
+      {
+        "id": "bestiae_obsession_choice",
+        "text": "The investigators must decide (choose one):",
+        "type": "input",
+        "input": {
+          "type": "choose_one",
+          "choices": [
+            {
+              "id": "horde",
+              "text": "\"We must prepare to face thousands.\"",
+              "steps": [
+                "bestiae_horde_story",
+                "bestiae_horde_swap"
+              ]
+            },
+            {
+              "id": "behemoth",
+              "text": "\"We must prepare to face giants.\"",
+              "effects": [
+                "bestiae_behemoth_story",
+                "bestiae_behemoth_swap"
+              ]
+            }
+          ]
+        } 
+      },
+      {
+        "id": "bestiae_horde_story",
+        "type": "story",
+        "text": "Shub-Niggurath is named in the tome as the black goat of a thousand young, and you must expect to face and defeat countless enemies before the day is out."
+      },
+      {
+        "id": "bestiae_horde_swap",
+        "text": "The investigator with De Cultus Bestiae in their deck swaps it with De Cultus Bestiae <i>(Prophecy of the Horde)</i>.",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00237",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_00240"
+                },
+                {
+                  "type": "remove_card",
+                  "card": "zcxc_00237"
+                },
+                {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "bestiae_horde",
+                    "text": "dummy"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "bestiae_behemoth_story",
+        "type": "story",
+        "text": "You have seen many times the sheer size and power of the greatest of Shub-Niggurath's children, and you will have to do everything in your power to oppose them today."
+      },
+      {
+        "id": "bestiae_behemoth_swap",
+        "text": "The investigator with De Cultus Bestiae in their deck swaps it with De Cultus Bestiae <i>(Prophecy of the Behemoth)</i>.",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00237",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_00241"
+                },
+                {
+                  "type": "remove_card",
+                  "card": "zcxc_00237"
+                },
+                {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "bestiae_behemoth",
+                    "text": "dummy"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "break_of_dawn",
+        "type": "story",
+        "text": "You and Thea share quiet, if tired, conversation as you proceed north out of Los Angeles in the growing daylight. The clear sky does little to assuage your worries of the coming fight."
+      }
+    ]
+  }
