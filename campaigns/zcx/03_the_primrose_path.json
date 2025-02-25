@@ -1,0 +1,322 @@
+{
+    "id": "the_primrose_path",
+    "scenario_name": "The Primrose Path",
+    "header": "Scenario II",
+    "full_name": "Scenario II: The Primrose Path",
+    "chaos_bag_card": "z",
+    "chaos_bag_card_text": "",
+    "chaos_bag_card_back_text": "",
+    "icon": "zcx_primrose_path",
+    "setup": [
+      "intro",
+      "token_choice",
+      "branch_tarot_reading",
+      "gather_encounter_sets",
+      "setup_locations",
+      "location_layout",
+      "set_aside_cards",
+      "starting_doom",
+      "encounter_deck",
+      "$play_scenario"
+    ],
+    "steps": [
+      {
+        "id": "intro",
+        "type": "story",
+        "text": "Stories have long been told and retold in Arkham about the strange and mystical things lurking in it.  Witches, demons, humanoid beasts, the list goes on.  Any one of those would be reason to not venture into the woods at night, but since you're already chancing things with the circus and its monsters, there's not much left to hold you back.\nThe full moon lends an eerie brightness to the woods, in spite of the light it casts for your task ahead.  The same atmosphere of illusory magic that you saw on the circus grounds lingers between the trees.  No doubt the circus has taken precautions to veil themselves from prying outsiders, and you wonder how they and the moon align.  You intend to discover the answers tonight, but until then, you must decide how you will proceed into this mystical forest."
+      },
+      {
+        "id": "token_choice",
+        "text": "The investigators must decide (choose one)",
+        "type": "input",
+        "input": {
+          "type": "choose_one",
+          "choices": [
+            {
+              "id": "cultist",
+              "text": "\"We'll use the moonlight to our advantage.\"",
+              "effects": [
+                {
+                  "type": "remove_chaos_token",
+                  "tokens": [
+                    "tablet"
+                  ]
+                },
+                {
+                  "type": "add_chaos_token",
+                  "tokens": [
+                    "cultist"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "tablet",
+              "text": "\"We'll stick to the shadows as much as possible\"",
+              "effects": [
+                {
+                  "type": "remove_chaos_token",
+                  "tokens": [
+                    "cultist"
+                  ]
+                },{
+                  "type": "add_chaos_token",
+                  "tokens": [
+                    "tablet"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "branch_tarot_reading",
+        "type": "branch",
+        "hidden": true,
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden",
+          "id": "campaign_reading",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "check_tarot_synthetic"
+              ]
+            },
+            {
+              "boolCondition": false,
+              "steps": [
+                "$check_tarot_reading"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check_tarot_synthetic",
+        "type": "branch",
+        "hidden": true,
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden",
+          "id": "campaign_reading_hermit_reversed",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "campaign_reading_reversed"
+              ]
+            },
+            {
+              "boolCondition": false,
+              "steps": [
+                "campaign_reading_upright"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "campaign_reading_reversed",
+        "type": "rule_reminder",
+        "title": "Destiny Tarot Reading",
+        "text": "<b>The Hermit - IX</b>\nDecrease each investigator's maximum hand size by 3."
+      },
+      {
+        "id": "campaign_reading_upright",
+        "type": "rule_reminder",
+        "title": "Destiny Tarot Reading",
+        "text": "<b>The Hermit - IX</b>\nIncrease each investigator's maximum hand size by 3."
+      },
+      {
+        "id": "gather_encounter_sets",
+        "title": "Setup",
+        "type": "encounter_sets",
+        "encounter_sets": [
+          "zcx_primrose_path",
+          "zcx_children_of_the_goat",
+          "zcx_illusory_tricks",
+          "zcx_lunatic_night",
+          "zcx_savage_woods"
+        ]
+      },
+      {
+        "id": "setup_locations",
+        "bullets": [
+          {
+            "text": "Put the Forest Passage location into play. Each investigator begins play at Forest Passage."
+          },
+          {
+            "text": "Randomly choose two of the four copies of Moonlit Forest with the red cross symbol and remove them from the game. Shuffle the remaining two copies together with each other copy of Moonlit Forest and put them into play, forming a square grid around Forest Passage."
+          },
+          {
+            "text": "Put the Woodland Overlook and Remote Cabin locations into play to the left and right of the Moonlit Forest locations. Put the Circus Encampment location into play."
+          }
+        ]
+      },
+      {
+        "id": "location_layout",
+        "type": "location_setup",
+        "text": "Location Placement",
+        "horizontal": "normal",
+        "vertical": "normal",
+        "locations": [
+          [
+            "blank",
+            "blank",
+            "encampment",
+            "blank",
+            "blank"
+          ],
+          [
+            "blank",
+            "forest",
+            "forest",
+            "forest",
+            "blank"
+          ],
+          [
+            "overlook",
+            "forest",
+            "passage",
+            "forest",
+            "cabin"
+          ],
+          [
+            "blank",
+            "forest",
+            "forest",
+            "forest",
+            "blank"
+          ]
+        ],
+        "location_names": [
+          {
+            "code": "encampment",
+            "name": "Circus Encampment"
+          },
+          {
+            "code": "forest",
+            "name": "Moonlit Forest"
+          },
+          {
+            "code": "overlook",
+            "name": "Woodland Overlook"
+          },
+          {
+            "code": "passage",
+            "name": "Forest Passage"
+          },
+          {
+            "code": "cabin",
+            "name": "Remote Cabin"
+          }
+        ]
+      },
+      {
+        "id": "set_aside_cards",
+        "text": "Set the New Moon Illusionist enemy aside, out of play."
+      },
+      {
+        "id": "starting_doom",
+        "text": "Place 1 [per_investigator] doom on the current agenda."
+      },
+      {
+        "id": "encounter_deck",
+        "text": "Shuffle the remainder of the encounter cards to build the encounter deck."
+      },
+      {
+        "id": "resolution_1",
+        "type": "resolution",
+        "resolution": "R1"
+      },
+      {
+        "id": "resolution_3",
+        "type": "resolution",
+        "resolution": "R3"
+      },
+      {
+        "id": "lost_in_woods",
+        "effects": [
+            {
+                "type": "campaign_log",
+                "section": "campaign_notes",
+                "id": "lost_in_the_arkham_woods",
+                "text": "the investigators were lost in the Arkham woods."
+            }
+        ]
+      },
+      {
+        "id": "bypassed_illusions",
+        "effects": [
+            {
+                "type": "campaign_log",
+                "section": "campaign_notes",
+                "id": "bypassed_the_illusions",
+                "text": "the investigators bypassed the illusions."
+            }
+        ]
+      },
+      {
+        "id": "earn_xp",
+        "text": "Each investigator earns experience equal to the Victory X value of each card in the victory display.",
+        "type": "input",
+        "input": {
+          "type": "counter",
+          "text": "Victory display:",
+          "effects": [
+            {
+              "type": "earn_xp",
+              "investigator": "all"
+            }
+          ]
+        }
+      }
+    ],
+    "resolutions": [
+      {
+        "id": "no_resolution",
+        "title": "No resolution was reached",
+        "description": "Each investigator was defeated",
+        "investigator_status": [
+          "eliminated",
+          "physical",
+          "mental"
+        ],
+        "steps": [
+          "resolution_1"
+        ]
+      },
+      {
+        "id": "R1",
+        "hidden": true,
+        "title": "Resolution 1",
+        "text": "Battered and dazed, you stumble through the ensorcelled woods, instinctive motivation for survival alone pushing you forward.  Minutes pass -- or are they hours? -- until a much softer crunch rouses your sense.  One of the circus carnies wanders by you, seemingly on patrol.  You hold your breath as he passes, escape in mind at first, but the opportunity occurs to you.  The carnie must be on his way back to the camp, and if he can bypass the illusory defenses, then perhaps you can as well.  You follow the man at a distance, praying that his senses aren't as acute as the forest beasts, and gradually, you tail him to the outskirts of the circus encampment.",
+        "steps": [
+          "lost_in_woods",
+          "resolution_3"
+        ]
+      },
+      {
+        "id": "R2",
+        "title": "Resolution 2",
+        "text": "Despite the fearsome challenges in the forest, you find the camp to be surprisingly placid.  The performers sleep in tents or in hammocks out in the open, with only a small night guard on duty patrolling.  For all the magic and monstrosity at their command, the circus is still crewed by mortal humans with common needs.\nThe performers active at this time of night appear to be the more cerebral ones, perhaps the ones more skilled in maintaining the illusory protection shielding their campsite.  You hope that this means a rescue will face less physical opposition, but the creatures under their command are fearsome.  Some that you faced in the woods did not even look disguised as circus animals.  They were almost formless amalgamations of mouths, tentacles, hooves and horns, scattered over a fleshy trunk like the patches on an old coat.  You shudder to imagine what worse things could be at the circus' beck and call, but you knew the risks before you began this rescue mission.",
+        "steps": [
+          "bypassed_illusions",
+          "resolution_3"
+        ]
+      },
+      {
+        "id": "R3",
+        "hidden": true,
+        "title": "Resolution 3",
+        "text": "With cautious steps, you traverse the outskirts of the circus encampment, looking for any sign of the kidnapped citizens.  There's no apparent order to the layout of the many tents and lean-tos, until you reach a towering oak at the far side, ancient, twisted, and all but barren.  An ornate painted trailer stands against it, larger than any of the other nearby carts by far.\nYou don't have to guess who the owner of this trailer is, but your assumption is confirmed as the towering figure of the ringmaster emerges and descends the short steps.  Circus performers nearby sit up and stand at attention as their master strides past.  \"Get your sleep,\" he utters in a low and darkly mellow tone, \"the perimeter guard will let us know when they arrive, for they must.  Were they not foreseen?\"  The performers settle back down as the ringmaster continues his walk, through the camp and out into the forest.\nSylvester Blake's dark form melts into the shadowy treeline, but you wait for nearly a minute with baited breath to be sure.  If he finds any evidence of your intrusion quickly, then your chance to act will disappear.  Moreover, with the ringmaster out in the woods, you have a rare chance to delve into the heart of the matter.  Steeling your nerve, you creep up the steps to his trailer.",
+        "steps": [
+          "earn_xp",
+          "$upgrade_decks"
+        ]
+      }
+    ]
+  }

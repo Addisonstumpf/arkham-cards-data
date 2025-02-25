@@ -1,0 +1,517 @@
+{
+  "id": "zcx",
+  "position": 26,
+  "version": 1,
+  "name": "Circus Ex Mortis",
+  "tarot": [
+    "one_night_only",
+    "the_primrose_path",
+    "harms_way",
+    "all_points_west",
+    "piper_at_the_gates_of_dawn",
+    "bacchanalia",
+    "red_sunrise",
+    "thousand_to_one"
+  ],
+  "custom": {
+    "creator": "The Beard",
+    "download_link": {
+      "en": "https://mysteriouschanting.wordpress.com/2023/08/21/circus-ex-mortis-campaign-and-player-expansion/"
+    }
+  },
+  "campaign_type": "campaign",
+  "campaign_log": [
+    {
+      "id": "campaign_notes",
+      "title": "Campaign Notes"
+    },
+    {
+      "id": "hidden",
+      "hidden": true,
+      "title": "Hidden"
+    }
+  ],
+  "scenarios": [
+    "cx_prologue",
+    "one_night_only",
+    "the_primrose_path",
+    "the_future_and_the_past",
+    "harms_way",
+    "zcx_rougarou",
+    "all_points_west",
+    "written_in_stone",
+    "piper_at_the_gates_of_dawn",
+    "bacchanalia",
+    "good_omens",
+    "red_sunrise",
+    "thousand_to_one",
+    "cx_epilogue"
+  ],
+  "setup": [
+    "quote",
+    "intro",
+    "choose_investigators",
+    "difficulty_choice",
+    "$moon",
+    "campaign_reading_text",
+    "ask_campaign_reading",
+    "maybe_campaign_reading",
+    "maybe_draw_weakness"
+  ],
+  "steps": [
+    {
+      "id": "campaign_reading_text",
+      "text": "If investigators choose to use the Tarot Deck from the <i>Return to the Circle Undone</i> expansion, there is some thematic connection to the <i>Circus Ex Mortis</i> campaign.  Investigators may choose to perform an 8-card Campaign Reading with a specific set of 8 cards." 
+    },
+    {
+      "id": "ask_campaign_reading",
+      "type": "input",
+      "input": {
+        "type": "choose_one",
+        "choices": [
+          {
+            "id": "reading",
+            "text": "Would you like to perform a campaign reading?",
+            "effects": [
+              {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "campaign_reading",
+                "text": "dummy"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "maybe_campaign_reading",
+      "type": "branch",
+      "hidden": true,
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden",
+        "id": "campaign_reading",
+        "options": [
+          {
+            "boolCondition": true,
+            "steps": [
+              "perform_campaign_reading",
+              "ask_reversed"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "perform_campaign_reading",
+      "bullet_type": "small",
+      "text": "Using the Tarot Deck, perform an 8-card Campaign Reading with these specific 8 cards, in this order: \nMagician, Hermit, Strength, Chariot, Devil, Temperance, Sun, Moon",
+      "bullets": [
+        {
+          "text": "Place each card in a horizontal line, in the upgright position."
+        },
+        {
+          "text": "Each of these cards applies to one scenario in the campaign, with the leftmost card corresponding to the first scenario, and the rightmost card corresponding to the final scenario."
+        }
+      ]
+    },
+    {
+      "id": "ask_reversed",
+      "bullet_type": "small",
+      "type": "input",
+      "text": "Choose and reverse four of the cards:",
+      "input": {
+        "type": "checklist",
+        "text": "Reversed cards (4)",
+        "min": 4,
+        "max": 4,
+        "choices": [
+          {
+            "id": "magician",
+            "text": "The Magician · I",
+            "description": "One Night Only",
+            "effects": [
+              {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "campaign_reading_magician_reversed",
+                "text": "dummy"
+              }
+            ]
+          },
+          {
+            "id": "hermit",
+            "text": "The Hermit · IX",
+            "description": "The Primrose Path",
+            "effects": [
+              {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "campaign_reading_hermit_reversed",
+                "text": "dummy"
+              }
+            ]
+          },
+          {
+            "id": "strength",
+            "text": "Strength · VIII",
+            "description": "Harm's Way",
+            "effects": [
+              {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "campaign_reading_strength_reversed",
+                "text": "dummy"
+              }
+            ]
+          },
+          {
+            "id": "chariot",
+            "text": "The Chariot · VII",
+            "description": "All Points West",
+            "effects": [
+              {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "campaign_reading_chariot_reversed",
+                "text": "dummy"
+              }
+            ]
+          },
+          {
+            "id": "devil",
+            "text": "The Devil · XV",
+            "description": "Piper at the Gates of Dawn",
+            "effects": [
+              {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "campaign_reading_devil_reversed",
+                "text": "dummy"
+              }
+            ]
+          },
+          {
+            "id": "temperance",
+            "text": "Temperance · XIV",
+            "description": "Bacchanalia",
+            "effects": [
+              {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "campaign_reading_temperance_reversed",
+                "text": "dummy"
+              }
+            ]
+          },
+          {
+            "id": "sun",
+            "text": "The Sun · XIX",
+            "description": "Red Sunrise",
+            "effects": [
+              {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "campaign_reading_sun_reversed",
+                "text": "dummy"
+              }
+            ]
+          },
+          {
+            "id": "moon",
+            "text": "The Moon · XVIII",
+            "description": "Thousand to One",
+            "effects": [
+              {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "campaign_reading_moon_reversed",
+                "text": "dummy"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "maybe_draw_weakness",
+      "type": "branch",
+      "hidden": true,
+      "condition": {
+        "type": "campaign_data",
+        "campaign_data": "version",
+        "min_version": 1,
+        "options": [
+          {
+            "boolCondition": true,
+            "steps": ["draw_weakness"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "draw_weakness",
+      "type": "input",
+      "bullet_type": "none",
+      "input": {
+        "type": "investigator_choice",
+        "source": "scenario",
+        "investigator": "all",
+        "choices": [
+          {
+            "id": "rbw",
+            "text": "Draw Random Basic Weakness",
+            "effects": [
+              {
+                "type": "add_weakness",
+                "investigator": "$input_value",
+                "weakness_traits": [],
+                "select_traits": false
+              },
+              {
+                "type": "remove_card",
+                "investigator": "$input_value",
+                "card": "01000",
+                "non_story": true
+              }
+            ],
+            "steps": ["save_decks"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "save_decks",
+      "type": "input",
+      "input": {
+        "type": "save_decks",
+        "trauma": true
+      }
+    },
+    {
+      "id": "quote",
+      "type": "story",
+      "title": "In the Shadow of the New Moon",
+      "text": "“...so from the wells of night to the gulfs of space, and from the gulfs of space to the wells of night... Ever Their praises, and abundance to the Black Goat of the Woods.  Iä!  Shub-Niggurath!  The Goat with a Thousand Young!” \n<right><i> - H. P. Lovecraft, <i>The Whisperer in Darkness.</i>.</right>"
+    },
+    {
+      "id": "intro",
+      "text": "<i>Circus Ex Mortis</i> is an eight-part campaign for <i>Arkham Horror: The Card Game</i> for 1 -- 4 players.  This campaign is based on various works by H. P. Lovecraft and draws from real-life events, historical and mythological figures, secret societies, and of course the circus.\nAs a general notice to people who have a fear or aversion to clowns, clowns do appear in this campaign, but the art chosen for these cards avoids the typical killer clown image."
+    },
+    {
+      "id": "choose_investigators",
+      "type": "input",
+      "input": {
+        "type": "scenario_investigators"
+      }
+    },
+    {
+      "id": "difficulty_choice",
+      "text": "Choose difficulty level:",
+      "type": "input",
+      "input": {
+        "type": "choose_one",
+        "default_choice": "standard",
+        "choices": [
+          {
+            "id": "easy",
+            "text": "Easy",
+            "description": "<i>I want to spend a day at the circus</i>",
+            "tokens": [
+              "+1",
+              "+1",
+              "0",
+              "0",
+              "0",
+              "-1",
+              "-1",
+              "-1",
+              "-2",
+              "-2",
+              "skull",
+              "skull",
+              "elder_thing",
+              "auto_fail",
+              "elder_sign"
+            ],
+            "effects": [
+              {
+                "type": "campaign_data",
+                "setting": "difficulty",
+                "value": "easy"
+              },
+              {
+                "type": "add_chaos_token",
+                "tokens": [
+                  "+1",
+                  "+1",
+                  "0",
+                  "0",
+                  "0",
+                  "-1",
+                  "-1",
+                  "-1",
+                  "-2",
+                  "-2",
+                  "skull",
+                  "skull",
+                  "elder_thing",
+                  "auto_fail",
+                  "elder_sign"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "standard",
+            "text": "Standard",
+            "description": "<i>I want to entertain the audience</i>",
+            "tokens": [
+              "+1",
+              "0",
+              "0",
+              "-1",
+              "-1",
+              "-1",
+              "-2",
+              "-2",
+              "-3",
+              "-4",
+              "skull",
+              "skull",
+              "elder_thing",
+              "auto_fail",
+              "elder_sign"
+            ],
+            "effects": [
+              {
+                "type": "campaign_data",
+                "setting": "difficulty",
+                "value": "standard"
+              },
+              {
+                "type": "add_chaos_token",
+                "tokens": [
+                  "+1",
+                  "0",
+                  "0",
+                  "-1",
+                  "-1",
+                  "-1",
+                  "-2",
+                  "-2",
+                  "-3",
+                  "-4",
+                  "skull",
+                  "skull",
+                  "elder_thing",
+                  "auto_fail",
+                  "elder_sign"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "hard",
+            "text": "Hard",
+            "description": "<i>I want to perform death-defying feats</i>",
+            "tokens": [
+              "0",
+              "0",
+              "-1",
+              "-1",
+              "-1",
+              "-2",
+              "-2",
+              "-3",
+              "-4",
+              "-5",
+              "skull",
+              "skull",
+              "elder_thing",
+              "auto_fail",
+              "elder_sign"
+            ],
+            "effects": [
+              {
+                "type": "campaign_data",
+                "setting": "difficulty",
+                "value": "hard"
+              },
+              {
+                "type": "add_chaos_token",
+                "tokens": [
+                  "0",
+                  "0",
+                  "-1",
+                  "-1",
+                  "-1",
+                  "-2",
+                  "-2",
+                  "-3",
+                  "-4",
+                  "-5",
+                  "skull",
+                  "skull",
+                  "elder_thing",
+                  "auto_fail",
+                  "elder_sign"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "expert",
+            "text": "Expert",
+            "description": "<i>I want to run a three-ring circus</i>",
+            "tokens": [
+              "0",
+              "-1",
+              "-1",
+              "-1",
+              "-2",
+              "-2",
+              "-3",
+              "-4",
+              "-5",
+              "-7",
+              "skull",
+              "skull",
+              "elder_thing",
+              "auto_fail",
+              "elder_sign"
+            ],
+            "effects": [
+              {
+                "type": "campaign_data",
+                "setting": "difficulty",
+                "value": "expert"
+              },
+              {
+                "type": "add_chaos_token",
+                "tokens": [
+                  "0",
+                  "-1",
+                  "-1",
+                  "-1",
+                  "-2",
+                  "-2",
+                  "-3",
+                  "-4",
+                  "-5",
+                  "-7",
+                  "skull",
+                  "skull",
+                  "elder_thing",
+                  "auto_fail",
+                  "elder_sign"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

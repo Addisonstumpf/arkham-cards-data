@@ -1,0 +1,900 @@
+{
+    "id": "all_points_west",
+    "scenario_name": "All Points West",
+    "header": "Scenario IV",
+    "full_name": "Scenario IV: All Points West",
+    "chaos_bag_card": "z",
+    "chaos_bag_card_text": "",
+    "chaos_bag_card_back_text": "",
+    "icon": "zcx_all_points_west",
+    "setup": [
+      "departure_check_invisible",
+      "branch_tarot_reading",
+      "gather_encounter_sets",
+      "act_check_invisible",
+      "setup_locations",
+      "setup_dykstras",
+      "set_aside_cards",
+      "add_chaos_token",
+      "encounter_deck",
+      "$play_scenario"
+    ],
+    "steps": [
+      {
+        "id": "departure_check_invisible",
+        "type": "branch",
+        "hidden": true,
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden",
+          "id": "setting_out_from_new_orleans",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": ["new_orleans_intro_check"]
+            },
+            {
+              "boolCondition": false,
+              "steps": ["arkham_intro_check"]
+            }
+          ]
+        }
+      },
+      {
+        "id": "new_orleans_intro_check",
+        "type": "branch",
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden",
+          "id": "setting_out_from_new_orleans",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": ["new_orleans_intro", "curse_check", "esprit_check"]
+            }
+          ]
+        }
+      },
+      {
+        "id": "new_orleans_intro",
+        "text": "Your decision to pursue the rougarou put you a little far afield, but you return to New Orleans Union Station after a long and harrowing night to find the Dykstras' train waiting for you."
+      },
+      {
+        "id": "curse_check",
+        "text": "If an investigator has Curse of the Rougarou in their deck",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00264",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "text": "Even when you have the urges controlled, there seem to be outward signs of the curse affecting you, given the looks from Ralph and Carrie.  \"I've got a razor and shaving cream in the caboose if you need it.\"  Ralph states, though you're not sure how seriously."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "esprit_check",
+        "text": "If an investigator has Lady Esprit in their deck",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00263",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "text": "Lady Esprit accompanies you to the station and wastes little time in setting up shop in the caboose.  Carrie watches her with folded arms.  \"Are you a witch?\" the young lady asks.  Lady Esprit laughs with surprising spirit and continues without looking.  \"Even better than that, child.\""
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "arkham_intro_check",
+        "type": "branch",
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden",
+          "id": "setting_out_from_arkham",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": ["arkham_intro"]
+            }
+          ]
+        }
+      },
+      {
+        "id": "arkham_intro",
+        "text": "With time of the essence, you tell the Dykstras that you'll meet them at the Northside station and rapidly pack, also calling in a couple small favors to get some extra clothes for Thea to use during the journey.  She keeps a close hold on the tome as you depart your house.  \"California.  That'll give me time to read through this book, at least.  Hopefully there's something in there that tells us what Blake is trying to do, or what my visions mean.\""
+      },
+      {
+        "id": "branch_tarot_reading",
+        "type": "branch",
+        "hidden": true,
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden",
+          "id": "campaign_reading",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "check_tarot_synthetic"
+              ]
+            },
+            {
+              "boolCondition": false,
+              "steps": [
+                "$check_tarot_reading"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check_tarot_synthetic",
+        "type": "branch",
+        "hidden": true,
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden",
+          "id": "campaign_reading_chariot_reversed",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "campaign_reading_reversed"
+              ]
+            },
+            {
+              "boolCondition": false,
+              "steps": [
+                "campaign_reading_upright"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "campaign_reading_reversed",
+        "type": "rule_reminder",
+        "title": "Destiny Tarot Reading",
+        "text": "<b>The Chariot - VII</b>\nEach investigator begins the game with 2 fewer cards in their opening hand, and cannot draw cards during their first turn."
+      },
+      {
+        "id": "campaign_reading_upright",
+        "type": "rule_reminder",
+        "title": "Destiny Tarot Reading",
+        "text": "<b>The Chariot - VII</b>\nEach investigator begins the game with 2 additional cards in their opening hand."
+      },
+      {
+        "id": "gather_encounter_sets",
+        "title": "Setup",
+        "type": "encounter_sets",
+        "encounter_sets": [
+          "zcx_all_points_west", 
+          "zcx_cult_of_shub_niggurath",
+          "zcx_new_moon_daredevils",
+          "zcx_primordial_evils"
+        ]
+      },
+      {
+        "id": "act_check_invisible",
+        "type": "branch",
+        "hidden": true,
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden",
+          "id": "setting_out_from_new_orleans",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": ["new_orleans_act_check"]
+            },
+            {
+              "boolCondition": false,
+              "steps": ["arkham_act_check"]
+            }
+          ]
+        }
+      },
+      {
+        "id": "new_orleans_act_check",
+        "type": "branch",
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden",
+          "id": "setting_out_from_new_orleans",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": ["new_orleans_act"]
+            }
+          ]
+        }
+      },
+      {
+        "id": "new_orleans_act",
+        "text": "Build the act deck using (v.II) of act 1.  Remove the other copy of act 1 from the game."
+      },
+      {
+        "id": "arkham_act_check",
+        "type": "branch",
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden",
+          "id": "setting_out_from_arkham",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": ["arkham_act"]
+            }
+          ]
+        }
+      },
+      {
+        "id": "arkham_act",
+        "text": "Build the act deck using (v.I) of act 1.  Remove the other copy of act 1 from the game."
+      },
+      {
+        "id": "setup_locations",
+        "text": "Put the Locomotive Engine and Caboose locations into play. Randomly pick one [[Freight Car]] and one [[Special Car]] location, and put them into play. Set each other location aside, out of play. Each investigator begins play at the Caboose. <i>(Each location begins play revealed)</i>"
+      },
+      {
+        "id": "set_aside_cards",
+        "text": "Set each [[Dark Young]] enemy aside, out of play."
+      },
+      {
+        "id": "add_chaos_token",
+        "type": "branch",
+        "condition": {
+          "type": "campaign_data",
+          "campaign_data": "difficulty",
+          "options": [
+            {
+              "condition": "easy",
+              "effects": [
+                {
+                  "type": "add_chaos_token",
+                  "tokens": [
+                    "-2"
+                  ]
+                }
+              ]
+            },
+            {
+              "condition": "standard",
+              "effects": [
+                {
+                  "type": "add_chaos_token",
+                  "tokens": [
+                    "-3"
+                  ]
+                }
+              ]
+            },
+            {
+              "condition": "hard",
+              "effects": [
+                {
+                  "type": "add_chaos_token",
+                  "tokens": [
+                    "-4"
+                  ]
+                }
+              ]
+            },
+            {
+              "condition": "expert",
+              "effects": [
+                {
+                  "type": "add_chaos_token",
+                  "tokens": [
+                    "-5"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "encounter_deck",
+        "text": "Shuffle the remainder of the encounter cards to build the encounter deck."
+      },
+      {
+        "id": "$play_scenario",
+        "type": "input",
+        "input": {
+          "type": "play_scenario",
+          "branches": [
+            {
+              "id": "now_arriving_chicago",
+              "condition": {
+                "type": "multi",
+                "count": 2,
+                "conditions": [
+                  {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "apw_act_1",
+                    "options": [
+                      {
+                        "boolCondition": false
+                      }
+                    ]
+                  },
+                  {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "setting_out_from_arkham",
+                    "options": [
+                      {
+                        "boolCondition": true
+                      }
+                    ]
+                  }
+                ]
+              },
+              "description": "Now Arriving",
+              "text": "Scenario Interlude",
+              "style": "interlude",
+              "steps": [
+                "chicago_choice"
+              ],
+              "effects": [
+                {
+                  "type": "campaign_log",
+                  "section": "hidden",
+                  "id": "apw_act_1",
+                  "text": "dummy"
+                }
+              ]
+            },
+            {
+              "id": "now_arriving_memphis",
+              "condition": {
+                "type": "multi",
+                "count": 2,
+                "conditions": [
+                  {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "apw_act_1",
+                    "options": [
+                      {
+                        "boolCondition": false
+                      }
+                    ]
+                  },
+                  {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "setting_out_from_new_orleans",
+                    "options": [
+                      {
+                        "boolCondition": true
+                      }
+                    ]
+                  }
+                ]
+              },
+              "description": "Now Arriving",
+              "text": "Scenario Interlude",
+              "style": "interlude",
+              "steps": [
+                "memphis_choice"
+              ],
+              "effects": [
+                {
+                  "type": "campaign_log",
+                  "section": "hidden",
+                  "id": "apw_act_1",
+                  "text": "dummy"
+                }
+              ]
+            },
+            {
+              "id": "now_arriving_st_louis",
+              "condition": {
+                "type": "multi",
+                "count": 2,
+                "conditions": [
+                  {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "apw_act_2",
+                    "options": [
+                      {
+                        "boolCondition": false
+                      }
+                    ]
+                  },
+                  {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "apw_act_1",
+                    "options": [
+                      {
+                        "boolCondition": true
+                      }
+                    ]
+                  }
+                ]
+              },
+              "description": "Now Arriving",
+              "text": "Scenario Interlude",
+              "style": "interlude",
+              "steps": [
+                "st_louis_choice"
+              ],
+              "effects": [
+                {
+                  "type": "campaign_log",
+                  "section": "hidden",
+                  "id": "apw_act_2",
+                  "text": "dummy"
+                }
+              ]
+            },
+            {
+              "id": "now_arriving_denver",
+              "condition": {
+                "type": "multi",
+                "count": 2,
+                "conditions": [
+                  {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "apw_act_3",
+                    "options": [
+                      {
+                        "boolCondition": false
+                      }
+                    ]
+                  },
+                  {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "apw_act_2",
+                    "options": [
+                      {
+                        "boolCondition": true
+                      }
+                    ]
+                  }
+                ]
+              },
+              "description": "Now Arriving",
+              "text": "Scenario Interlude",
+              "style": "interlude",
+              "steps": [
+                "denver_choice"
+              ],
+              "effects": [
+                {
+                  "type": "campaign_log",
+                  "section": "hidden",
+                  "id": "apw_act_3",
+                  "text": "dummy"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "chicago_choice",
+        "type": "input",
+        "input": {
+          "type": "choose_one",
+          "choices": [
+            {
+              "id": "not_in_this_town",
+              "text": "<b>Not in This Town</b>",
+              "steps": [
+                "not_in_this_town_story",
+                "not_in_this_town_choice"
+              ]
+            },
+            {
+              "id": "wrong_territory",
+              "text": "<b>Wrong Territory</b>",
+              "steps": [
+                "wrong_territory_story",
+                "wrong_territory_choice"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "not_in_this_town_story",
+        "type": "story",
+        "text": "Your arrival in Chicago is timely, and you have the opportunity to interfere with the circus greatly before you both move onward.  The Chicago police are constantly on edge with the gang activity common to the city, and with a little creative reporting to avoid sounding like a looney, you might convince them to go after Blake, though if it goes badly, the police might waylay you instead."
+      },
+      {
+        "id": "not_in_this_town_choice",
+        "text": "The investigators must decide (choose one):",
+        "bullets": [
+          {
+            "text": "\"We'll try to convince the cops to raid the circus.\"\nChoose an investigator to test [intellect] or [agility] (3).  This test gets +1[per_investigator] difficulty.  Reduce the difficulty of this test by 1 for each [[Police]], [[Civic]], [[Agency]] and [[Veteran]] investigator chosen for this campaign.  Investigators at any location may commit to this test.  If you fail, place 2 resources on the scenario reference card."
+          },
+          {
+            "text": "\"We'll meddle on our own terms, however smaller.\"\nPlace 1 resource on the scenario reference card."
+          }
+        ]
+      },
+      {
+        "id": "wrong_territory_story",
+        "type": "story",
+        "text": "Your delays in getting to Chicago have limited your options in hampering the circus before you both must move on.  The various crime families of the city compete with each other bitterly, and if you could somehow convince one of the dons that the circus is a front for boot-legging on their territory, it could set Blake back quite a bit, though if it goes badly, the gangs are likely to cause you plenty of trouble instead."
+      },
+      {
+        "id": "wrong_territory_choice",
+        "text": "The investigators must decide (choose one):",
+        "bullets": [
+          {
+            "text": "\"We'll see if we can rile up the Chicago gangs.\"\nChoose an investigator to test [intellect] or [agility] (4).  This test gets +1[per_investigator] difficulty.  Reduce the difficulty of this test by 1 for each [[Criminal]], [[Socialite]], and [[Entrepreneur]] investigator chosen for this campaign.  Investigators at any location may commit to this test.  If you fail, place 3 resources on the scenario reference card."
+          },
+          {
+            "text": "\"We'll meddle on our own terms, however smaller.\"\nPlace 2 resources on the scenario reference card."
+          }
+        ]
+      },
+      {
+        "id": "memphis_choice",
+        "type": "input",
+        "input": {
+          "type": "choose_one",
+          "choices": [
+            {
+              "id": "stomping_ground",
+              "text": "<b>Stomping Ground</b>",
+              "steps": [
+                "stomping_ground_choice"
+              ]
+            },
+            {
+              "id": "fools_errand",
+              "text": "<b>Fool's Errand</b>",
+              "steps": [
+                "fools_errand_choice"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "stomping_ground_story",
+        "type": "story",
+        "text": "Your timely arrival in Memphis gives you a chance to seek out former members of the New Moon Circus -- or rather the Four Leaf Circus, as it used to be.  You are able to locate Mr. Konkin, a former strongman who quit after witnessing some of the horrors in the making.  He is reluctant to speak until you prove yourself capable of standing against Blake and his monstrous circus, though you will likely be set back by the time spent if you cannot."
+      },
+      {
+        "id": "stomping_ground_choice",
+        "text": "The investigators must decide (choose one):",
+        "bullets": [
+          {
+            "text": "\"You want proof?  Well you're gonna get it.\"\nChoose an investigator to test [willpower] or [combat] (3).  This test gets +1[per_investigator] difficulty.  Reduce the difficulty of this test by 1 for each [[Performer]], [[Warden]], [[Blessed]], and [[Cursed]] investigator chosen for this campaign. Investigators at any location may commit to this test.  If you fail, place 2 resources on the scenario reference card."
+          },
+          {
+            "text": "\"Getting back on track right away is more important.\"\nPlace 1 resource on the scenario reference card."
+          }
+        ]
+      },
+      {
+        "id": "fools_errand_story",
+        "type": "story",
+        "text": "With little time to spare before you must move on, you decide to take a riskier approach to find answers.  Locals direct you to an ancient forest outside of Memphis that was once home to grisly things that sound familiar to you now.  It's possible that something yet remains that can give you insight into stopping Blake, but it's a matter of a needle in a haystack.  You'll need to be persistent -- and lucky -- to find anything without misspending days here."
+      },
+      {
+        "id": "fools_errand_choice",
+        "text": "The investigators must decide (choose one):",
+        "bullets": [
+          {
+            "text": "\"Any advantage is worth braving a little danger.\"\nChoose an investigator to test [willpower] or [combat] (4).  This test gets +1[per_investigator] difficulty.  Reduce the difficulty of this test by 1 for each [[Hunter]], [[Believer]] and [[Chosen]] investigator chosen for this campaign.  Investigators at any location may commit to this test.  If you fail, place 3 resources on the scenario reference card."
+          },
+          {
+            "text": "\"Getting back on track right away is more important.\"\nPlace 2 resources on the scenario reference card."
+          }
+        ]
+      },
+      {
+        "id": "st_louis_choice",
+        "type": "input",
+        "input": {
+          "type": "choose_one",
+          "choices": [
+            {
+              "id": "nature_of_the_beast",
+              "text": "<b>Nature of the Beast</b>",
+              "steps": [
+                "nature_of_the_beast_choice"
+              ]
+            },
+            {
+              "id": "skeletons_in_the_closet",
+              "text": "<b>Skeletons in the Closet</b>",
+              "steps": [
+                "skeletons_in_the_closet_choice"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "nature_of_the_beast_story",
+        "type": "story",
+        "text": "Upon your arrival in St. Louis, you inquire about the circus and find that there has been an \"accident\" involving them.  Several laborers took the initiative to help unload the circus trains and were injured by the animals.  While the official word is quick to attribute the attack to temperamental creatures, it's possible that the workers were attacked to prevent them from seeing anything.  If you can help with their medical treatment, then you may get the laborers well enough to warn everyone about the circus.  It's always easier to trust locals."
+      },
+      {
+        "id": "nature_of_the_beast_choice",
+        "text": "The investigators must decide (choose one):",
+        "bullets": [
+          {
+            "text": "\"Here, we can help patch them up.\"\nInvestigators as a group must discard cards from their hands and/or play areas with a total of 4[per_investigator] or more skill icons.  Reduce this amount by 2 for each [[Medic]], [[Assistant]], [[Wayfarer]], and [[Drifter]] investigator chosen for this campaign."
+          },
+          {
+            "text": "\"We don't have the time or resources to help.\"\nPlace 1 resource on the scenario reference card."
+          }
+        ]
+      },
+      {
+        "id": "skeletons_in_the_closet_story",
+        "type": "story",
+        "text": "You arrive in St. Louis with only a few hours to spare.  You need to find something to hamper the circus activities quickly, something that the authorities can't overlook.  It occurs to you that the monsters need tremendous amounts of food over the journey, and if you can dig up some evidence of extra meat in their diet, then you may save some other lives tonight."
+      },
+      {
+        "id": "skeletons_in_the_closet_choice",
+        "text": "The investigators must decide (choose one):",
+        "bullets": [
+          {
+            "text": "\"You just have to know where to look.\"\nInvestigators as a group must discard cards from their hands and/or play areas with a total of 6[per_investigator] or more skill icons.  Reduce this amount by 2 for each [[Reporter]], [[Detective]], and [[Clairvoyant]] investigator chosen for this campaign."
+          },
+          {
+            "text": "\"We don't have the time or resources to help.\"\nPlace 2 resources on the scenario reference card."
+          }
+        ]
+      },
+      {
+        "id": "denver_choice",
+        "type": "input",
+        "input": {
+          "type": "choose_one",
+          "choices": [
+            {
+              "id": "behind_the_curtain",
+              "text": "<b>Behind the Curtain</b>",
+              "steps": [
+                "behind_the_curtain_choice"
+              ]
+            },
+            {
+              "id": "humane_treatment",
+              "text": "<b>Humane Treatment</b>",
+              "steps": [
+                "humane_treatment_choice"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "behind_the_curtain_story",
+        "type": "story",
+        "text": "Out in a city as remote as Denver, you discover that the circus is being a little less careful with its illusory disguises.  With the time you've gained, you can afford to watch for an opportunity to undo their spells and reveal their horrid deception to the public.  The trick is making the deception plain for all to see."
+      },
+      {
+        "id": "behind_the_curtain_choice",
+        "text": "The investigators must decide (choose one):",
+        "bullets": [
+          {
+            "text": "\"Time to show the city what they really are.\"\nInvestigators as a group must choose and discard 2[per_investigator] total non-weakness assets they control.  Reduce this amount by 1 for each [[Sorcerer]], [[Silver Twilight]], [[Scholar]], and [[Cultist]] investigator chosen for this campaign."
+          },
+          {
+            "text": "\"We can't afford to stay here a moment longer.\"\nPlace 1 resource on the scenario reference card."
+          }
+        ]
+      },
+      {
+        "id": "humane_treatment_story",
+        "type": "story",
+        "text": "While you arrived in Denver far later than you wished to, there is still an advantage to be exploited.  Student groups from several of the city's universities intend to boycott the circus on grounds of animal cruelty.  While they don't truly grasp the evil truth of this particular circus, some creativity on your part may assist them in dissuading others from going to see the circus."
+      },
+      {
+        "id": "humane_treatment_choice",
+        "text": "The investigators must decide (choose one):",
+        "bullets": [
+          {
+            "text": "\"Give me that paint can and pasteboard.\"\nInvestigators as a group must choose and discard 3[per_investigator] total non-weakness assets they control.  Reduce this amount by 1 for each [[Artist]], [[Dreamer]], and [[Miskatonic]] investigator chosen for this campaign."
+          },
+          {
+            "text": "\"We can't afford to stay here a moment longer.\"\nPlace 2 resources on the scenario reference card."
+          }
+        ]
+      },
+      {
+        "id": "resolution_1",
+        "type": "resolution",
+        "resolution": "R1"
+      },
+      {
+        "id": "resolution_2",
+        "type": "resolution",
+        "resolution": "R2"
+      },
+      {
+        "id": "resolution_5",
+        "type": "resolution",
+        "resolution": "R5"
+      },
+      {
+        "id": "death_time_branch_invert",
+        "type": "branch",
+        "hidden": true,
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden", 
+          "id": "apw_act_3"
+        },
+        "options": [
+          {
+            "boolCondition": false,
+            "effects": [
+              {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "apw_act_3_invert",
+                "text": "dummy"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "death_time_branch",
+        "type": "branch",
+        "text": "If the investigators were defeated before act 4:",
+        "condition": {
+          "type": "campaign_log",
+          "section": "hidden", 
+          "id": "apw_act_3_invert"
+        },
+        "options": [
+          {
+            "boolCondition": true,
+            "steps":["resolution_1"]
+          },
+          {
+            "boolCondition": false,
+            "steps": ["resolution_2"]
+          }
+        ]
+      },
+      {
+        "id": "place_1",
+        "text": "Place 1 resource on the scenario reference card."
+      },
+      {
+        "id": "place_2",
+        "text": "Place 2 resources on the scenario reference card."
+      },
+      {
+        "id": "place_2_per",
+        "text": "For each act remaining in the act deck, place 2 resources on the scenario reference card."
+      },
+      
+      {
+        "id": "record_ringmaster_days",
+        
+        "type": "input",
+        "input": {
+          "type": "counter",
+          "text": "How many resources are on the reference card?",
+          "max": {
+            "type": "constant",
+            "value": 4
+          },
+          "effects": [
+            {
+              "type": "campaign_log_count",
+              "section": "campaign_notes",
+              "id": "ringmaster_days",
+              "text": "the ringmaster had #X# days to prepare.",
+              "operation": "set_input"
+            }
+          ]
+        }
+      },
+      {
+        "id": "earn_xp",
+        "text": "Each investigator earns experience equal to the Victory X value of each card in the victory display.",
+        "type": "input",
+        "input": {
+          "type": "counter",
+          "text": "Victory display:",
+          "effects": [
+            {
+              "type": "earn_xp",
+              "investigator": "all"
+            }
+          ]
+        }
+      }
+    ],
+    "resolutions": [
+      {
+        "id": "no_resolution",
+        "title": "No resolution was reached",
+        "description": "Each investigator was defeated",
+        "investigator_status": [
+          "eliminated",
+          "physical",
+          "mental"
+        ],
+        "steps": [
+          "death_time_branch_invert",
+          "death_time_branch"
+        ]
+      },
+      {
+        "id": "R1",
+        "hidden": true,
+        "title": "Resolution 1",
+        "text": "With you and each of your companions out of commission, Ralph and Carrie make an emergency stop and throw their everything into defending while you recuperate.  By the time you've driven off the attackers and recovered from your wounds, you are days behind schedule.  All you can do is get back on the rails and hope it's not too late.",
+        "steps": [
+          "place_2_per",
+          "resolution_5"
+        ]
+      },
+      {
+        "id": "R2",
+        "hidden": true,
+        "title": "Resolution 2",
+        "text": "The performers riding the circus train finally manage to jam the wheels of your own train.  Ralph and Carrie shout at you to brace for a crash as the locked wheels buck the train upward and send you careening off to the side of the tracks.  You drag yourself from the wreckage, ready to defend yourself, but the circus train has moved on already.  More than a day goes by before you can get word to the local railways to bring a crane, putting you woefully behind schedule in getting to Los Angeles.",
+        "steps": [
+          "place_2",
+          "resolution_5"
+        ]
+      },
+      {
+        "id": "R3",
+        "title": "Resolution 3",
+        "text": "You breathe a sigh of relief as the circus train fades from view behind you.  Ralph checks his watch as he finishes attending to the machinery.  \"Nice work back there.  I think we'll get to Los Angeles just behind schedule, but not by much.\"  A little behind is more than acceptable, given the obstacles and perils you had to endure across the country.  You return to the caboose to rest, watching the landscape from the back railing, bathed in the orange glow of the setting sun.",
+        "steps": [
+          "resolution_5"
+        ]
+      },
+      {
+        "id": "R4",
+        "title": "Resolution 4",
+        "text": "You breathe a sigh of relief as the circus train fades from view behind you.  Ralph slows the train with several careful looks at the engine gauges.  \"That last fight nearly damaged the engine.  Best not to push it, unless you want to walk the rest of the way.\"  Frustrating, but sensible.  You return to the caboose to rest, watching the landscape from the back railing, bathed in the orange glow of the setting sun.",
+        "steps": [
+          "place_1",
+          "resolution_5"
+        ]
+      },
+      {
+        "id": "R5",
+        "hidden": true,
+        "title": "Resolution 5",
+        "text": "It's early morning when Carrie rouses you from sleep.  The ever-present thrum of the train wheels has stopped, and the hissing steam of the cooling engine is all but finished.  \"We're in the yard outside La Grande station,\" Carrie says gently, helping to grab your belongings.  You clamber down the back steps to find Ralph waiting for you.\n\"Well... I guess this is the end of the line.  To be honest, I'm not sure if we could go any further with you if we wanted.  After that journey... I'm already going to have nightmares.\"  He looks to his daughter, and Carrie rubs one of her arms, nodding with a rueful expression.  \"But you've got that strength to see it through.  We're counting on you.  Not just for our family, but for everybody's families.  We'll see you back in Arkham, God willing.\"  Carrie gives you and Thea tense embraces in farewell, while Ralph just offers a handshake, both covering their fear as much as they can.\nYou book into a modest hotel and collapse, still weary despite having slept through the night.  You wonder how much Blake has prepared over the last week and a half, and just how much a difference your actions over the journey have made.",
+        "steps": [
+          "record_ringmaster_days",
+          "earn_xp",
+          "$upgrade_decks"
+        ]
+      }
+    ]
+  }
