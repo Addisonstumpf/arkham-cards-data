@@ -6,15 +6,19 @@
     "type": "interlude",
     "icon": "zcx",
     "setup": [
+      "$amalthea",
+      "$bestiae",
       "interlude_1",
       "add_invocation",
       "interlude_2",
       "record_destinies",
       "interlude_3",
-      "choose_amalthea",
+      "amalthea_base_choice",
       "further_reading",
-      "choose_bestiae",
-      "bookmark"
+      "check_chosen",
+      "bestiae_base_choice",
+      "bookmark",
+      "$add_moon"
     ],
     "steps": [
       {
@@ -36,131 +40,249 @@
         ]
       },
       {
-        "id": "check_intro_offer",
-        "type": "branch",
-        "condition": {
-          "type": "campaign_log",
-          "section": "campaign_notes",
-          "id": "offer_accepted",
-          "options": [
-            {
-              "boolCondition": true,
-              "steps": ["intro_1", "intro_3"]
-            },
-            {
-              "boolCondition": false,
-              "steps": ["check_intro_offer_2"]
-            }
-          ]
-        }
-      },
-      {
-        "id": "check_intro_offer_2",
-        "type": "branch",
-        "condition": {
-          "type": "campaign_log",
-          "section": "campaign_notes",
-          "id": "offer_declined",
-          "options": [
-            {
-              "boolCondition": true,
-              "steps": ["intro_2", "starting_doom", "intro_3"]
-            }
-          ]
-        }
-      },
-      {
-        "id": "intro_1",
+        "id":"interlude_2",
         "type": "story",
-        "text": "The package contains a wealth of information - newspaper clippings, mostly, accompanied by sheets of typed notes. The information all concerns one Joseph Baxter, a self-made millionaire with a manor house on the outskirts of Arkham. His relevance to you is unclear, until you find a series of letters between Joseph and the Sheldon gang, negotiating pay for a variety of shady work, including the 'cleaning up' of, well, you. It's not clear exactly why he wanted you dead - he refers to you as 'a thorn in his side', but you'd not even heard of the man before today. Curious. And terrifying. Mostly the latter, come to think of it."
+        "text": "You ask Thea if that's all there is to the prophecy, because that doesn't explain why Blake was worried about your involvement. \"It's actually two prophecies together rather than one,\" Thea explains, turning to a later page in the book. \"Apuleius consulted the high priestess of Diana following the execution, and she gave her own prophecy of hope -- of those who would rise to stop it.\""
+      },
+      
+      {
+        "id": "destiny_rule",
+        "text": "In player order, each investigator must chooses a different destiny. If an investigator is killed or driven insane, their destiny is transferred to the investigator chosen to replace them. The app tracks these by adding a story card to your deck, rather than with a campaign log entry."
       },
       {
-        "id": "intro_2",
-        "type": "story",
-        "text": "With a full stomach and a caffeine buzz, you set out to determine just why you were targeted. It's slow work, tapping any resources you can find, but it pays dividends: buried in today's Arkham Advertiser is a report of three men arrested in your neighbourhood in the early hours of the morning, suspected to be members of the Sheldon gang. A contact of yours manages to dig up another useful tidbit: the Sheldon gang have been doing a considerable amount of work for a new benefactor, one Joseph Baxter. It's not much to show for a morning's work, but it's a start."
-      },
-      {
-        "id": "starting_doom",
-        "text": "Place 1 doom on the current agenda."
-      },
-      {
-        "id": "intro_3",
-        "type": "story",
-        "text": "The gate to Joseph Baxter's mansion is closed and barred, but you've been through too much to let that deter you. You scale a low wall, dropping over it onto a fine manicured lawn. It's time to meet your would-be executioner."
-      },
-      {
-        "id": "gather_encounter_sets",
-        "title": "Setup",
-        "type": "encounter_sets",
-        "encounter_sets": [
-          "zau_myriad_gentleman",
-          "zau_shifting_reality",
-          "zau_unravelling_years",
-          "agents_of_yog",
-          "locked_doors"
-        ]
-      },
-      {
-        "id": "setup_locations",
-        "text": "Put the Lawn, Hedge Maze, Ornate Fountain and Stables locations into play. Each investigator begins play at the Lawn."
-      },
-      {
-        "id": "set_aside_cards",
-        "text": "Set each remaining location aside, out of play, along with each copy of The Myriad Gentleman, Ex Uno Plures, They Just Keep Coming, Not Welcome Here, Aforgomon's Blade and Gaze of Aforgomon."
-      },
-      {
-        "id": "encounter_deck",
-        "text": "Shuffle the remainder of the encounter cards to build the encounter deck."
-      },
-      {
-        "id": "copy_rule",
-        "type": "rule_reminder",
-        "title": "Copies of Enemies",
-        "text": "During this scenario, investigators may be instructed to spawn copies of a displayed enemy. To do this, that investigator places the top card of their deck into play in their threat area, treating it as a copy of the specified enemy until it leaves play <i>(if it is ever unclear who should do this, the lead investigator does so).</i> When that enemy leaves play, the card's owner places it on the bottom of their deck."
-      },
-      {
-        "id": "resolution_2",
-        "type": "resolution",
-        "resolution": "R2"
-      },
-      {
-        "id": "learnt_of_ritual",
-        "effects": [
+        "id": "choose_destinies",
+        "bullet_type": "default",
+        "text": "Choose a destiny:",
+        "prompt_type": "header",
+        "type": "input",
+        "input": {
+          "type": "investigator_choice",
+          "confirm_text": "Chosen destiny:",
+          "source": "scenario",
+          "investigator": "all",
+          "special_mode": "sequential",
+          "choices": [
             {
+              "id": "heart",
+              "text": "The one who will strike the heart",
+              "condition": {
                 "type": "campaign_log",
-                "section": "campaign_notes",
-                "id": "learnt_of_ritual",
-                "text": "the investigators learnt of the Myriad's ritual."
-            }
-        ]
-      },
-      {
-        "id": "add_aforgomons_blade",
-        "text": "If the Myriad Gentleman <i>(Master of the House)</i> is in the victory display, any one investigator may choose to add Aforgomon's Blade to their deck. If an investigator chooses to include Aforgomon's Blade in their deck, they must also add the Gaze of Aforgomon weakness to their deck. These cards do not count towards that investigator's deck size.",
-        "effects": [
-          {
-            "type": "add_card",
-            "investigator": "choice",
-            "card": "zau_00042"
-          }
-        ]
-      },
-      {
-        "id": "check_aforgomons_blade",
-        "hidden": true,
-        "type": "branch",
-        "condition": {
-          "type": "has_card",
-          "investigator": "each",
-          "card": "zau_00042",
-          "options": [
-            {
-              "boolCondition": true,
+                "section": "hidden",
+                "id": "picked_heart",
+                "options": [
+                  {
+                    "boolCondition": false
+                  }
+                ]
+              },
               "effects": [
+                {
+                  "type": "campaign_log",
+                  "section": "hidden",
+                  "id": "picked_heart",
+                  "text": "dummy"
+                },
                 {
                   "type": "add_card",
                   "investigator": "$input_value",
-                  "card": "zau_00043"
+                  "card": "zcxc_heart",
+                  "hidden": true
+                }
+              ]
+            },
+            {
+              "id": "pipes",
+              "text": "The one who will silence the pipes",
+              "condition": {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "picked_pipes",
+                "options": [
+                  {
+                    "boolCondition": false
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "campaign_log",
+                  "section": "hidden",
+                  "id": "picked_pipes",
+                  "text": "dummy"
+                },
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_pipes",
+                  "hidden": true
+                }
+              ]
+            },
+            {
+              "id": "torch",
+              "text": "The one who will raise the torch",
+              "condition": {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "picked_torch",
+                "options": [
+                  {
+                    "boolCondition": false
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "campaign_log",
+                  "section": "hidden",
+                  "id": "picked_torch",
+                  "text": "dummy"
+                },
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_torch",
+                  "hidden": true
+                }
+              ]
+            },
+            {
+              "id": "rock",
+              "text": "The one who will split the rock",
+              "condition": {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "picked_rock",
+                "options": [
+                  {
+                    "boolCondition": false
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "campaign_log",
+                  "section": "hidden",
+                  "id": "picked_rock",
+                  "text": "dummy"
+                },
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_rock",
+                  "hidden": true
+                }
+              ]
+            },
+            {
+              "id": "sigil",
+              "text": "The one who will scribe the sigil",
+              "condition": {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "picked_sigil",
+                "options": [
+                  {
+                    "boolCondition": false
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "campaign_log",
+                  "section": "hidden",
+                  "id": "picked_sigil",
+                  "text": "dummy"
+                },
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_sigil",
+                  "hidden": true
+                }
+              ]
+            },
+            {
+              "id": "stain",
+              "text": "The one who will cleanse the stain",
+              "condition": {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "picked_stain",
+                "options": [
+                  {
+                    "boolCondition": false
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "campaign_log",
+                  "section": "hidden",
+                  "id": "picked_stain",
+                  "text": "dummy"
+                },
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_stain",
+                  "hidden": true
+                }
+              ]
+            },
+            {
+              "id": "prayer",
+              "text": "The one who will recite the prayer",
+              "condition": {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "picked_prayer",
+                "options": [
+                  {
+                    "boolCondition": false
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "campaign_log",
+                  "section": "hidden",
+                  "id": "picked_prayer",
+                  "text": "dummy"
+                },
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_prayer",
+                  "hidden": true
+                }
+              ]
+            },
+            {
+              "id": "burden",
+              "text": "The one who will bear the burden",
+              "condition": {
+                "type": "campaign_log",
+                "section": "hidden",
+                "id": "picked_burden",
+                "options": [
+                  {
+                    "boolCondition": false
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "campaign_log",
+                  "section": "hidden",
+                  "id": "picked_burden",
+                  "text": "dummy"
+                },
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_burden",
+                  "hidden": true
                 }
               ]
             }
@@ -168,70 +290,267 @@
         }
       },
       {
-        "id": "fled_manor",
-        "effects": [
-            {
-                "type": "campaign_log",
-                "section": "campaign_notes",
-                "id": "fled_manor",
-                "text": "the investigators fled the Gentleman's manor."
-            }
-        ]
+        "id": "interlude_3",
+        "type": "story",
+        "text": "Thea reads out the translated descriptions of these foreseen figures and you must admit, you do fit the model. Granted you're not sure if a priestess from nearly two millennia ago could see you specifically, but it's as likely as all the other improbable things that happened in the past two weeks. Thea's expression grows a little uncertain as she looks between you and the text. \"Y'all are there, plain to see, but... I just wish I knew what there was still in store for me. If this whole prophecy is true, then my visions were just to get y'all involved in it, and now... well, is that it for me?\""
       },
-    {
-        "id": "earn_xp",
-        "text": "Each investigator earns experience equal to the Victory X value of each card in the victory display.",
+      {
+        "id": "amalthea_base_choice",
+        "text": "The investigators must decide (choose one):",
         "type": "input",
         "input": {
-          "type": "counter",
-          "text": "Victory display:",
-          "effects": [
+          "type": "choose_one",
+          "choices": [
             {
-              "type": "earn_xp",
-              "investigator": "all"
+              "id": "courage",
+              "text": "\"Prophecy can only happen if people like you take action.\"",
+              "steps": [
+                "amalthea_courage_story",
+                "amalthea_courage_swap"
+              ]
+            },
+            {
+              "id": "wisdom",
+              "text": "\"Perhaps you have a similar role to the Priestess of Diana.\"",
+              "effects": [
+                "amalthea_wisdom_story",
+                "amalthea_wisdom_swap"
+              ]
+            }
+          ]
+        } 
+      },
+      {
+        "id": "amalthea_courage_story",
+        "type": "story",
+        "text": "You argue that the prophecy was peeping through the keyhole of time. Just because she wasn't in the small visible part doesn't mean she isn't there and making a huge difference. Take the Dykstras for example, where did the prophecy talk about them and their instrumental part in getting you here? Thea exhales and looks visibly more relieved. \"Y'all are right. I've got to take matters into my own hands and believe that what I'm doing makes a difference. Y'all were doing that before you even knew about any prophecies.\""
+      },
+      {
+        "id": "amalthea_courage_swap",
+        "text": "The investigator with Amalthea Weaver in their deck swaps her with Amalthea Weaver <i>(Aspirant of Courage)</i>.",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00228",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "type": "replace_card",
+                  "investigator": "all",
+                  "old_card": "zcxc_00228",
+                  "new_card": "zcxc_00229"
+                },
+                {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "amalthea_courage",
+                    "text": "dummy"
+                }
+              ]
             }
           ]
         }
-      }
-    ],
-    "resolutions": [
-      {
-        "id": "no_resolution",
-        "title": "No resolution was reached",
-        "description": "Each investigator was defeated",
-        "investigator_status": [
-          "eliminated",
-          "physical",
-          "mental"
-        ],
-        "steps": [
-          "resolution_2"
-        ]
       },
       {
-        "id": "R1",
-        "title": "Resolution 1",
-        "text": "Joseph Baxter, the man whose house you've invaded, is part of a cult dedicated to an entity known as Aforgomon. Quite a large part of it, judging by the quantity of him you've encountered today. They're still coming for you though, endless waves of an impossible man, and you have no choice but to make your escape. \nYou've found very little of why he wants you dead - a scrawled note linking you to an event in Cairo, and a letter from the Sheldon gang promising you'll soon be dealt with. \nYou've never even been to Cairo. Perhaps he's mad. Then again, considering what you've seen today, perhaps you are. \nAs the sun dips below the horizon, you consider your options. You could go to the police, but there's no chance they'd believe you. You could walk away, just disappear into the night... but you've seen what this cult can do, and you can't stand back and let them carry out their plan. And besides, insane or not, they still want you dead. Taking the fight to them seems more appealing than simply being hunted down. \nYou have a location, and no time to lose. Better get to it.",
-        "steps": [
-          "learnt_of_ritual",
-          "add_aforgomons_blade",
-          "check_aforgomons_blade",
-          "earn_xp",
-          "$upgrade_decks"
-        ]
+        "id": "amalthea_wisdom_story",
+        "type": "story",
+        "text": "You argue that perhaps her visions are an extension of the same prophecy. The ancient priestess could only see and understand so much, so perhaps it's up to Thea to complete the rest. Her ability and knowledge have allowed you to understand this ages old prophecy in the first place, after all. Thea looks down at the book in her hands, nodding quietly. \"Y'all are right. I've got to stop thinking about my visions in such a narrow window. There's got to be more to them, if only I focus on understanding them.\""
       },
       {
-        "id": "R2",
-        "hidden": true,
-        "title": "Resolution 2",
-        "text": "You barely remember your flight from Joseph Baxter's manor house. The wounds you nurse are severe, but you made it out alive, which is something. \nYou don't like what's happening here, not at all. Between the <i>things</i> that pursued you last night, and the unnatural proliferation of the man you faced today... It's enough to make you question your own sanity. Certainly more than you can take to the police, lest you end up in the local asylum. Which means, you conclude with a sinking feeling, that the only force in a position to stand against them is you.",
-        "steps": [
-          "fled_manor",
-          "add_aforgomons_blade",
-          "check_aforgomons_blade",
-          "earn_xp",
-          "$upgrade_decks"
-        ]
+        "id": "amalthea_wisdom_swap",
+        "text": "The investigator with Amalthea Weaver in their deck swaps her with Amalthea Weaver <i>(Aspirant of Wisdom)</i>.",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00228",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "type": "replace_card",
+                  "investigator": "all",
+                  "old_card": "zcxc_00228",
+                  "new_card": "zcxc_00230"
+                },
+                {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "amalthea_wisdom",
+                    "text": "dummy"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "further_reading",
+        "type": "story",
+        "text": "Thea turns back to the page with the profane declaration and furls her brow in contemplation. \"I just wish we knew what Blake was planning. He seems to have everything he needs for this prophecy, and he only needed to come to California for this eclipse, so why go out of his way to hunt you down? He's just so certain of these prophecies and my visions, but why?\""
+      },
+      {
+        "id": "check_chosen",
+        "type": "branch",
+        "text": "If 1 or more [[Chosen]] investigators were chosen for this campaign:",
+        "condition": {
+          "type": "multi",
+          "count": 1,
+          "conditions": [
+            {
+              "type": "campaign_data",
+              "campaign_data": "investigator",
+              "investigator_data": "trait",
+              "options": [
+                {
+                  "condition": "Chosen"
+                }
+              ]
+            }
+          ],
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": ["no_choice", "heal_chosen"]
+            }
+          ]
+        }
+      },
+      {
+        "id": "no_choice",
+        "type": "story",
+        "text": "You can't begin to understand a mind as twisted and evil as Blake's, but as someone who accepted your place in events long ago, you have a little insight into his fixation."
+      },
+      {
+        "id": "heal_chosen",
+        "text": "Each [[Chosen]] investigator may heal 1 physical or mental trauma.",
+        "type": "branch",
+        "condition": {
+          "type": "campaign_data",
+          "campaign_data": "investigator",
+          "investigator_data": "trait",
+          "options": [
+            {
+              "condition": "Chosen",
+              "effects": [
+                {
+                  "type": "trauma",
+                  "investigator": "$input_value",
+                  "mental_or_physical": -1
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "bestiae_base_choice",
+        "text": "The investigators must decide (choose one):",
+        "type": "input",
+        "input": {
+          "type": "choose_one",
+          "choices": [
+            {
+              "id": "conviction",
+              "text": "\"Maybe he's so dedicated that literally nothing else matters.\"",
+              "steps": [
+                "bestiae_conviction_story",
+                "bestiae_conviction_swap"
+              ]
+            },
+            {
+              "id": "obsession",
+              "text": "\"Maybe we just represent failure to him personally.\"",
+              "effects": [
+                "bestiae_obsession_story",
+                "bestiae_obsession_swap"
+              ]
+            }
+          ]
+        } 
+      },
+      {
+        "id": "bestiae_conviction_story",
+        "type": "story",
+        "text": "You suggest that since Blake serves Shub-Niggurath, this ritual is millennia in the making. He would rather die than allow the cult to fail a second time, and as such he would follow the tome of Apuleius to the letter in his task."
+      },
+      {
+        "id": "bestiae_conviction_swap",
+        "text": "The investigator with De Cultus Bestiae in their deck swaps it with De Cultus Bestiae <i>(Interpretation of Conviction)</i>.",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00235",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_00236"
+                },
+                {
+                  "type": "remove_card",
+                  "card": "zcxc_00235"
+                },
+                {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "bestiae_conviction",
+                    "text": "dummy"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "bestiae_obsession_story",
+        "type": "story",
+        "text": "You suggest that for a man as confident and prepared as Blake is, your presence in the prophecy represents more than simple prose. Your theft of Apuleius' tome also lends a personal aspect to the situation, and helps drive his existing vendetta against you."
+      },
+      {
+        "id": "bestiae_obsession_swap",
+        "text": "The investigator with De Cultus Bestiae in their deck swaps it with De Cultus Bestiae <i>(Interpretation of Obsession)</i>.",
+        "type": "branch",
+        "condition": {
+          "type": "has_card",
+          "investigator": "each",
+          "card": "zcxc_00235",
+          "options": [
+            {
+              "boolCondition": true,
+              "effects": [
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_00237"
+                },
+                {
+                  "type": "remove_card",
+                  "card": "zcxc_00235"
+                },
+                {
+                    "type": "campaign_log",
+                    "section": "hidden",
+                    "id": "bestiae_obsession",
+                    "text": "dummy"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "bookmark",
+        "type": "story",
+        "text": "There's no end to the theories you could imagine about the prophecies and Blake. What you've supposed is just as likely to be true as not, after all. You and Thea agree to shelve these thoughts as you apply your brains to the more immediate problems."
       }
     ]
   }

@@ -35,6 +35,829 @@
           "text": "A [moon] token revealed outside of a skill test has no effect on its own unless otherwise specified by a card effect."
         }
       ]
+    },
+    {
+      "id": "$add_moon",
+      "text": "Add 1 [moon] token to the chaos bag for the remainder of the campaign.",
+      "effects": [
+        {
+          "type": "add_chaos_token",
+          "tokens": [
+            "moon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "$amalthea",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden", 
+        "id": "amalthea_base"
+      },
+      "options": [
+        {
+          "boolCondition": true,
+          "steps": ["$amalthea_base_branch_1"]
+        }
+      ]
+    },
+    {
+      "id": "$amalthea_base_branch_1",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden", 
+        "id": "amalthea_courage"
+      },
+      "options": [
+        {
+          "boolCondition": true,
+          "steps": ["$amalthea_courage_branch_1"]
+        },
+        {
+          "boolCondition": false,
+          "steps": ["$amalthea_base_branch_2"]
+        }
+      ]
+    },
+    {
+      "id": "$amalthea_base_branch_2",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden", 
+        "id": "amalthea_wisdom"
+      },
+      "options": [
+        {
+          "boolCondition": true,
+          "steps": ["$amalthea_wisdom_branch_1"]
+        },
+        {
+          "boolCondition": false,
+          "steps": ["$amalthea_base_check"]
+        }
+      ]
+    },
+    {
+      "id": "$amalthea_courage_branch_1",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden", 
+        "id": "amalthea_purity"
+      },
+      "options": [
+        {
+          "boolCondition": true,
+          "steps": ["$amalthea_purity_check"]
+        },
+        {
+          "boolCondition": false,
+          "steps": ["$amalthea_courage_branch_2"]
+        }
+      ]
+    },
+    {
+      "id": "$amalthea_courage_branch_2",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden", 
+        "id": "amalthea_resolve"
+      },
+      "options": [
+        {
+          "boolCondition": true,
+          "steps": ["$amalthea_resolve_check"]
+        },
+        {
+          "boolCondition": false,
+          "steps": ["$amalthea_courage_check"]
+        }
+      ]
+    },
+    {
+      "id": "$amalthea_wisdom_branch_1",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden", 
+        "id": "amalthea_enlightenment"
+      },
+      "options": [
+        {
+          "boolCondition": true,
+          "steps": ["$amalthea_enlightenment_check"]
+        },
+        {
+          "boolCondition": false,
+          "steps": ["$amalthea_wisdom_branch_2"]
+        }
+      ]
+    },
+    {
+      "id": "$amalthea_wisdom_branch_2",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden", 
+        "id": "amalthea_mystery"
+      },
+      "options": [
+        {
+          "boolCondition": true,
+          "steps": ["$amalthea_mystery_check"]
+        },
+        {
+          "boolCondition": false,
+          "steps": ["$amalthea_wisdom_check"]
+        }
+      ]
+    },
+    {
+      "id": "$amalthea_base_check",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_00228",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$amalthea_base_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$amalthea_base_remediate",
+      "text": "Because the original bearer of Amalthea Weaver is not playing this scenario, another investigator must become the bearer.",
+      "effects": [
+        {
+          "type": "remove_card",
+          "card": "zcxc_00228"
+        },
+        {
+          "type": "add_card",
+          "investigator": "any",
+          "card": "zcxc_00228"
+        }
+      ]
+    },
+    {
+      "id": "$amalthea_courage_check",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_00229",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$amalthea_courage_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$amalthea_courage_remediate",
+      "text": "Because the original bearer of Amalthea Weaver is not playing this scenario, another investigator must become the bearer.",
+      "effects": [
+        {
+          "type": "remove_card",
+          "card": "zcxc_00229"
+        },
+        {
+          "type": "add_card",
+          "investigator": "any",
+          "card": "zcxc_00229"
+        }
+      ]
+    },
+    {
+      "id": "$amalthea_wisdom_check",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_00230",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$amalthea_wisdom_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$amalthea_wisdom_remediate",
+      "text": "Because the original bearer of Amalthea Weaver is not playing this scenario, another investigator must become the bearer.",
+      "effects": [
+        {
+          "type": "remove_card",
+          "card": "zcxc_00230"
+        },
+        {
+          "type": "add_card",
+          "investigator": "any",
+          "card": "zcxc_00230"
+        }
+      ]
+    },
+    {
+      "id": "$amalthea_purity_check",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_00231",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$amalthea_purity_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$amalthea_purity_remediate",
+      "text": "Because the original bearer of Amalthea Weaver is not playing this scenario, another investigator must become the bearer.",
+      "effects": [
+        {
+          "type": "remove_card",
+          "card": "zcxc_00231"
+        },
+        {
+          "type": "add_card",
+          "investigator": "any",
+          "card": "zcxc_00231"
+        }
+      ]
+    },
+    {
+      "id": "$amalthea_resolve_check",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_00232",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$amalthea_resolve_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$amalthea_resolve_remediate",
+      "text": "Because the original bearer of Amalthea Weaver is not playing this scenario, another investigator must become the bearer.",
+      "effects": [
+        {
+          "type": "remove_card",
+          "card": "zcxc_00232"
+        },
+        {
+          "type": "add_card",
+          "investigator": "any",
+          "card": "zcxc_00232"
+        }
+      ]
+    },
+    {
+      "id": "$amalthea_enlightenment_check",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_00233",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$amalthea_enlightenment_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$amalthea_enlightenment_remediate",
+      "text": "Because the original bearer of Amalthea Weaver is not playing this scenario, another investigator must become the bearer.",
+      "effects": [
+        {
+          "type": "remove_card",
+          "card": "zcxc_00233"
+        },
+        {
+          "type": "add_card",
+          "investigator": "any",
+          "card": "zcxc_00233"
+        }
+      ]
+    },
+    {
+      "id": "$amalthea_mystery_check",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_00234",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$amalthea_mystery_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$amalthea_mystery_remediate",
+      "text": "Because the original bearer of Amalthea Weaver is not playing this scenario, another investigator must become the bearer.",
+      "effects": [
+        {
+          "type": "remove_card",
+          "card": "zcxc_00234"
+        },
+        {
+          "type": "add_card",
+          "investigator": "any",
+          "card": "zcxc_00234"
+        }
+      ]
+    },
+    {
+      "id": "$bestiae",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden", 
+        "id": "bestiae_base"
+      },
+      "options": [
+        {
+          "boolCondition": true,
+          "steps": ["$bestiae_base_branch_1"]
+        }
+      ]
+    },
+    {
+      "id": "$bestiae_base_branch_1",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden", 
+        "id": "bestiae_conviction"
+      },
+      "options": [
+        {
+          "boolCondition": true,
+          "steps": ["$bestiae_conviction_branch_1"]
+        },
+        {
+          "boolCondition": false,
+          "steps": ["$bestiae_base_branch_2"]
+        }
+      ]
+    },
+    {
+      "id": "$bestiae_base_branch_2",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden", 
+        "id": "bestiae_obsession"
+      },
+      "options": [
+        {
+          "boolCondition": true,
+          "steps": ["$bestiae_obsession_branch_1"]
+        },
+        {
+          "boolCondition": false,
+          "steps": ["$bestiae_base_check"]
+        }
+      ]
+    },
+    {
+      "id": "$bestiae_conviction_branch_1",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden", 
+        "id": "bestiae_beyond"
+      },
+      "options": [
+        {
+          "boolCondition": true,
+          "steps": ["$bestiae_beyond_check"]
+        },
+        {
+          "boolCondition": false,
+          "steps": ["$bestiae_conviction_branch_2"]
+        }
+      ]
+    },
+    {
+      "id": "$bestiae_conviction_branch_2",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden", 
+        "id": "bestiae_eternal"
+      },
+      "options": [
+        {
+          "boolCondition": true,
+          "steps": ["$bestiae_eternal_check"]
+        },
+        {
+          "boolCondition": false,
+          "steps": ["$bestiae_conviction_check"]
+        }
+      ]
+    },
+    {
+      "id": "$bestiae_obsession_branch_1",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden", 
+        "id": "bestiae_horde"
+      },
+      "options": [
+        {
+          "boolCondition": true,
+          "steps": ["$bestiae_horde_check"]
+        },
+        {
+          "boolCondition": false,
+          "steps": ["$bestiae_obsession_branch_2"]
+        }
+      ]
+    },
+    {
+      "id": "$bestiae_obsession_branch_2",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden", 
+        "id": "bestiae_behemoth"
+      },
+      "options": [
+        {
+          "boolCondition": true,
+          "steps": ["$bestiae_behemoth_check"]
+        },
+        {
+          "boolCondition": false,
+          "steps": ["$bestiae_obsession_check"]
+        }
+      ]
+    },
+    {
+      "id": "$bestiae_base_check",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_00235",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$bestiae_base_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$bestiae_base_remediate",
+      "text": "Because the original bearer of De Cultus Bestiae is not playing this scenario, another investigator must become the bearer.",
+      "effects": [
+        {
+          "type": "remove_card",
+          "card": "zcxc_00235"
+        },
+        {
+          "type": "add_card",
+          "investigator": "any",
+          "card": "zcxc_00235"
+        }
+      ]
+    },
+    {
+      "id": "$bestiae_conviction_check",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_00236",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$bestiae_conviction_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$bestiae_conviction_remediate",
+      "text": "Because the original bearer of De Cultus Bestiae is not playing this scenario, another investigator must become the bearer.",
+      "effects": [
+        {
+          "type": "remove_card",
+          "card": "zcxc_00236"
+        },
+        {
+          "type": "add_card",
+          "investigator": "any",
+          "card": "zcxc_00236"
+        }
+      ]
+    },
+    {
+      "id": "$bestiae_obsession_check",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_00237",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$bestiae_obsession_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$bestiae_obsession_remediate",
+      "text": "Because the original bearer of De Cultus Bestiae is not playing this scenario, another investigator must become the bearer.",
+      "effects": [
+        {
+          "type": "remove_card",
+          "card": "zcxc_00237"
+        },
+        {
+          "type": "add_card",
+          "investigator": "any",
+          "card": "zcxc_00237"
+        }
+      ]
+    },
+    {
+      "id": "$bestiae_beyond_check",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_00238",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$bestiae_beyond_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$bestiae_beyond_remediate",
+      "text": "Because the original bearer of De Cultus Bestiae is not playing this scenario, another investigator must become the bearer.",
+      "effects": [
+        {
+          "type": "remove_card",
+          "card": "zcxc_00238"
+        },
+        {
+          "type": "add_card",
+          "investigator": "any",
+          "card": "zcxc_00238"
+        }
+      ]
+    },
+    {
+      "id": "$bestiae_eternal_check",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_00239",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$bestiae_eternal_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$bestiae_eternal_remediate",
+      "text": "Because the original bearer of De Cultus Bestiae is not playing this scenario, another investigator must become the bearer.",
+      "effects": [
+        {
+          "type": "remove_card",
+          "card": "zcxc_00239"
+        },
+        {
+          "type": "add_card",
+          "investigator": "any",
+          "card": "zcxc_00239"
+        }
+      ]
+    },
+    {
+      "id": "$bestiae_horde_check",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_00240",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$bestiae_horde_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$bestiae_horde_remediate",
+      "text": "Because the original bearer of De Cultus Bestiae is not playing this scenario, another investigator must become the bearer.",
+      "effects": [
+        {
+          "type": "remove_card",
+          "card": "zcxc_00240"
+        },
+        {
+          "type": "add_card",
+          "investigator": "any",
+          "card": "zcxc_00240"
+        }
+      ]
+    },
+    {
+      "id": "$bestiae_behemoth_check",
+      "hidden": true,
+      "type": "branch",
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_00241",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$bestiae_behemoth_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$bestiae_behemoth_remediate",
+      "text": "Because the original bearer of De Cultus Bestiae is not playing this scenario, another investigator must become the bearer.",
+      "effects": [
+        {
+          "type": "remove_card",
+          "card": "zcxc_00241"
+        },
+        {
+          "type": "add_card",
+          "investigator": "any",
+          "card": "zcxc_00241"
+        }
+      ]
+    },
+    {
+      "id": "$destinies",
+      "hidden": true,
+      "steps": [
+        "$heart",
+        "$pipes",
+        "$torch",
+        "$rock",
+        "$sigil",
+        "$stain",
+        "$prayer",
+        "$burden"
+      ]
+    },
+    {
+      "id": "$heart",
+      "type": "branch",
+      "hidden": true,
+      "condition": {
+        "type": "campaign_log",
+        "section": "hidden",
+        "id": "picked_heart",
+        "options": [
+          {
+            "boolCondition": true,
+            "steps": [
+              "$heart_check"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$heart_check",
+      "type": "branch",
+      "hidden": true,
+      "condition": {
+        "type": "has_card",
+        "card": "zcxc_heart",
+        "investigator": "any",
+        "options": [
+          {
+            "boolCondition": false,
+            "steps": [
+              "$heart_remediate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "$heart_remediate",
+      "text": "Because the investigator whose destiny is Heart is not playing this scenario, an investigator without a destiny must take on this destiny.",
+      "type": "input",
+      "input": {
+        "type": "investigator_choice",
+        "source": "campaign",
+        "investigator": "any",
+        "choices": [
+          {
+            "id": "heart",
+            "text": "Heart",
+            "effects": [
+              {
+                "type": "remove_card",
+                "card": "zcxc_heart"
+              },
+              {
+                "type": "add_card",
+                "investigator": "$input_value",
+                "card": "zcxc_heart"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,77 +1,197 @@
 {
-    "id": "the_myriad_gentleman",
-    "scenario_name": "The Myriad Gentleman",
-    "header": "Scenario II",
-    "full_name": "Scenario II: The Myriad Gentleman",
-    "chaos_bag_card": "zau_00023",
-    "chaos_bag_card_text": "[skull]: -1 (-3 instead if there is a [[Myriad]] enemy at your location).\n[cultist]: -1. If you succeed, deal 1 damage to a [[Myriad]] enemy at your location.\n[tablet]: -2. If you fail and it is Act 2 or 3, spawn a copy of The Myriad Gentleman engaged with you.",
-    "chaos_bag_card_back_text": "[skull]: -2 (-4 instead if there is a [[Myriad]] enemy at your location).\n[cultist]: -3. If you succeed, deal 1 damage to a [[Myriad]] enemy at your location.\n[tablet]: -3. If you fail and it is Act 2 or 3, spawn a copy of The Myriad Gentleman engaged with you.",
-    "icon": "zau_myriad_gentleman",
+    "id": "bacchanalia",
+    "scenario_name": "Bacchanalia",
+    "header": "Scenario VI",
+    "full_name": "Scenario VI: Bacchanalia",
+    "chaos_bag_card": "z",
+    "chaos_bag_card_text": "",
+    "chaos_bag_card_back_text": "",
+    "icon": "zcx_bacchanalia",
     "setup": [
-      "check_intro_offer",
-      "$check_tarot_reading",
+      "intro_1",
+      "socialite_st_check",
+      "intro_2",
+      "vices_story",
+      "ask_revelry",
+      "ask_intimacy",
+      "ask_opulence",
+      "ask_violence",
+      "force_violence",
+      "branch_tarot_reading",
+      "$amalthea",
+      "$bestiae",
+      "$destinies",
       "gather_encounter_sets",
-      "setup_locations",
+      "setup_locations", 
+      "setup_socialites",
       "set_aside_cards",
       "encounter_deck",
-      "copy_rule",
       "$play_scenario"
     ],
     "rules": [
     ],
     "steps": [
       {
-        "id": "check_intro_offer",
-        "type": "branch",
-        "condition": {
-          "type": "campaign_log",
-          "section": "campaign_notes",
-          "id": "offer_accepted",
-          "options": [
-            {
-              "boolCondition": true,
-              "steps": ["intro_1", "intro_3"]
-            },
-            {
-              "boolCondition": false,
-              "steps": ["check_intro_offer_2"]
-            }
-          ]
-        }
-      },
-      {
-        "id": "check_intro_offer_2",
-        "type": "branch",
-        "condition": {
-          "type": "campaign_log",
-          "section": "campaign_notes",
-          "id": "offer_declined",
-          "options": [
-            {
-              "boolCondition": true,
-              "steps": ["intro_2", "starting_doom", "intro_3"]
-            }
-          ]
-        }
-      },
-      {
         "id": "intro_1",
         "type": "story",
-        "text": "The package contains a wealth of information - newspaper clippings, mostly, accompanied by sheets of typed notes. The information all concerns one Joseph Baxter, a self-made millionaire with a manor house on the outskirts of Arkham. His relevance to you is unclear, until you find a series of letters between Joseph and the Sheldon gang, negotiating pay for a variety of shady work, including the 'cleaning up' of, well, you. It's not clear exactly why he wanted you dead - he refers to you as 'a thorn in his side', but you'd not even heard of the man before today. Curious. And terrifying. Mostly the latter, come to think of it."
+        "text": "There's not a moment to lose now. You make a tour of the city's newspaper stands and delve into the society pages. If there's any big organization dedicated to Shub-Niggurath, it has to be exclusive, perhaps even secretive to avoid any ignorant socialite joining them by mistake, and likely has some obvious connection only noticeable to those looking for it. One name among the newspapers catches your eye more than the others -- the Liber Pater Society.\nFrom what you can gather, the society is long-established with a reputation for hosting lavish affairs for the elite. Many a celebrity and millionaire have been denied membership, the papers eagerly tell, and committees for public morals have often denounced their libertine activities, but never to any real effect. The few pictures available of their weekly galas depict scenes of Roman decadence, connecting the old cult alibi with modern entertainment of Blake's caliber. You're in luck that the society meets on Sunday nights."
+      },
+      
+      {
+        "id": "misk_scholar_believer_check",
+        "type": "branch",
+        "text": "If 1 or more [[Socialite]] or [[Silver Twilight]] investigators were chosen for this campaign:",
+        "condition": {
+          "type": "multi",
+          "count": 1,
+          "conditions": [
+            {
+              "type": "campaign_data",
+              "campaign_data": "investigator",
+              "investigator_data": "trait",
+              "options": [
+                {
+                  "condition": "Socialite"
+                }
+              ]
+            },
+            {
+              "type": "campaign_data",
+              "campaign_data": "investigator",
+              "investigator_data": "trait",
+              "options": [
+                {
+                  "condition": "Silver Twilight"
+                }
+              ]
+            }
+          ],
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": ["upper_echelons"]
+            }
+          ]
+        }
+      },
+      {
+        "id": "upper_echelons",
+        "text": "<i>It's hardly your kind of crowd, but you're accustomed to social hobnobbing and prying into hidden affairs. It's almost a relief from the circus and wilderness.</i> Each [[Socialite]] and [[Silver Twilight]] investigator begins this scenario with 2 additional resources."
       },
       {
         "id": "intro_2",
         "type": "story",
-        "text": "With a full stomach and a caffeine buzz, you set out to determine just why you were targeted. It's slow work, tapping any resources you can find, but it pays dividends: buried in today's Arkham Advertiser is a report of three men arrested in your neighbourhood in the early hours of the morning, suspected to be members of the Sheldon gang. A contact of yours manages to dig up another useful tidbit: the Sheldon gang have been doing a considerable amount of work for a new benefactor, one Joseph Baxter. It's not much to show for a morning's work, but it's a start."
+        "text": "You return to the hotel at once and prepare your best available clothes for the society affair. Though not exactly formal, Thea's fortune teller robes do fit the old Roman theme of their parties. She looks in the mirror self-consciously as you converse. \"I've never been to something so... extravagant. Or maybe corrupt is more like it. The Four Leaf Circus wasn't exactly high class, but they had standards. What about you? Y'all don't have any... vices, do you?\""
       },
       {
-        "id": "starting_doom",
-        "text": "Place 1 doom on the current agenda."
+        "id": "vices_story",
+        "text": "Each investigator may choose any of the following. The app adds temporary story cardsto your deck to track them for this scenario:",
+        "bullets": [
+          {
+            "text": "\"Of course not.\" (Remember that you have \"a vice for revelry.\")"
+          },
+          {
+            "text": "\"Not a bit.\" (Remember that you have \"a vice for intimacy.\")"
+          },
+          {
+            "text": "\"Don't worry.\" (Remember that you have \"a vice for opulence.\")"
+          },
+          {
+            "text": "\"I'll be fine.\" (Remember that you have \"a vice for violence.\" If the Curse of the Rougarou is in your deck, you must choose this option.)"
+          }
+        ]
       },
       {
-        "id": "intro_3",
-        "type": "story",
-        "text": "The gate to Joseph Baxter's mansion is closed and barred, but you've been through too much to let that deter you. You scale a low wall, dropping over it onto a fine manicured lawn. It's time to meet your would-be executioner."
+        "id": "ask_revelry",
+        "type": "input",
+        "bullet_type": "none",
+        "input": {
+          "type": "investigator_choice",
+          "source": "scenario",
+          "investigator": "all",
+          "choices": [
+            {
+              "id": "revelry",
+              "text": "Revelry",
+              "effects": [
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_revelry"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "ask_intimacy",
+        "type": "input",
+        "bullet_type": "none",
+        "input": {
+          "type": "investigator_choice",
+          "source": "scenario",
+          "investigator": "all",
+          "choices": [
+            {
+              "id": "intimacy",
+              "text": "Intimacy",
+              "effects": [
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_intimacy"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "ask_opulence",
+        "type": "input",
+        "bullet_type": "none",
+        "input": {
+          "type": "investigator_choice",
+          "source": "scenario",
+          "investigator": "all",
+          "choices": [
+            {
+              "id": "opulence",
+              "text": "Opulence",
+              "effects": [
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_opulence"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "ask_violence",
+        "type": "input",
+        "bullet_type": "none",
+        "input": {
+          "type": "investigator_choice",
+          "source": "scenario",
+          "investigator": "all",
+          "choices": [
+            {
+              "id": "violence",
+              "text": "Violence",
+              "effects": [
+                {
+                  "type": "add_card",
+                  "investigator": "$input_value",
+                  "card": "zcxc_violence"
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "id": "branch_tarot_reading",
@@ -138,35 +258,43 @@
         "title": "Setup",
         "type": "encounter_sets",
         "encounter_sets": [
-          "zau_myriad_gentleman",
-          "zau_shifting_reality",
-          "zau_unravelling_years",
-          "agents_of_yog",
-          "locked_doors"
+          "zcx_bacchanalia",
+          "zcx_cult_of_shub_niggurath",
+          "zcx_new_moon_entertainers",
+          "zcx_panicked_masses",
+          "zcx_primordial_evils"
         ]
       },
       {
         "id": "setup_locations",
-        "text": "Put the Lawn, Hedge Maze, Ornate Fountain and Stables locations into play. Each investigator begins play at the Lawn."
+        "text": "Put the Vestibule, Banquet Hall, Statuary Gardens, Private Parlor, Collection Hall, and Upper Balcony locations into play. Each investigator begins play at Vestibule."
+      },
+      {
+        "id": "setup_socialites",
+        "text": "Shuffle the five [[Socialite]] story assets and put each one into play at a different location other than Vestibule. Place 1 [per_investigator] clues on each of these assets."
       },
       {
         "id": "set_aside_cards",
-        "text": "Set each remaining location aside, out of play, along with each copy of The Myriad Gentleman, Ex Uno Plures, They Just Keep Coming, Not Welcome Here, Aforgomon's Blade and Gaze of Aforgomon."
+        "text": "Set each [[Restricted]] location aside, out of play, along with each copy of Terrified Captives and Wild Hysteria, and Goatspawn Corruptor."
       },
       {
         "id": "encounter_deck",
         "text": "Shuffle the remainder of the encounter cards to build the encounter deck."
       },
       {
-        "id": "copy_rule",
-        "type": "rule_reminder",
-        "title": "Copies of Enemies",
-        "text": "During this scenario, investigators may be instructed to spawn copies of a displayed enemy. To do this, that investigator places the top card of their deck into play in their threat area, treating it as a copy of the specified enemy until it leaves play <i>(if it is ever unclear who should do this, the lead investigator does so).</i> When that enemy leaves play, the card's owner places it on the bottom of their deck."
+        "id": "resolution_1",
+        "type": "resolution",
+        "resolution": "R1"
       },
       {
         "id": "resolution_2",
         "type": "resolution",
         "resolution": "R2"
+      },
+      {
+        "id": "resolution_3",
+        "type": "resolution",
+        "resolution": "R3"
       },
       {
         "id": "learnt_of_ritual",
@@ -243,26 +371,23 @@
       {
         "id": "no_resolution",
         "title": "No resolution was reached",
-        "description": "Each investigator was defeated",
+        "description": "Each investigator was defeated or resigned",
         "investigator_status": [
           "eliminated",
           "physical",
           "mental"
         ],
         "steps": [
-          "resolution_2"
+          "ask_act_3"
         ]
       },
       {
         "id": "R1",
         "title": "Resolution 1",
-        "text": "Joseph Baxter, the man whose house you've invaded, is part of a cult dedicated to an entity known as Aforgomon. Quite a large part of it, judging by the quantity of him you've encountered today. They're still coming for you though, endless waves of an impossible man, and you have no choice but to make your escape. \nYou've found very little of why he wants you dead - a scrawled note linking you to an event in Cairo, and a letter from the Sheldon gang promising you'll soon be dealt with. \nYou've never even been to Cairo. Perhaps he's mad. Then again, considering what you've seen today, perhaps you are. \nAs the sun dips below the horizon, you consider your options. You could go to the police, but there's no chance they'd believe you. You could walk away, just disappear into the night... but you've seen what this cult can do, and you can't stand back and let them carry out their plan. And besides, insane or not, they still want you dead. Taking the fight to them seems more appealing than simply being hunted down. \nYou have a location, and no time to lose. Better get to it.",
+        "text": "You stumble out the front door of the manor, struggling to find your wits and scrambling to defend yourself, but you find that nothing pursues you. The party-goers are so devoted to their wild activity that none of them can find the time or inclination to chase you. You seize the strange chance and retreat to safety.\nThis unfortunately puts you back to where you were hours ago, having learned nothing substantial from the party. However, knowing that the Liber Pater Society is in fact a branch of the Cult of Shub-Niggurath, they won't fail to attend the ritual to their foul deity. You take up a quiet vigil through the night as you lick your wounds, waiting for the members to depart to the ritual site en masse. This will spread you thin, to be sure, but the alternative is to abandon your quest in the final stretch.",
         "steps": [
-          "learnt_of_ritual",
-          "add_aforgomons_blade",
-          "check_aforgomons_blade",
-          "earn_xp",
-          "$upgrade_decks"
+          "follow_the_cult",
+          "resolution_3"
         ]
       },
       {

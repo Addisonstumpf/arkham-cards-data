@@ -1,77 +1,72 @@
 {
-    "id": "the_myriad_gentleman",
-    "scenario_name": "The Myriad Gentleman",
-    "header": "Scenario II",
-    "full_name": "Scenario II: The Myriad Gentleman",
-    "chaos_bag_card": "zau_00023",
-    "chaos_bag_card_text": "[skull]: -1 (-3 instead if there is a [[Myriad]] enemy at your location).\n[cultist]: -1. If you succeed, deal 1 damage to a [[Myriad]] enemy at your location.\n[tablet]: -2. If you fail and it is Act 2 or 3, spawn a copy of The Myriad Gentleman engaged with you.",
-    "chaos_bag_card_back_text": "[skull]: -2 (-4 instead if there is a [[Myriad]] enemy at your location).\n[cultist]: -3. If you succeed, deal 1 damage to a [[Myriad]] enemy at your location.\n[tablet]: -3. If you fail and it is Act 2 or 3, spawn a copy of The Myriad Gentleman engaged with you.",
-    "icon": "zau_myriad_gentleman",
+    "id": "red_sunrise",
+    "scenario_name": "Red Sunrise",
+    "header": "Scenario VII",
+    "full_name": "Scenario VII: Red Sunrise",
+    "chaos_bag_card": "z",
+    "chaos_bag_card_text": "",
+    "chaos_bag_card_back_text": "",
+    "icon": "zcx_red_sunrise",
     "setup": [
-      "check_intro_offer",
-      "$check_tarot_reading",
+      "intro",
+      "token_choice",
+      "branch_tarot_reading",
+      "$amalthea",
+      "$bestiae",
+      "$destinies",
       "gather_encounter_sets",
       "setup_locations",
+      "location_layout",
+      "path_forward_setup",
+      "agenda_check_invisible",
+      "act_check_invisible",
+      "doom_check_invisible",
       "set_aside_cards",
       "encounter_deck",
-      "copy_rule",
+      "rows_rule",
       "$play_scenario"
     ],
     "rules": [
     ],
     "steps": [
       {
-        "id": "check_intro_offer",
-        "type": "branch",
-        "condition": {
-          "type": "campaign_log",
-          "section": "campaign_notes",
-          "id": "offer_accepted",
-          "options": [
+        "id": "intro",
+        "type": "story",
+        "text": "It takes several hours to reach the border of the great redwood forests. The profane prophecy did mention a red forest, but you didn't expect such a literal result from the cryptic old text. The scope and scale of the trees is humbling, and reminds you of the colossal dark young that the circus bred. The prospect of meeting them in broad daylight isn't any more appealing whatsoever.\nThe forest is quiet as you take the trodden trail north. Even the song of birds that would normally fill the air is absent. It's said that animals go silent when predators are about, and the monstrosities the cult keeps are as terrible as predators come. They'd consume every living thing for miles if only they could. You'd be wise to proceed with caution, and yet the sun is already halfway up the sky."
+      },
+      {
+        "id": "token_choice",
+        "text": "The investigators must decide (choose one):",
+        "type": "input",
+        "input": {
+          "type": "choose_one",
+          "choices": [
             {
-              "boolCondition": true,
-              "steps": ["intro_1", "intro_3"]
+              "id": "cultist",
+              "text": "\"Time is of the essence. The eclipse isn't waiting for us.\"",
+              "effects": [
+                {
+                  "type": "add_chaos_token",
+                  "tokens": [
+                    "cultist"
+                  ]
+                }
+              ]
             },
             {
-              "boolCondition": false,
-              "steps": ["check_intro_offer_2"]
+              "id": "tablet",
+              "text": "\"These woods are filled with danger. Easy does it.\"",
+              "effects": [
+                {
+                  "type": "add_chaos_token",
+                  "tokens": [
+                    "tablet"
+                  ]
+                }
+              ]
             }
           ]
         }
-      },
-      {
-        "id": "check_intro_offer_2",
-        "type": "branch",
-        "condition": {
-          "type": "campaign_log",
-          "section": "campaign_notes",
-          "id": "offer_declined",
-          "options": [
-            {
-              "boolCondition": true,
-              "steps": ["intro_2", "starting_doom", "intro_3"]
-            }
-          ]
-        }
-      },
-      {
-        "id": "intro_1",
-        "type": "story",
-        "text": "The package contains a wealth of information - newspaper clippings, mostly, accompanied by sheets of typed notes. The information all concerns one Joseph Baxter, a self-made millionaire with a manor house on the outskirts of Arkham. His relevance to you is unclear, until you find a series of letters between Joseph and the Sheldon gang, negotiating pay for a variety of shady work, including the 'cleaning up' of, well, you. It's not clear exactly why he wanted you dead - he refers to you as 'a thorn in his side', but you'd not even heard of the man before today. Curious. And terrifying. Mostly the latter, come to think of it."
-      },
-      {
-        "id": "intro_2",
-        "type": "story",
-        "text": "With a full stomach and a caffeine buzz, you set out to determine just why you were targeted. It's slow work, tapping any resources you can find, but it pays dividends: buried in today's Arkham Advertiser is a report of three men arrested in your neighbourhood in the early hours of the morning, suspected to be members of the Sheldon gang. A contact of yours manages to dig up another useful tidbit: the Sheldon gang have been doing a considerable amount of work for a new benefactor, one Joseph Baxter. It's not much to show for a morning's work, but it's a start."
-      },
-      {
-        "id": "starting_doom",
-        "text": "Place 1 doom on the current agenda."
-      },
-      {
-        "id": "intro_3",
-        "type": "story",
-        "text": "The gate to Joseph Baxter's mansion is closed and barred, but you've been through too much to let that deter you. You scale a low wall, dropping over it onto a fine manicured lawn. It's time to meet your would-be executioner."
       },
       {
         "id": "branch_tarot_reading",
@@ -138,92 +133,441 @@
         "title": "Setup",
         "type": "encounter_sets",
         "encounter_sets": [
-          "zau_myriad_gentleman",
-          "zau_shifting_reality",
-          "zau_unravelling_years",
-          "agents_of_yog",
-          "locked_doors"
+          "zcx_red_sunrise",
+          "zcx_children_of_the_goat",
+          "zcx_illusory_tricks",
+          "zcx_new_moon_daredevils",
+          "zcx_primordial_evils",
+          "zcx_savage_woods"
         ]
       },
       {
         "id": "setup_locations",
-        "text": "Put the Lawn, Hedge Maze, Ornate Fountain and Stables locations into play. Each investigator begins play at the Lawn."
+        "text": "For each set of locations with matching names, choose one copy at random and remove it from the game. Put the remaining locations into play, along with the Forgotten Trail and Ritual Clearing locations (see Location Placement). Each investigator begins play at Forgotten Trail."
       },
       {
-        "id": "set_aside_cards",
-        "text": "Set each remaining location aside, out of play, along with each copy of The Myriad Gentleman, Ex Uno Plures, They Just Keep Coming, Not Welcome Here, Aforgomon's Blade and Gaze of Aforgomon."
-      },
-      {
-        "id": "encounter_deck",
-        "text": "Shuffle the remainder of the encounter cards to build the encounter deck."
-      },
-      {
-        "id": "copy_rule",
-        "type": "rule_reminder",
-        "title": "Copies of Enemies",
-        "text": "During this scenario, investigators may be instructed to spawn copies of a displayed enemy. To do this, that investigator places the top card of their deck into play in their threat area, treating it as a copy of the specified enemy until it leaves play <i>(if it is ever unclear who should do this, the lead investigator does so).</i> When that enemy leaves play, the card's owner places it on the bottom of their deck."
-      },
-      {
-        "id": "resolution_2",
-        "type": "resolution",
-        "resolution": "R2"
-      },
-      {
-        "id": "learnt_of_ritual",
-        "effects": [
-            {
-                "type": "campaign_log",
-                "section": "campaign_notes",
-                "id": "learnt_of_ritual",
-                "text": "the investigators learnt of the Myriad's ritual."
-            }
-        ]
-      },
-      {
-        "id": "add_aforgomons_blade",
-        "text": "If the Myriad Gentleman <i>(Master of the House)</i> is in the victory display, any one investigator may choose to add Aforgomon's Blade to their deck. If an investigator chooses to include Aforgomon's Blade in their deck, they must also add the Gaze of Aforgomon weakness to their deck. These cards do not count towards that investigator's deck size.",
-        "effects": [
+        "id": "location_layout",
+        "type": "location_setup",
+        "text": "Location Placement",
+        "horizontal": "half",
+        "vertical": "normal",
+        "locations": [
+          [
+            "blank",
+            "blank",
+            "blank",
+            "clearing",
+            "blank",
+            "blank",
+            "blank"
+          ],
+          [
+            "shadow",
+            "blank",
+            "shadow",
+            "blank",
+            "shadow",
+            "blank",
+            "shadow"
+          ],
+          [
+            "blank",
+            "stream",
+            "blank",
+            "stream",
+            "blank",
+            "stream",
+            "blank"
+          ],
+          [
+            "blank",
+            "slope",
+            "blank",
+            "slope",
+            "blank",
+            "slope",
+            "blank"
+          ],
+          [
+            "blank",
+            "blank",
+            "open",
+            "blank",
+            "open",
+            "blank",
+            "blank"
+          ],
+          [
+            "blank",
+            "blank",
+            "blank",
+            "trail",
+            "blank",
+            "blank",
+            "blank"
+          ]
+        ],
+        "location_names": [
           {
-            "type": "add_card",
-            "investigator": "choice",
-            "card": "zau_00042"
+            "code": "clearing",
+            "name": "Ritual Clearing"
+          },
+          {
+            "code": "shadow",
+            "name": "Shadowed Wilderness"
+          },
+          {
+            "code": "stream",
+            "name": "Mountain Stream"
+          },
+          {
+            "code": "slope",
+            "name": "Foothill Slope"
+          },
+          {
+            "code": "open",
+            "name": "Open Forest"
+          },
+          {
+            "code": "trail",
+            "name": "Forgotten Trail"
           }
         ]
       },
       {
-        "id": "check_aforgomons_blade",
-        "hidden": true,
+        "id": "path_forward_setup",
+        "text": "Choose four of the Path Forward story cards at random and remove them from the game. Shuffle each of the remaining copies together and place one of them facedown beside each row of 2 or more locations. These cards are in play, but not at any location."
+      },
+      {
+        "id": "agenda_check_invisible",
         "type": "branch",
+        "hidden": true,
         "condition": {
-          "type": "has_card",
-          "investigator": "each",
-          "card": "zau_00042",
+          "type": "campaign_log",
+          "section": "campaign_notes",
+          "id": "discovered_ritual_location",
           "options": [
             {
               "boolCondition": true,
-              "effects": [
-                {
-                  "type": "add_card",
-                  "investigator": "$input_value",
-                  "card": "zau_00043"
-                }
+              "steps": [
+                "discovered_ritual_location_check"
+              ]
+            },
+            {
+              "boolCondition": false,
+              "steps": [
+                "follow_the_cult_check"
               ]
             }
           ]
         }
       },
       {
-        "id": "fled_manor",
+        "id": "discovered_ritual_location_check",
+        "type": "branch",
+        "condition": {
+          "type": "campaign_log",
+          "section": "campaign_notes",
+          "id": "discovered_ritual_location",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "use_agenda_I"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "follow_the_cult_check",
+        "type": "branch",
+        "condition": {
+          "type": "campaign_log",
+          "section": "campaign_notes",
+          "id": "follow_the_cult",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "use_agenda_II"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "use_agenda_I",
+        "text": "Use \"Agenda 1 -- Fading Sunlight (v.I)\" for this scenario. Remove each other copy of agenda 1 from the game."
+      },
+      {
+        "id": "use_agenda_II",
+        "text": "Use \"Agenda 1 -- Fading Sunlight (v.II)\" for this scenario. Remove each other copy of agenda 1 from the game."
+      },
+      {
+        "id": "act_check_invisible",
+        "type": "branch",
+        "hidden": true,
+        "condition": {
+          "type": "campaign_log",
+          "section": "campaign_notes",
+          "id": "struck_down_blake",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "struck_down_blake_check"
+              ]
+            },
+            {
+              "boolCondition": false,
+              "steps": [
+                "act_check_2_invisible"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "act_check_2_invisible",
+        "type": "branch",
+        "hidden": true,
+        "condition": {
+          "type": "campaign_log",
+          "section": "campaign_notes",
+          "id": "unmasked_blake",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "unmasked_blake_check"
+              ]
+            },
+            {
+              "boolCondition": false,
+              "steps": [
+                "clashed_blake_check"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "struck_down_blake_check",
+        "type": "branch",
+        "condition": {
+          "type": "campaign_log",
+          "section": "campaign_notes",
+          "id": "struck_down_blake",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "use_act_I"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "unmasked_blake_check",
+        "type": "branch",
+        "condition": {
+          "type": "campaign_log",
+          "section": "campaign_notes",
+          "id": "unmasked_blake",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "use_act_II"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "clashed_blake_check",
+        "type": "branch",
+        "condition": {
+          "type": "campaign_log",
+          "section": "campaign_notes",
+          "id": "clashed_blake",
+          "options": [
+            {
+              "boolCondition": true,
+              "steps": [
+                "use_act_III"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "use_act_I",
+        "text": "Use \"Act 1 - Forest of Giants (v.I)\" for this scenario. Remove each other copy of act 1 from the game."
+      },
+      {
+        "id": "use_act_II",
+        "text": "Use \"Act 1 - Forest of Giants (v.II)\" for this scenario. Remove each other copy of act 1 from the game."
+      },
+      {
+        "id": "use_act_III",
+        "text": "Use \"Act 1 - Forest of Giants (v.III)\" for this scenario. Remove each other copy of act 1 from the game."
+      },
+      {
+        "id": "doom_check_invisible",
+        "type": "branch",
+        "hidden": true,
+        "condition": {
+          "type": "campaign_log_count",
+          "section": "campaign_notes",
+          "id": "saved_citizens",
+          "max": 4,
+          "options": [
+            {
+              "numCondition": 0,
+              "steps": [
+                "add_4_doom"
+              ]
+            },
+            {
+              "numCondition": 1,
+              "steps": [
+                "add_3_doom"
+              ]
+            },
+            {
+              "numCondition": 2,
+              "steps": [
+                "add_2_doom"
+              ]
+            },
+            {
+              "numCondition": 3,
+              "steps": [
+                "add_1_doom"
+              ]
+            },
+            {
+              "numCondition": 4,
+              "steps": [
+                "add_0_doom"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "add_0_doom",
+        "text": "Check Campaign Log. Because <i>4 groups of citizens were saved from the circus</i>, no doom is added to agenda 1a"
+      },
+      {
+        "id": "add_1_doom",
+        "text": "Check Campaign Log. Because <i>3 groups of citizens were saved from the circus</i>, 1 doom is added to agenda 1a"
+      },
+      {
+        "id": "add_2_doom",
+        "text": "Check Campaign Log. Because <i>2 groups of citizens were saved from the circus</i>, 2 doom is added to agenda 1a"
+      },
+      {
+        "id": "add_3_doom",
+        "text": "Check Campaign Log. Because <i>1 groups of citizens were saved from the circus</i>, 3 doom is added to agenda 1a"
+      },
+      {
+        "id": "add_4_doom",
+        "text": "Check Campaign Log. Because <i>0 groups of citizens were saved from the circus</i>, 4 doom is added to agenda 1a"
+      },
+      {
+        "id": "set_aside_cards",
+        "text": "Set Devotee of the Thousand aside, out of play, along with each copy of The Cult En Masse."
+      },
+      {
+        "id": "encounter_deck",
+        "text": "Shuffle the remainder of the encounter cards to build the encounter deck."
+      },
+      {
+        "id": "rows_rule",
+        "type": "rule_reminder",
+        "title": "Copies of Enemies",
+        "text": "In this scenario, certain cards refer to rows of locations. These are locations with the same name placed next to each other horizontally.\nA single card without adjacent cards is still considered to be in a row. Some card effects may refer to a row being above or below another row. In this case, above is nearer to Ritual Clearing, and below is nearer to Forgotten Trail."
+      },
+      {
+        "id": "resolution_1",
+        "type": "resolution",
+        "resolution": "R1"
+      },
+      {
+        "id": "not_in_time",
         "effects": [
             {
                 "type": "campaign_log",
                 "section": "campaign_notes",
-                "id": "fled_manor",
-                "text": "the investigators fled the Gentleman's manor."
+                "id": "not_in_time",
+                "text": "the investigators did not arrrive in time."
             }
         ]
       },
-    {
+      {
+        "id": "eclipsed_world",
+        "effects": [
+            {
+                "type": "campaign_log",
+                "section": "campaign_notes",
+                "id": "eclipsed_world",
+                "text": "Shub-Niggurath reigns over an eclipsed world."
+            }
+        ]
+      },
+      {
+        "id": "all_killed",
+        "text": "Each investigator is <b>killed</b>.",
+        "effects": [
+          {
+            "type": "trauma",
+            "investigator": "all",
+            "killed": true
+          }
+        ]
+      },
+      {
+        "id": "lose_campaign",
+        "bullet_type": "small",
+        "text": "The investigators lose the campaign.",
+        "effects": [
+          {
+            "type": "campaign_data",
+            "setting": "result",
+            "value": "lose"
+          }
+        ]
+      },
+      {
+        "id": "ask_cult",
+        "type": "input",
+        "input": {
+          "type": "choose_one",
+          "choices": [
+            {
+              "id": "no",
+              "text":"Is The Cult En Masse enemy in the victory display?",
+              "steps": ["cult_rallies"]
+            }
+          ]
+        }
+      },
+      {
+        "id": "cult_rallies",
+        "effects": [
+            {
+                "type": "campaign_log",
+                "section": "campaign_notes",
+                "id": "cult_rallies",
+                "text": "the Cult rallies."
+            }
+        ]
+      },
+      {
         "id": "earn_xp",
         "text": "Each investigator earns experience equal to the Victory X value of each card in the victory display.",
         "type": "input",
@@ -250,31 +594,28 @@
           "mental"
         ],
         "steps": [
-          "resolution_2"
+          "resolution_1"
         ]
       },
       {
         "id": "R1",
         "title": "Resolution 1",
-        "text": "Joseph Baxter, the man whose house you've invaded, is part of a cult dedicated to an entity known as Aforgomon. Quite a large part of it, judging by the quantity of him you've encountered today. They're still coming for you though, endless waves of an impossible man, and you have no choice but to make your escape. \nYou've found very little of why he wants you dead - a scrawled note linking you to an event in Cairo, and a letter from the Sheldon gang promising you'll soon be dealt with. \nYou've never even been to Cairo. Perhaps he's mad. Then again, considering what you've seen today, perhaps you are. \nAs the sun dips below the horizon, you consider your options. You could go to the police, but there's no chance they'd believe you. You could walk away, just disappear into the night... but you've seen what this cult can do, and you can't stand back and let them carry out their plan. And besides, insane or not, they still want you dead. Taking the fight to them seems more appealing than simply being hunted down. \nYou have a location, and no time to lose. Better get to it.",
+        "text": "The moon and sun align, and with the ritual complete, they will never again part. The thousands of dark young flow out from the forest, overwhelming you from endless strength alone, and paving the way for their aberrant mother. The world soon succumbs to the monstrosities flowing from every forest on Earth with unending ferocity and hunger.",
         "steps": [
-          "learnt_of_ritual",
-          "add_aforgomons_blade",
-          "check_aforgomons_blade",
-          "earn_xp",
-          "$upgrade_decks"
+          "not_in_time",
+          "eclipsed_world",
+          "all_killed", 
+          "lose_campaign"
         ]
       },
       {
         "id": "R2",
-        "hidden": true,
         "title": "Resolution 2",
-        "text": "You barely remember your flight from Joseph Baxter's manor house. The wounds you nurse are severe, but you made it out alive, which is something. \nYou don't like what's happening here, not at all. Between the <i>things</i> that pursued you last night, and the unnatural proliferation of the man you faced today... It's enough to make you question your own sanity. Certainly more than you can take to the police, lest you end up in the local asylum. Which means, you conclude with a sinking feeling, that the only force in a position to stand against them is you.",
+        "text": "The forest, which had been deathly silent since sunrise, erupts with a cacophony of unnatural noises. Some you feel in your bones more than your ears, others deep in your psyche, triggering fight-or-flight instincts. Thea grips the tome as she looks out into the dimming forest. \"The cult can summon Shub-Niggurath to any forest during the night of a new moon... and the eclipse sure makes it that way... we can't let them finish this ritual!\" You may have interrupted the profane ceremony, but as long as the eclipse is ongoing, there is a chance the cult can still complete it. The next few minutes will determine the fate of the world.",
         "steps": [
-          "fled_manor",
-          "add_aforgomons_blade",
-          "check_aforgomons_blade",
+          "ask_cult",
           "earn_xp",
+          "$add_moon",
           "$upgrade_decks"
         ]
       }

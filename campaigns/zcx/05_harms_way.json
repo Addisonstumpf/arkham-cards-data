@@ -11,6 +11,8 @@
       "intro",
       "token_choice",
       "branch_tarot_reading",
+      "$amalthea",
+      "$bestiae",
       "gather_encounter_sets",
       "setup_locations",
       "location_layout",
@@ -39,7 +41,7 @@
           "choices": [
             {
               "id": "cultist",
-              "text": "\"The faster we get them out of here, the better\"",
+              "text": "\"The faster we get them out of here, the better.\"",
               "effects": [
                 {
                   "type": "add_chaos_token",
@@ -51,7 +53,7 @@
             },
             {
               "id": "tablet",
-              "text": "\"Caution first. Saving them won't help otherwise\"",
+              "text": "\"Caution first. Saving them won't help otherwise.\"",
               "effects": [
                 {
                   "type": "add_chaos_token",

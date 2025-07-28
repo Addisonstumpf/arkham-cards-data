@@ -1,28 +1,5 @@
 [
   {
-    "code": "zcxc_10001",
-    "deck_limit": 1,
-    "deck_options": [
-        {
-            "faction": ["seeker"],
-            "level": {
-                "min": 1,
-                "max": 2
-            },
-            "limit": 2
-        }
-    ],
-    "encounter_code": "zcx_circus_ex_mortis",
-    "encounter_position": 4,
-    "name": "Like Clockwork",
-    "pack_code": "zcxc",
-    "permanent": true,
-    "position": 4,
-    "quantity": 1,
-    "text": "Permanent.\nYour deckbuilding options gain \"Up to 2 additional seeker ([seeker]) cards level 012.\"",
-    "type_code": "asset"
-},
-  {
     "code": "zcxc_00001",
     "name": "One Night Only",
     "text": "Easy / Standard\n[skull]: -X. X is equal to the number of [[Creature]] enemies in play.\n[cultist] [tablet]: -2. If you fail, move once toward the nearest The Big Top location.\n[elder_thing]: -1. -3 instead if this is a test against a [[Creature]] enemy.",
@@ -5612,5 +5589,184 @@
     "position": 264,
     "encounter_code": "zcx_circus_ex_mortis",
     "encounter_position": 3
-  }
+  }, 
+  {
+    "code": "zcxc_norman",
+    "deck_limit": 1,
+    "deck_options": [
+        {
+            "faction": ["seeker"],
+            "level": {
+                "min": 1,
+                "max": 2
+            },
+            "limit": 2
+        }
+    ],
+    "encounter_code": "zcx_circus_ex_mortis",
+    "encounter_position": 4,
+    "name": "Like Clockwork",
+    "pack_code": "zcxc",
+    "permanent": true,
+    "position": 265,
+    "quantity": 1,
+    "text": "Permanent.\nYour deckbuilding options gain \"Up to 2 additional seeker ([seeker]) cards level 012.\"",
+    "type_code": "asset"
+  },
+  {
+    "code": "zcxc_heart",
+    "deck_limit": 1,
+    "encounter_code": "zcx_circus_ex_mortis",
+    "encounter_position": 5,
+    "name": "Destiny: Heart",
+    "pack_code": "zcxc",
+    "permanent": true,
+    "position": 266,
+    "quantity": 1,
+    "text": "Permanent.\nYour destiny is \"Heart\"",
+    "type_code": "asset"
+  },
+  {
+    "code": "zcxc_pipes",
+    "deck_limit": 1,
+    "encounter_code": "zcx_circus_ex_mortis",
+    "encounter_position": 6,
+    "name": "Destiny: Pipes",
+    "pack_code": "zcxc",
+    "permanent": true,
+    "position": 267,
+    "quantity": 1,
+    "text": "Permanent.\nYour destiny is \"Pipes\"",
+    "type_code": "asset"
+  },
+  {
+    "code": "zcxc_torch",
+    "deck_limit": 1,
+    "encounter_code": "zcx_circus_ex_mortis",
+    "encounter_position": 7,
+    "name": "Destiny: Torch",
+    "pack_code": "zcxc",
+    "permanent": true,
+    "position": 267,
+    "quantity": 1,
+    "text": "Permanent.\nYour destiny is \"Torch\"",
+    "type_code": "asset"
+  },
+  {
+    "code": "zcxc_rock",
+    "deck_limit": 1,
+    "encounter_code": "zcx_circus_ex_mortis",
+    "encounter_position": 8,
+    "name": "Destiny: Rock",
+    "pack_code": "zcxc",
+    "permanent": true,
+    "position": 268,
+    "quantity": 1,
+    "text": "Permanent.\nYour destiny is \"Rock\"",
+    "type_code": "asset"
+  },
+  {
+    "code": "zcxc_sigil",
+    "deck_limit": 1,
+    "encounter_code": "zcx_circus_ex_mortis",
+    "encounter_position": 9,
+    "name": "Destiny: Sigil",
+    "pack_code": "zcxc",
+    "permanent": true,
+    "position": 269,
+    "quantity": 1,
+    "text": "Permanent.\nYour destiny is \"Sigil\"",
+    "type_code": "asset"
+  },
+  {
+    "code": "zcxc_stain",
+    "deck_limit": 1,
+    "encounter_code": "zcx_circus_ex_mortis",
+    "encounter_position": 10,
+    "name": "Destiny: Stain",
+    "pack_code": "zcxc",
+    "permanent": true,
+    "position": 270,
+    "quantity": 1,
+    "text": "Permanent.\nYour destiny is \"Stain\"",
+    "type_code": "asset"
+  },
+  {
+    "code": "zcxc_prayer",
+    "deck_limit": 1,
+    "encounter_code": "zcx_circus_ex_mortis",
+    "encounter_position": 11,
+    "name": "Destiny: Prayer",
+    "pack_code": "zcxc",
+    "permanent": true,
+    "position": 271,
+    "quantity": 1,
+    "text": "Permanent.\nYour destiny is \"Prayer\"",
+    "type_code": "asset"
+  },
+  {
+    "code": "zcxc_burden",
+    "deck_limit": 1,
+    "encounter_code": "zcx_circus_ex_mortis",
+    "encounter_position": 12,
+    "name": "Destiny: Burden",
+    "pack_code": "zcxc",
+    "permanent": true,
+    "position": 272,
+    "quantity": 1,
+    "text": "Permanent.\nYour destiny is \"Burden\"",
+    "type_code": "asset"
+  },
+  {
+    "code": "zcxc_revelry",
+    "deck_limit": 1,
+    "encounter_code": "zcx_circus_ex_mortis",
+    "encounter_position": 13,
+    "name": "Vice: Revelry",
+    "pack_code": "zcxc",
+    "permanent": true,
+    "position": 273,
+    "quantity": 1,
+    "text": "Permanent.\nYou have a vice for revelry.",
+    "type_code": "asset"
+  },
+  {
+    "code": "zcxc_intimacy",
+    "deck_limit": 1,
+    "encounter_code": "zcx_circus_ex_mortis",
+    "encounter_position": 14,
+    "name": "Vice: Intimacy",
+    "pack_code": "zcxc",
+    "permanent": true,
+    "position": 274,
+    "quantity": 1,
+    "text": "Permanent.\nYou have a vice for intimacy.",
+    "type_code": "asset"
+  },
+  {
+    "code": "zcxc_opulence",
+    "deck_limit": 1,
+    "encounter_code": "zcx_circus_ex_mortis",
+    "encounter_position": 15,
+    "name": "Vice: Opulence",
+    "pack_code": "zcxc",
+    "permanent": true,
+    "position": 275,
+    "quantity": 1,
+    "text": "Permanent.\nYou have a vice for opulence.",
+    "type_code": "asset"
+  },
+  {
+    "code": "zcxc_violence",
+    "deck_limit": 1,
+    "encounter_code": "zcx_circus_ex_mortis",
+    "encounter_position": 16,
+    "name": "Vice: Violence",
+    "pack_code": "zcxc",
+    "permanent": true,
+    "position": 276,
+    "quantity": 1,
+    "text": "Permanent.\nYou have a vice for violence.",
+    "type_code": "asset"
+  }  
 ]

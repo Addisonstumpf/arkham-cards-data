@@ -10,6 +10,8 @@
     "setup": [
       "departure_check_invisible",
       "branch_tarot_reading",
+      "$amalthea",
+      "$bestiae",
       "gather_encounter_sets",
       "act_check_invisible",
       "setup_locations",
